@@ -1,0 +1,13 @@
+/* style pour le base popper */
+.wrapper{
+    /*   width: 100%; large est egale box parent */
+    width: 100%;
+    /* calcu pour ne pas plus grand qu'ecrain */
+    max-height: min((100vh - 96px) - 60px, 500px);
+    min-height: 120px;
+    /* height: 100%; */
+    padding-top: 8px;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+}

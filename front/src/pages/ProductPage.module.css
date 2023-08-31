@@ -1,0 +1,28 @@
+/* ---------breadcrumbs-nav----- */
+.breadcrumbs-nav{
+    margin: 2rem 0;
+    display: block;
+}
+.breadcrumbs{
+    display: flex;
+}
+
+.breadcrumbs-icon{
+    margin: 0 2rem;
+}
+
+.breadcrumbs-item:hover .breadcrumbs-link {
+    color: var(--red);
+}
+/* ---------product---------- */
+.wp-product{
+   max-height: 400px;
+   /* background: #000; */
+}
+.wp-img-product{
+    text-align: center;
+}
+.img-product{
+    max-width: 400px;
+    margin: 0 auto;
+}

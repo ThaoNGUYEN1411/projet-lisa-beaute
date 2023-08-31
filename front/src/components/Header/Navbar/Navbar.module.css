@@ -1,0 +1,66 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+}
+.sub-menu{
+    width: 180px;
+    height: 300px;
+   display: flex;
+   flex-direction: column;
+}
+.sub-menu-link{
+    padding: 10px 16px;
+    cursor: pointer;
+    display: block;
+  }
+  .sub-menu-link:hover {
+    background: rgba(22, 24, 35, 0.03);
+    color: var(--red);
+  }
+  .nav-item{
+    padding:0 4rem ;
+  }
+  .nav-item:hover{
+    color: var(--red);
+
+  }
+  /* ============= */
+  /* ===============Responsive Header============== */
+
+/* PC */
+@media (max-width: 1024px){
+  
+
+}
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px){
+  
+}
+
+/* Mobile */
+@media(max-width:740px){
+
+.navbar{
+  flex-direction: column;
+  background-color: antiquewhite;
+
+ justify-content: flex-start;
+ /* overflow: hidden; */
+ z-index: 99;
+
+}
+.menu-mobile-open{
+  height: 100vh;
+
+}
+
+.menu-mobile-close{
+ /* height: 0; */
+ display: none;
+
+}
+.mobile-menu-icon{
+  padding: 0 1rem;
+}
+}

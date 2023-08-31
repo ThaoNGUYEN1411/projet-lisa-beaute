@@ -1,0 +1,31 @@
+.product {
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    transition: all 0.5s;
+  }
+  
+  .product:hover {
+    background-color: #f7f0f0;
+    outline: 1px solid #cbc5c5;
+  }
+  
+  /* .product-img {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  } */
+  .imgProdWidth{
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .product-brand,
+  .product-name,
+  .product-price {
+    display: block;
+  }
+  .product-brand,
+  .product-price {
+    text-transform: uppercase;
+    font-weight: 500;
+  }

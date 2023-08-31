@@ -1,0 +1,14 @@
+.footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem;
+}
+/* .footer-menu{
+margin-bottom: 2rem;
+} */
+.footer-title, .coppyright, .footer-menu{
+margin-bottom: 1.5rem;
+}
+.footer-item:hover .footer-link{
+    color: var(--red);
+}

@@ -1,0 +1,38 @@
+.prod-title {
+  padding: 2.5rem 4rem;
+  background-color: rgb(255, 230, 201);
+}
+.title {
+  text-transform: uppercase;
+}
+
+.container-filter {
+  border-right: 1px solid #cdcaca;
+}
+.list-filter {
+    margin-top: 3rem;
+}
+
+.product-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.prod-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: row;
+  max-width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.list-filter{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media (max-width: 740px){
+    .hr{
+        display: none;
+    }
+}
