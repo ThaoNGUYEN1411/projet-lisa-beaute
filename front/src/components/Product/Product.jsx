@@ -7,7 +7,7 @@ const Product = ({ imgProdWidth = false }) => {
 	return (
 		<div className={cx("product", "text-center")}>
 			<img
-				src="/images/product1-remp.gif"
+				src="/images/the-ordinary-p1.webp"
 				alt=""
 				className={cx("product-img", { imgProdWidth })}
 			/>

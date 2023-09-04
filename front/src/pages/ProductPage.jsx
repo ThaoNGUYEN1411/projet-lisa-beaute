@@ -31,7 +31,7 @@ const ProductPage = () => {
 				<div className={cx("col", "l-6", "m-6", "c-12")}>
 					<div className={cx("wp-img-product")}>
 						<img
-							src="/images/pd-1.jpg"
+							src="/images/the-ordinary-p1.webp"
 							alt="Demaquillant Lancome"
 							className={cx("img-product")}
 						/>
@@ -66,6 +66,40 @@ const ProductPage = () => {
 						<div>
 							<p>button</p>
 						</div>
+					</div>
+				</article>
+			</section>
+			<section className={cx("wp-desc-product")}>
+				<article>
+					<h2 className={cx("text-center")}>Informations de produit</h2>
+					<div className={cx("row")}>
+						<h3 className={cx("l-4", "m-12", "c-12")}>Description</h3>
+						<p className={cx("l-8", "c-12", "m-12")}>
+							Le Masque à l'Acide Salicylique 2% est formulé pour cibler le
+							teint terne et les irrégularités de texture. La formule est
+							composée d'acide salicylique concentré à 2% mais également de
+							charbon et d'argiles afin de lisser la peau et révéler l'éclat et
+							la fraîcheur du teint.
+						</p>
+					</div>
+					<div className={cx("row")}>
+						<h3 className={cx("l-4", "m-12", "c-12")}>
+							Conseils d'utilisation
+						</h3>
+						<p className={cx("l-8", "c-12", "m-12")}>
+							Utilisez une à deux fois par semaine sur une peau parfaitement
+							propre et sèche. Ne pas utiliser sur une peau mouillée. Appliquez
+							uniformément du bout des doigts sur le visage en évitant le
+							contour des yeux.
+						</p>
+					</div>
+					<div className={cx("row")}>
+						<h3 className={cx("l-4", "m-12", "c-12")}>Ingrédients</h3>
+						<p className={cx("l-8", "c-12", "m-12")}>
+							AQUA (WATER), KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE,
+							SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE,
+							PENTYLENE GLYCOL.
+						</p>
 					</div>
 				</article>
 			</section>
