@@ -50,3 +50,16 @@ li{
 .text-center{
     text-align: center;
 }
+
+.margin-bloc{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.title-block {
+    font-size: 3.2rem;
+    line-height: 38px;
+    margin-bottom: 16px;
+    margin-top: 4rem;
+    text-transform: capitalize;
+  }

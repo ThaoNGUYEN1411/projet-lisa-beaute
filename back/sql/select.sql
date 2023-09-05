@@ -37,4 +37,36 @@
 -- WHERE product.id = 21
 -- ;
 
--- selectionner le note moyen sur un produit
+-- selectionner le note moyen sur un produit 
+SELECT AVG(note.value) AS  average_notes
+FROM lisabeaute.note
+WHERE note.product_id = 9
+-- ????????
+
+-- Sélectionner les produits qui contiennent le texte de recherche, puis affichez 8 résultats
+-- SELECT product.name, brand.name
+-- FROM lisabeaute.product
+-- JOIN lisabeaute.brand
+-- ON product.brand_id = brand.id 
+-- WHERE product.name OR brand.name
+-- LIKE "%parfum%"
+-- LIMIT 8;
+
+
+-- SELECT product.name
+-- FROM lisabeaute.product
+-- WHERE product.name 
+-- LIKE "%parfum%"
+-- LIMIT 8;
+
+-- SELECT brand.name, 
+-- product.name
+-- FROM lisabeaute.product
+-- JOIN lisabeaute.brand
+-- ON product.brand_id = brand.id 
+-- ;
+
+-- GROUP_CONCAT(brand.name)
+-- WHERE brand.name OR product.name
+-- LIKE "%the ordinary%"
+-- LIMIT 8;

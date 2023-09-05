@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,9 +15,13 @@ import WrapperPopper from "../Popper/WrapperPopper";
 const cx = classNames.bind(styles);
 
 const SearchBar = () => {
+	const refClear = useRef();
 	//le resutal est un array, on utilise useState
 	const [searchResult, setSearchResult] = useState([]);
 
+	const handleClear = () => {
+		refClear.current.value = "";
+	};
 	//call api => afficher quand il aura le resultat, exemple 3s
 	useEffect(() => {
 		setTimeout(() => {
@@ -68,11 +72,12 @@ const SearchBar = () => {
 						placeholder="Rechercher un produit"
 						spellCheck={false}
 						className={cx("search-input")}
+						ref={refClear}
 					/>
-					<button className={cx("clear")}>
+
+					<button className={cx("clear")} onClick={handleClear}>
 						<FontAwesomeIcon icon={faCircleXmark} />
 					</button>
-					{/* <FontAwesomeIcon icon={faSpinner} className={cx("loading")} /> */}
 
 					<button className={cx("search-btn")}>
 						<FontAwesomeIcon icon={faMagnifyingGlass} />

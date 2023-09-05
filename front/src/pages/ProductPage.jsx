@@ -71,7 +71,9 @@ const ProductPage = () => {
 			</section>
 			<section className={cx("wp-desc-product")}>
 				<article>
-					<h2 className={cx("text-center")}>Informations de produit</h2>
+					<h2 className={cx("text-center", "title-block")}>
+						Informations de produit
+					</h2>
 					<div className={cx("row")}>
 						<h3 className={cx("l-4", "m-12", "c-12")}>Description</h3>
 						<p className={cx("l-8", "c-12", "m-12")}>
@@ -102,6 +104,35 @@ const ProductPage = () => {
 						</p>
 					</div>
 				</article>
+			</section>
+			<section className={cx("avis", "margin-bloc")}>
+				<h3 className={cx("title-block", "text-center")}>Avis consommateur</h3>
+				<article>
+					<div className={cx("avis-header", "row")}>
+						<div className={cx("l-8", "m-8", "c-8")}>
+							<h4 className={cx("name-user")}>Isma Hana</h4>
+							<time datetime="2023-05-08 02:55:41" class="comment-date">
+								Le 08 mai 2023
+							</time>
+						</div>
+						<div className={cx("star", "l-4", "m-4", "c-4")}>
+							<span>
+								<FontAwesomeIcon icon={faStar} />
+								<FontAwesomeIcon icon={faStar} />
+								<FontAwesomeIcon icon={faStar} />
+								<FontAwesomeIcon icon={faStar} />
+							</span>
+						</div>
+					</div>
+					<div className={cx("avis-content", "margin-bloc")}>
+						<p>
+							J'adore ! Comparé à des marques de luxe, l'effet de fraîcheur
+							n'est pas trop prononcé. C'est très agréable, et la tenue est
+							excellente pour un gloss.
+						</p>
+					</div>
+				</article>
+				<hr />
 			</section>
 		</div>
 	);
