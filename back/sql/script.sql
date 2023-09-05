@@ -14,7 +14,7 @@ CREATE TABLE lisabeaute.category(
 
 CREATE TABLE lisabeaute.product(
     id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(150) NOT NULL,
+    name VARCHAR(150) NOT NULL UNIQUE,
     price DECIMAL(5.2) NOT NULL,
     description TEXT NOT NULL,
     usage_tips TEXT NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE lisabeaute.note(
 
 CREATE TABLE lisabeaute.comment(
     id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    contenu TEXT NOT NULL,
+    content TEXT NOT NULL,
     time DATETIME NOT NULL,
     user_id SMALLINT UNSIGNED NOT NULL,
     FOREIGN KEY(user_id) REFERENCES lisabeaute.user(id),
@@ -95,7 +95,7 @@ INSERT INTO lisabeaute.brand
 VALUES 
     (NULL,  "Chanel"),
     (NULL,  "Dior"),
-    (NULL,  "Lancome"),
+    (NULL,  "Lancôme"),
     (NULL,  "The ordinary"),
     (NULL,  "Estée Lauder"),
     (NULL,  "Guerlain"),
@@ -121,13 +121,12 @@ VALUES
 
 INSERT INTO lisabeaute.product
 VALUES
-    (NULL, "50ml
-    La Vie est Belle Eau de Parfum Rechargeable", 70, "La Vie Est Belle invite chaque femme à saisir le bonheur, en transformant chaque instant en un moment unique.
+    (NULL, "La Vie est Belle Eau de Parfum Rechargeable", 70, "50ml La Vie Est Belle invite chaque femme à saisir le bonheur, en transformant chaque instant en un moment unique.
     Premier Iris Gourmand par Lancôme, l’eau de parfum La Vie Est Belle est une fragrance au sillage intemporel composé des plus belles matières", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p1.webp", 3),
     (NULL, "Rénergie H.P.N. 300-Peptide Crème Anti-Âge Haute-Performance", 90, "50ml
     Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau." , "Prélevez une petite dose de formule à l’aide de la spatule. Réchauffez ensuite la matière entre vos doigts. Appliquez sur votre visage en tapotant et estompez.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p2.webp", 3),
     (NULL, "Priming Serum Base Maquillage Sublimatrice Lissante &Hydratante 24h", 52, "Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p3.webp", 3),
-    (NULL, "Priming Serum Base Maquillage Sublimatrice Lissante &Hydratante 24h", 62, "Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p4.webp", 3),
+    (NULL, "Base Maquillage", 62, "Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p4.webp", 3),
     (NULL, "Priming Serum Base", 62, "Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p5.webp", 3),
     (NULL, "Rouge à Lèvres Satiné – Hydratation & Confort ", 32, "Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "lancome-p6.webp", 3),
     (NULL, "La Nuit Trésor - Fleur de Nuit", 62, "50ML
@@ -150,7 +149,7 @@ VALUES
     Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "chanel-p3.webp", 1),
     (NULL, "CHANCE EAU DE PARFUM VAPORISATEUR", 135, "50ml
     Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "chanel-p4.webp", 1),
-       (NULL, "HYDRA BEAUTY CRÈME HYDRATATION PROTECTION ÉCLAT", 84.5 , "50g
+    (NULL, "HYDRA BEAUTY CRÈME HYDRATATION PROTECTION ÉCLAT", 84.5 , "50g
     Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "chanel-p5.webp", 1),
     (NULL, "VITALUMIÈRE AQUA TEINT PARFAIT EFFET SECONDE PEAU SPF 15", 60, "30ml
     Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "chanel-p6.webp", 1)
@@ -164,3 +163,45 @@ VALUES
     (10,3),(11,1),(12,3),(13,2),(14,2),(15,2),(16,2),(17,1),(18,1),(19,3),(20,3),
     (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2)
     ;
+
+-- Insérer des users
+INSERT INTO lisabeaute.user
+VALUES 
+    (NULL, "Thao", "Nguyen", "phuongthaolyon@gmail.com", "thao123"),
+    (NULL, "Jean", "Doe", "jeandoe@gmail.com", "jeandoe123"),
+    (NULL, "Isma", "Hane", "ismahane@gmail.com", "isma123")
+    ;
+
+-- Insérer table de jointure User_produit pour définir la liste des produits préférés d'un utilisateur
+INSERT INTO lisabeaute.user_product
+VALUES
+    (1,5),
+    (1,9),
+    (1,19),
+    (2,8),
+    (2,12),
+    (3,21),
+    (3,2),
+    (3,4)
+;
+
+-- Insérer des commentaires d'exemple
+INSERT INTO lisabeaute.comment
+VALUES
+    (NULL, "J'achète régulièrement le parfum, c'est top!", "2023-07-12 10:20:05", 1, 21 ),
+    (NULL, "J'adore le sérum à l'huile de noisette. Sa texture est douce et légère ce qui rend la peau plus lumineuse. ", "2023-08-01 13:10:05", 2, 8 ),
+    (NULL, "Très bon produit", "2023-07-02 18:20:05", 2, 21 ),
+    (NULL, "J ai acheté ce produit pour la 1 ère fois, il est très bien", "2023-09-01 09:20:05", 3, 10 )
+;
+
+INSERT INTO lisabeaute.note
+VALUES
+    (1,5,4),
+    (1,9,5),
+    (1,19,4),
+    (2,8,5),
+    (2,1,2),
+    (3,21,5),
+    (3,4,4),
+    (3,9,2)
+;
