@@ -38,9 +38,9 @@
 -- ;
 
 -- selectionner le note moyen sur un produit 
--- SELECT AVG(note.value) AS  average_notes
--- FROM lisabeaute.note
--- WHERE note.product_id = 9
+SELECT AVG(note.value) AS  average_notes
+FROM lisabeaute.note
+WHERE note.product_id = 9;
 -- ????????
 
 -- Sélectionner les produits qui contiennent le texte de recherche, puis affichez 8 résultats
