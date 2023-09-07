@@ -1,6 +1,12 @@
 import express from "express";
 import http from "node:http";
 import { getAllCategories } from "./services/api.category.js";
+import { getAllMarques } from "./services/api.brand.js";
+import {
+	getAllProductsSameType,
+	getAllProducts,
+	getAllProductsTheOrdinary,
+} from "./services/api.products.js";
 
 const app = express();
 
@@ -26,20 +32,76 @@ router.get("/categories", async (req, res) => {
 	});
 });
 
-// router.get("/", (req, res) => {
-// 	res.send("hello world");
-// });
+router.get("/marques", async (req, res) => {
+	const results = await getAllMarques();
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
 
-// router.get("/products", (req, res) => {
-// 	return res.status(200).json({
-// 		status: 200,
-// 		message: "ok",
-// 		data: [
-// 			{ id: 1, name: "product1", price: 10 },
-// 			{ id: 1, name: "product1", price: 10 },
-// 		],
-// 	});
-// });
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+});
+
+router.get("/produits", async (req, res) => {
+	const results = await getAllProducts();
+	// console.log(results);
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+});
+
+router.get("/produits/:type", async (req, res) => {
+	// const { type } = req.params;
+
+	// console.log(req.params);
+
+	const results = await getAllProductsSameType(req.params);
+	// console.log(results);
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+});
+
+router.get("/produits/theOrdinary", async (req, res) => {
+	const results = await getAllProductsTheOrdinary();
+	// console.log(results);
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+});
 
 const server = http.createServer(app);
 export default server;

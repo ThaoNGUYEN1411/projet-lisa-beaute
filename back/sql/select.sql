@@ -1,19 +1,19 @@
 -- selectionner tous les parfums
--- SELECT product.name, category.name
--- FROM lisabeaute.product
--- JOIN lisabeaute.category
--- JOIN lisabeaute.product_category
--- ON product_category.category_id = category.id
--- AND product_category.product_id = product.id 
--- WHERE category.name = "parfum";
+SELECT product.name, category.name
+FROM lisabeaute.product
+JOIN lisabeaute.category
+JOIN lisabeaute.product_category
+ON product_category.category_id = category.id
+AND product_category.product_id = product.id 
+WHERE category.name = "parfum";
 
--- selectionner tous les produits de la même marque, par exemple Lancôme
--- SELECT product.name, brand.name
--- FROM lisabeaute.product
--- JOIN lisabeaute.brand
--- ON product.brand_id = brand.id 
--- WHERE brand.name ="the ordinary"
--- ;
+-- selectionner tous les produits de la même marque, par exemple the ordinary
+SELECT product.*, brand.name
+FROM lisabeaute.product
+JOIN lisabeaute.brand
+ON product.brand_id = brand.id 
+WHERE brand.name ="the ordinary"
+;
 
 -- selectionner les produits préféré d'un utilisateur
 -- SELECT user.firstname, user.lastname, 
