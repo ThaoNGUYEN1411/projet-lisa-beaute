@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 
-// charger le fichier dotenv spécifique à l'environnement utilisé
+// charger le fichier dotenv
 dotenv.config();
 
 // stocker les variables d'environnement dans un objet

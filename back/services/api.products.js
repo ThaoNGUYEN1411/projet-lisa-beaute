@@ -34,21 +34,21 @@ const getAllProductsSameType = async (data) => {
 };
 
 // selectionner tous les produits de la même marque, par exemple the ordinary
-const getAllProductsTheOrdinary = async () => {
+const getAllProductsSameBrand = async (data) => {
 	const sql = `
     SELECT product.*, brand.name
     FROM lisabeaute.product
     JOIN lisabeaute.brand
     ON product.brand_id = brand.id 
-    WHERE brand.name ="the ordinary"
+    WHERE brand.name = :brand
     ;
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql);
+		const [results] = await dbConnection.execute(sql, data);
 		return results;
 	} catch (error) {
 		return error;
 	}
 };
-export { getAllProducts, getAllProductsSameType, getAllProductsTheOrdinary };
+export { getAllProducts, getAllProductsSameType, getAllProductsSameBrand };

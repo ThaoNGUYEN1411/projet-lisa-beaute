@@ -5,7 +5,7 @@ import { getAllMarques } from "./services/api.brand.js";
 import {
 	getAllProductsSameType,
 	getAllProducts,
-	getAllProductsTheOrdinary,
+	getAllProductsSameBrand,
 } from "./services/api.products.js";
 
 const app = express();
@@ -86,8 +86,10 @@ router.get("/produits/:type", async (req, res) => {
 	});
 });
 
-router.get("/produits/theOrdinary", async (req, res) => {
-	const results = await getAllProductsTheOrdinary();
+router.get("/marques/:brand", async (req, res) => {
+	const { brand } = req.params;
+	console.log(brand);
+	const results = await getAllProductsSameBrand(req.params);
 	// console.log(results);
 	if (results.errno) {
 		return res.status(400).json({
