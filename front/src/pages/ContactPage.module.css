@@ -1,0 +1,15 @@
+.contact-icon{
+    font-size: 3rem;
+}
+
+.contact-bloc{
+    width: 80%;
+    margin: 0 auto;
+}
+.contact-input{
+    border: 1px solid black;
+    padding: 5px 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+

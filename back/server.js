@@ -87,8 +87,8 @@ router.get("/produits/:type", async (req, res) => {
 });
 
 router.get("/marques/:brand", async (req, res) => {
-	const { brand } = req.params;
-	console.log(brand);
+	// const { brand } = req.params;
+	// console.log(brand);
 	const results = await getAllProductsSameBrand(req.params);
 	// console.log(results);
 	if (results.errno) {
