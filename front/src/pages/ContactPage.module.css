@@ -1,15 +1,46 @@
-.contact-icon{
-    font-size: 3rem;
+.contact-icon {
+  font-size: 3rem;
+  color: rgb(62, 211, 186);
 }
 
-.contact-bloc{
-    width: 80%;
-    margin: 0 auto;
+.contact-form {
+  width: 80%;
+  margin: 4rem auto;
 }
-.contact-input{
-    border: 1px solid black;
-    padding: 5px 20px;
-    border-radius: 5px;
-    width: 100%;
+.title-form {
+  display: block;
+  margin: 8rem 4rem 0 0;
+  font-size: 3rem;
+  color: rgb(241, 176, 34);
 }
-
+.label {
+  display: block;
+  padding-left: 2rem;
+}
+.contact-info{
+    margin: 1rem 0;
+}
+.contact-input,
+.name {
+  width: 90%;
+  margin: 0.5rem 2rem;
+}
+.contact-input,
+.lastname,
+.firstname {
+  border: 1px solid rgb(77, 72, 72);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.name {
+  margin-right: 0.5rem;
+}
+.label-name {
+  display: block;
+  margin-left: 1rem;
+}
+.lastname,
+.firstname {
+  width: 95%;
+  margin: 0.5rem 3rem !important;
+}
