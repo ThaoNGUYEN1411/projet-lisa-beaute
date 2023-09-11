@@ -13,7 +13,7 @@
 --default-layout-header-height: 120px;
 --default-layout-width: 1024px;
 }
-
+/* changer * par les balise on utilise */
 *{
     box-sizing: border-box;
     margin: 0;

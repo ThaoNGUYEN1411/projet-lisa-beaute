@@ -1,0 +1,79 @@
+.wp-banner{
+    width: 100%;
+    height: 350px;
+    position: relative;
+    margin-bottom: 3rem;
+}
+.banner{
+    width: 100%;
+    height: 100%;
+}
+.title{
+    position: absolute;
+    width: 400px;
+    height: 70px;
+    background-color: #a8eeebb4;
+    /* top: 250px; */
+    /* right: 30vw; */
+    top: 89.9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-present{
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* ======= block article======= */
+.bloc-article {
+    background-color: #faf2f2;
+  }
+  .article {
+    margin: 3rem 0 !important;
+  }
+  .wrapper-photo-article {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .margin-block {
+    padding: 2rem !important;
+    min-height: 300px;
+  }
+  
+  .img-article {
+    width: 100%;
+    height: auto;
+  }
+  
+  .article-text {
+    padding: 2rem;
+    margin-bottom: 1rem;
+  }
+  /* =======social======= */
+.social-label {
+    padding: 2rem 1rem 0 0;
+    display: block;
+    font-size: 3rem;
+  }
+  
+  .list-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+  }
+  
+  .social-icon {
+    font-size: 4rem;
+    padding: 4rem;
+   
+  }
+  
+  .social-icon:hover {
+    color: rgb(79, 79, 245);
+  }
+  
