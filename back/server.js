@@ -1,5 +1,7 @@
 import express from "express";
 import http from "node:http";
+import cors from "cors";
+
 import { getAllCategories } from "./services/api.category.js";
 import { getAllMarques } from "./services/api.brand.js";
 import {
@@ -11,6 +13,7 @@ import {
 const app = express();
 
 const router = express.Router();
+router.use(cors());
 app.use(router);
 router.use(express.json());
 

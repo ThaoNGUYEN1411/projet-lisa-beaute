@@ -15,17 +15,28 @@ import WrapperPopper from "../Popper/WrapperPopper";
 const cx = classNames.bind(styles);
 
 const SearchBar = () => {
-	const refClear = useRef();
+	const [searchValue, setSearchValue] = useState("");
 	//le resutal est un array, on utilise useState
 	const [searchResult, setSearchResult] = useState([]);
+	// condition pour afficher le resultat
+	const [showResult, setShowResult] = useState(true);
+
+	const inputRef = useRef();
 
 	const handleClear = () => {
-		refClear.current.value = "";
+		setSearchValue("");
+		setSearchResult([]);
+		// supprimer le text de rechercher, il focus input
+		inputRef.current.focus();
 	};
+	const handleHideResult = () => {
+		setShowResult(false);
+	};
+
 	//call api => afficher quand il aura le resultat, exemple 3s
 	useEffect(() => {
 		setTimeout(() => {
-			setSearchResult([]);
+			setSearchResult(["parfum Miss dior", "parfum Chanel", "parfum Hermes"]);
 			// / ajouter array pour essayer ["parfum Miss dior", "parfum Chanel", "parfum Hermes"]
 		}, 0);
 	}, []);
@@ -36,7 +47,7 @@ const SearchBar = () => {
 			<Tippy
 				interactive
 				// quand on a le resutal => tippy affiche
-				visible={searchResult.length > 0}
+				visible={showResult && searchResult.length > 0}
 				render={(attrs) => (
 					<div
 						className={cx("search-result")}
@@ -65,19 +76,25 @@ const SearchBar = () => {
 						</WrapperPopper>
 					</div>
 				)}
+				onClickOutside={handleHideResult}
 			>
 				<div className={cx("search")}>
 					<input
+						value={searchValue}
 						type="text"
 						placeholder="Rechercher un produit"
 						spellCheck={false}
 						className={cx("search-input")}
-						ref={refClear}
+						ref={inputRef}
+						onChange={(e) => {
+							setSearchValue(e.target.value);
+						}}
 					/>
-
-					<button className={cx("clear")} onClick={handleClear}>
-						<FontAwesomeIcon icon={faCircleXmark} />
-					</button>
+					{!!searchValue && (
+						<button className={cx("clear")} onClick={handleClear}>
+							<FontAwesomeIcon icon={faCircleXmark} />
+						</button>
+					)}
 
 					<button className={cx("search-btn")}>
 						<FontAwesomeIcon icon={faMagnifyingGlass} />
