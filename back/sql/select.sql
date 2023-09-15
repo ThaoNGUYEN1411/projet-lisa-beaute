@@ -1,19 +1,19 @@
 -- selectionner tous les parfums
-SELECT product.name, category.name
-FROM lisabeaute.product
-JOIN lisabeaute.category
-JOIN lisabeaute.product_category
-ON product_category.category_id = category.id
-AND product_category.product_id = product.id 
-WHERE category.name = "parfum";
+-- SELECT product.name, category.name
+-- FROM lisabeaute.product
+-- JOIN lisabeaute.category
+-- JOIN lisabeaute.product_category
+-- ON product_category.category_id = category.id
+-- AND product_category.product_id = product.id 
+-- WHERE category.name = "parfum";
 
 -- selectionner tous les produits de la même marque, par exemple the ordinary
-SELECT product.*, brand.name
-FROM lisabeaute.product
-JOIN lisabeaute.brand
-ON product.brand_id = brand.id 
-WHERE brand.name ="the ordinary"
-;
+-- SELECT product.*, brand.name
+-- FROM lisabeaute.product
+-- JOIN lisabeaute.brand
+-- ON product.brand_id = brand.id 
+-- WHERE brand.name ="the ordinary"
+-- ;
 
 -- selectionner les produits préféré d'un utilisateur
 -- SELECT user.firstname, user.lastname, 
@@ -38,37 +38,31 @@ WHERE brand.name ="the ordinary"
 -- ;
 
 -- selectionner le note moyen sur un produit 
-SELECT AVG(note.value) AS  average_notes
-FROM lisabeaute.note
-WHERE note.product_id = 9;
+-- SELECT AVG(note.value) AS  average_notes
+-- FROM lisabeaute.note
+-- WHERE note.product_id = 9;
 -- ????????
 
 -- Sélectionner les produits qui contiennent le texte de recherche, puis affichez 8 résultats
-SELECT product.name, brand.name
-FROM lisabeaute.product
-JOIN lisabeaute.brand
-ON product.brand_id = brand.id 
-WHERE product.name 
-LIKE "%cha%"
-OR brand.name
-LIKE "%cha%"
-LIMIT 8;
-
-
--- SELECT product.name
+-- SELECT product.name, brand.name
 -- FROM lisabeaute.product
+-- JOIN lisabeaute.brand
+-- ON product.brand_id = brand.id 
 -- WHERE product.name 
--- LIKE "%parfum%"
+-- LIKE "%cha%"
+-- OR brand.name
+-- LIKE "%cha%"
 -- LIMIT 8;
 
--- SELECT brand.name, 
--- product.name
+
+-- selectionner tous les produits avec leurs marques
+-- SELECT product.name, brand.name
 -- FROM lisabeaute.product
 -- JOIN lisabeaute.brand
 -- ON product.brand_id = brand.id 
 -- ;
 
--- GROUP_CONCAT(brand.name)
--- WHERE brand.name OR product.name
--- LIKE "%the ordinary%"
--- LIMIT 8;
+-- selectionner un produit
+SELECT product.*
+FROM lisabeaute.product
+WHERE id = 1;

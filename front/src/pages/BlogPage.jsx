@@ -36,7 +36,10 @@
 // essayer connecter le back (API) comme une fonction
 import { useEffect, useState } from "react";
 import getAllproducts from "../services/productsApi";
-// import { getAllProducts } from "../../../back/services/api.products";
+import classNames from "classnames/bind";
+import styles from "./BlogPage.module.css";
+
+const cx = classNames.bind(styles);
 
 const BlogPage = () => {
 	const [products, setProducts] = useState([]);
@@ -53,25 +56,28 @@ const BlogPage = () => {
 
 	return (
 		<div>
-			{/* <h1>Ex1: Change couleur</h1>
-			<ChangeColor />
-			<TextBraille /> */}
-
 			{products.map((product) => {
 				return (
-					<div key={crypto.randomUUID()}>
-						<h3>{product.name}</h3>
-						{/* <img
+					<div
+						key={crypto.randomUUID()}
+						className={cx("product", "text-center")}
+					>
+						<img
 							key={crypto.randomUUID()}
-							src={product.image}
+							src={`/images/${product.image}`}
 							alt=""
 							style={{ width: 100 }}
+							className={cx("product-img")}
 						/>
-						<p key={crypto.randomUUID()}>{product.description}</p> */}
+
+						<div className={cx("product-description")}>
+							<span className={cx("product-brand")}>{product.brand_name}</span>
+							<span className={cx("product-name")}>{product.name}</span>
+							<span className={cx("product-price")}>{product.price}€</span>
+						</div>
 					</div>
 				);
 			})}
-			{/* <TipsCalcul /> */}
 		</div>
 	);
 };

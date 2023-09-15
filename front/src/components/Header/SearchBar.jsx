@@ -36,7 +36,7 @@ const SearchBar = () => {
 	//call api => afficher quand il aura le resultat, exemple 3s
 	useEffect(() => {
 		setTimeout(() => {
-			setSearchResult(["parfum Miss dior", "parfum Chanel", "parfum Hermes"]);
+			setSearchResult([]);
 			// / ajouter array pour essayer ["parfum Miss dior", "parfum Chanel", "parfum Hermes"]
 		}, 0);
 	}, []);

@@ -8,6 +8,7 @@ import {
 	getAllProductsSameType,
 	getAllProducts,
 	getAllProductsSameBrand,
+	getProduct,
 } from "./services/api.products.js";
 
 const app = express();
@@ -104,6 +105,23 @@ router.get("/marques/:brand", async (req, res) => {
 	return res.status(200).json({
 		status: 200,
 		message: "OK",
+		data: results,
+	});
+});
+
+router.get("/:id", async (req, res) => {
+	const results = await getProduct(req.params);
+	console.log(req.params);
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK id pd",
 		data: results,
 	});
 });

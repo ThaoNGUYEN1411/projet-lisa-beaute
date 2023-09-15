@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import getAllproducts from "../services/productsApi";
 import classNames from "classnames/bind";
 import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
@@ -34,6 +36,18 @@ const ProductsPage = () => {
 		{ text: "2/5 étoiles", url: "#" },
 		{ text: "1/5 étoiles", url: "#" },
 	];
+
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		//recupérer des données de l'API
+		getAllproducts().then((data) => {
+			setProducts(data.data);
+			// console.log(products);
+			// console.log(data.data);
+		});
+	}, []);
+
 	return (
 		<div className={cx("grid", "wide")}>
 			<div className={cx("prod-title")}>
@@ -63,54 +77,13 @@ const ProductsPage = () => {
 
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
-						<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-							<Product imgProdWidth />
-						</article>
+						{products.map((product) => {
+							return (
+								<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
+									<Product imgProdWidth product={product} />
+								</article>
+							);
+						})}
 					</div>
 				</section>
 			</div>

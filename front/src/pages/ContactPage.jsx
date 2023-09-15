@@ -25,7 +25,6 @@ const ContactPage = () => {
 	};
 
 	useEffect(() => {
-		// const subscription = watch(observer => console.log(observer));
 		const subscription = watch((observer) => console.log(observer));
 
 		return () => subscription.unsubscribe();

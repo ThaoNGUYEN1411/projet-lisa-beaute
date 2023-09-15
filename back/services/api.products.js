@@ -2,8 +2,12 @@ import dbConnection from "./dbConnection.js";
 
 const getAllProducts = async () => {
 	const sql = `
-    SELECT product.*
-    FROM lisabeaute.product
+	SELECT product.*,
+		brand.name AS brand_name
+	FROM lisabeaute.product
+	JOIN lisabeaute.brand
+	ON product.brand_id = brand.id 
+;
     `;
 	try {
 		const [results] = await dbConnection.execute(sql);
@@ -51,4 +55,21 @@ const getAllProductsSameBrand = async (data) => {
 		return error;
 	}
 };
-export { getAllProducts, getAllProductsSameType, getAllProductsSameBrand };
+
+const getProduct = async (data) => {
+	const sql = `SELECT product.*
+	FROM lisabeaute.product
+	WHERE id = :id;`;
+	try {
+		const [results] = await dbConnection.execute(sql, data);
+		return results;
+	} catch (error) {
+		return error;
+	}
+};
+export {
+	getAllProducts,
+	getAllProductsSameType,
+	getAllProductsSameBrand,
+	getProduct,
+};
