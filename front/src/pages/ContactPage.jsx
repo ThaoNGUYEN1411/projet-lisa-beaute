@@ -9,20 +9,31 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import Button from "../components/Button/Button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Product from "../components/Product/Product";
+import ProductsPage from "./ProductsPage";
 
 const cx = classNames.bind(styles);
 
 const ContactPage = () => {
+	const [infosMessage, setInfosMessage] = useState();
+
 	const {
 		handleSubmit,
 		watch,
 		register,
 		formState: { isValid, isSubmitted, submitCount, errors },
 	} = useForm();
-	const onSubmit = (values) => {
-		console.log(values);
+	const onSubmit = (info) => {
+		console.log(info);
+		setInfosMessage(info);
 	};
+
+	axios
+		.post("http://localhost:3000/createNewMessage", infosMessage)
+		.then((response) => console.log("response", response))
+		.catch((error) => console.log("error", error));
 
 	useEffect(() => {
 		const subscription = watch((observer) => console.log(observer));
@@ -100,24 +111,24 @@ const ContactPage = () => {
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
 								<label className={cx("label", "label-name")}>Votre nom</label>
 								<input
-									className={cx("lastname")}
+									className={cx("lastName")}
 									type="text"
 									placeholder="Votre nom"
-									{...register("lastname", {
+									{...register("lastName", {
 										required: "Votre nom est requis",
 									})}
 								/>
-								<span>{errors.lastname?.message}</span>
+								<span>{errors.lastName?.message}</span>
 							</p>
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
 								<label className={cx("label", "label-name")}>
 									Votre prénom
 								</label>
 								<input
-									className={cx("firstname")}
+									className={cx("firstName")}
 									type="text"
 									placeholder="Votre prénom"
-									{...register("firstname")}
+									{...register("firstName")}
 								/>
 							</p>
 						</div>
@@ -136,10 +147,12 @@ const ContactPage = () => {
 						<p className={cx("contact-info", "l-12", "m-12", "c-12")}>
 							<label className={cx("label")}>Votre message : </label>
 							<textarea
-								{...register("message", { required: "Un message est requis" })}
+								{...register("messageContent", {
+									required: "Un message est requis",
+								})}
 								className={cx("contact-input")}
 							/>
-							<span>{errors.message?.message}</span>
+							<span>{errors.messageContent?.message}</span>
 						</p>
 					</div>
 					<div className={cx("text-center")}>

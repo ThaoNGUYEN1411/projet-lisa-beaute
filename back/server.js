@@ -10,6 +10,7 @@ import {
 	getAllProductsSameBrand,
 	getProduct,
 } from "./services/api.products.js";
+// import { postNewMessage } from "./services/api.message.js";
 
 const app = express();
 
@@ -121,10 +122,31 @@ router.get("/:id", async (req, res) => {
 
 	return res.status(200).json({
 		status: 200,
-		message: "OK id pd",
+		message: "OK",
 		data: results,
 	});
 });
+
+// router.post("/createNewMessage", async (req, res) => {
+// 	// const { email, sujet, contenu } = req.body;
+// 	console.log("req.body", req.body);
+// 	const result = await postNewMessage(req.body);
+
+// 	console.log("result", result);
+
+// 	// if (result.errno) {
+// 	// 	return res.status(400).json({
+// 	// 		status: 400,
+// 	// 		message: "Error",
+// 	// 	});
+// 	// }
+
+// 	// return res.status(200).json({
+// 	// 	status: 200,
+// 	// 	message: "Message added successfully",
+// 	// 	data: result,
+// 	// });
+// });
 
 const server = http.createServer(app);
 export default server;

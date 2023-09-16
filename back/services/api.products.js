@@ -62,11 +62,12 @@ const getProduct = async (data) => {
 	WHERE id = :id;`;
 	try {
 		const [results] = await dbConnection.execute(sql, data);
-		return results;
+		return results[0];
 	} catch (error) {
 		return error;
 	}
 };
+
 export {
 	getAllProducts,
 	getAllProductsSameType,

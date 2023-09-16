@@ -16,7 +16,7 @@
 -- ;
 
 -- selectionner les produits préféré d'un utilisateur
--- SELECT user.firstname, user.lastname, 
+-- SELECT user.firstName, user.lastName, 
 -- GROUP_CONCAT(product.name) AS favorite_products
 -- FROM lisabeaute.user
 -- JOIN lisabeaute.product
@@ -24,11 +24,11 @@
 -- ON user_product.product_id = product.id
 -- AND user_product.user_id = user.id 
 -- GROUP BY 
--- user.firstname, user.lastname
+-- user.firstName, user.lastName
 -- ;
 
 -- Sélectionner les commentaires qu'un utilisateur a laissés sur un produit.
--- SELECT product.name, user.lastname, comment.content, comment.time
+-- SELECT product.name, user.lastName, comment.content, comment.time
 -- FROM lisabeaute.product
 -- JOIN lisabeaute.user
 -- JOIN lisabeaute.comment

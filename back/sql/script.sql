@@ -34,8 +34,8 @@ CREATE TABLE lisabeaute.product_category(
 
 CREATE TABLE lisabeaute.user(
     id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    firstname VARCHAR(50) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL
 );
@@ -76,9 +76,11 @@ CREATE TABLE lisabeaute.article(
 
 CREATE TABLE lisabeaute.message(
     id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(50) NOT NULL,
     sujet VARCHAR(150) NOT NULL,
-    contenu TEXT NOT NULL
+    lastName VARCHAR(50) NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    messageContent TEXT NOT NULL
 );
 
 -- Insérer des données
@@ -205,3 +207,8 @@ VALUES
     (3,4,4),
     (3,9,2)
 ;
+
+  INSERT INTO lisabeaute.message
+    VALUES (NULL, "publicité", "ha", "ha", "ha@gmail.com", "message"
+    )
+    ;

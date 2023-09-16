@@ -1,9 +1,10 @@
-const getProduct = async () => {
-	const requestProduct = new Request("http://localhost:3000/produits");
-	console.log(requestProduct);
+const getProduct = async (id) => {
+	const requestProduct = new Request(`http://localhost:3000/${id}`);
+
 	const request = await fetch(requestProduct);
 
 	const response = await request.json();
-	return response;
+
+	return response.data;
 };
 export default getProduct;

@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
 import Dropdown from "../components/Dropdown/Dropdown";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -38,6 +39,9 @@ const ProductsPage = () => {
 	];
 
 	const [products, setProducts] = useState([]);
+	console.log("products", products);
+
+	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
 
 	useEffect(() => {
 		//recupérer des données de l'API
@@ -80,7 +84,9 @@ const ProductsPage = () => {
 						{products.map((product) => {
 							return (
 								<article className={cx("prod", "col", "l-3", "m-4", "c-6")}>
-									<Product imgProdWidth product={product} />
+									<Link to={`/${product.id}`}>
+										<Product imgProdWidth product={product} />
+									</Link>
 								</article>
 							);
 						})}

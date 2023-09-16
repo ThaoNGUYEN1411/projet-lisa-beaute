@@ -1,12 +1,27 @@
 import classNames from "classnames/bind";
-import styles from "./ProductPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
+import styles from "./ProductPage.module.css";
+import getProduct from "../services/productApi";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 const cx = classNames.bind(styles);
 
 const ProductPage = () => {
+	const [product, setProduct] = useState();
+	const { id } = useParams();
+
+	useEffect(() => {
+		getProduct(id)
+			.then((data) => {
+				setProduct(data);
+			})
+			.catch((error) => console.log("error getting one product", error));
+	}, [id]);
+
 	return (
 		<div className={cx("grid", "wide")}>
 			<div className={cx("breadcrumbs-nav")}>

@@ -5,6 +5,7 @@ import AboutPage from "../pages/AboutPage";
 import BlogPage from "../pages/BlogPage";
 import ContactPage from "../pages/ContactPage";
 import HomePage from "../pages/HomePage";
+import ProductPage from "../pages/ProductPage";
 
 const router = createBrowserRouter([
 	{
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
 			{
 				path: "contact",
 				element: <ContactPage />,
+			},
+			{
+				path: ":id",
+				element: <ProductPage />,
 			},
 		],
 	},
