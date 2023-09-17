@@ -5,18 +5,21 @@ import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
 import { Link } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
+import getAllProductsSameType from "../services/productsSameTypeApi";
 
 const cx = classNames.bind(styles);
 
 const ProductsPage = () => {
 	const [products, setProducts] = useState([]);
 
-	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
+	const { id } = useParams();
 
 	useEffect(() => {
 		//recupérer des données de l'API
-		getAllproducts().then((data) => {
+		getAllProductsSameType(id).then((data) => {
 			setProducts(data.data);
+			console.log(data.data);
+			console.log("products", products);
 		});
 	}, []);
 

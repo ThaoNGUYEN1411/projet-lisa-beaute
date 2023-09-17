@@ -6,13 +6,6 @@
   text-transform: uppercase;
 }
 
-.container-filter {
-  border-right: 1px solid #cdcaca;
-}
-.list-filter {
-    margin-top: 3rem;
-}
-
 .product-wrapper {
   margin: 0 !important;
   padding: 0 !important;
@@ -30,9 +23,4 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-}
-@media (max-width: 740px){
-    .hr{
-        display: none;
-    }
 }

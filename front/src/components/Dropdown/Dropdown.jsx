@@ -11,6 +11,8 @@ const Dropdown = ({ links, titleDropdown }) => {
 	const [isDropdownVisible, setDropdownVisibility] = useState(false);
 	const [isIconUp, setIsIconUp] = useState(false);
 
+	// useEffect(() => {}, []);
+
 	const toggleDropdown = () => {
 		/*
 			if(isDropdownVisible){

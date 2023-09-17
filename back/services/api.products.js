@@ -20,7 +20,7 @@ const getAllProducts = async () => {
 // selectionner tous les parfums
 const getAllProductsSameType = async (data) => {
 	const sql = `
-    SELECT product.*, category.name
+    SELECT product.*, category.name AS category_name
     FROM lisabeaute.product
     JOIN lisabeaute.category
     JOIN lisabeaute.product_category
@@ -57,9 +57,15 @@ const getAllProductsSameBrand = async (data) => {
 };
 
 const getProduct = async (data) => {
-	const sql = `SELECT product.*
+	const sql = `SELECT product.*, brand.name AS brand_name, category.name AS category_name
 	FROM lisabeaute.product
-	WHERE id = :id;`;
+	JOIN lisabeaute.brand
+	ON product.brand_id = brand.id 
+	JOIN lisabeaute.category
+	JOIN lisabeaute.product_category
+	ON product_category.category_id = category.id
+	AND product_category.product_id = product.id 
+	WHERE product.id = :id;`;
 	try {
 		const [results] = await dbConnection.execute(sql, data);
 		return results[0];

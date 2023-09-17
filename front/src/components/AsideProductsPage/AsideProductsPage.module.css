@@ -1,0 +1,11 @@
+.container-filter {
+    border-right: 1px solid #cdcaca;
+  }
+  .list-filter {
+      margin-top: 3rem;
+  }
+  @media (max-width: 740px){
+    .hr{
+        display: none;
+    }
+  }
