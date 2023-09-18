@@ -1,5 +1,5 @@
 const getProduct = async (id) => {
-	const requestProduct = new Request(`http://localhost:3000/${id}`);
+	const requestProduct = new Request(`http://localhost:3000/produits/${id}`);
 
 	const request = await fetch(requestProduct);
 

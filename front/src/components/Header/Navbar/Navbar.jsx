@@ -18,7 +18,7 @@ const Navbar = ({ isOpen }) => {
 			<div>
 				<Tippy
 					interactive
-					delay={[0, 700]}
+					delay={[0, 500]}
 					render={(attrs) => (
 						<div
 							tabIndex="-1"

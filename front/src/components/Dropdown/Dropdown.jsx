@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 
 import styles from "./Dropdown.module.css";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -79,13 +80,20 @@ const Dropdown = ({ links, titleDropdown }) => {
 					<ul>
 						{links.map((link) => (
 							<li key={crypto.randomUUID()} className={cx("link")}>
-								<a
+								<Link
+									to={`/produits/categorie/${link.name}`}
+									key={crypto.randomUUID()}
+									className={cx("link-text")}
+								>
+									{link.name}
+								</Link>
+								{/* <a
 									href={link.url}
 									key={crypto.randomUUID()}
 									className={cx("link-text")}
 								>
-									{link.text}
-								</a>
+									{link.name}
+								</a> */}
 							</li>
 						))}
 					</ul>

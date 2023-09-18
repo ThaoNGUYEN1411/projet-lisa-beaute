@@ -21,21 +21,25 @@ const router = createBrowserRouter([
 				element: <ProductsPage />,
 				children: [
 					{
-						path: "parfum",
-						element: <ProductsPage />,
+						path: ":id",
+						element: <ProductPage />,
 					},
-					{
-						path: "maquillage",
-						element: <ProductsPage />,
-					},
-					{
-						path: "soin",
-						element: <ProductsPage />,
-					},
-					{
-						path: "cheveux",
-						element: <ProductsPage />,
-					},
+					// {
+					// 	path: "/categories/:type",
+					// 	element: <ProductsPage />,
+					// },
+					// {
+					// 	path: "maquillage",
+					// 	element: <ProductsPage />,
+					// },
+					// {
+					// 	path: "soin",
+					// 	element: <ProductsPage />,
+					// },
+					// {
+					// 	path: "cheveux",
+					// 	element: <ProductsPage />,
+					// },
 				],
 			},
 			{
@@ -50,10 +54,10 @@ const router = createBrowserRouter([
 				path: "contact",
 				element: <ContactPage />,
 			},
-			{
-				path: ":id",
-				element: <ProductPage />,
-			},
+			// {
+			// 	path: ":id",
+			// 	element: <ProductPage />,
+			// },
 		],
 	},
 ]);

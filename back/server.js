@@ -54,6 +54,25 @@ router.get("/marques", async (req, res) => {
 	});
 });
 
+router.get("/marques/:brand", async (req, res) => {
+	// const { brand } = req.params;
+	// console.log(brand);
+	const results = await getAllProductsSameBrand(req.params);
+	// console.log(results);
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+});
+
 router.get("/produits", async (req, res) => {
 	const results = await getAllProducts();
 	// console.log(results);
@@ -71,7 +90,7 @@ router.get("/produits", async (req, res) => {
 	});
 });
 
-router.get("/produits/:type", async (req, res) => {
+router.get("/produits/categories/:type", async (req, res) => {
 	// const { type } = req.params;
 
 	// console.log(req.params);
@@ -92,11 +111,9 @@ router.get("/produits/:type", async (req, res) => {
 	});
 });
 
-router.get("/marques/:brand", async (req, res) => {
-	// const { brand } = req.params;
-	// console.log(brand);
+router.get("/produits/marques/:brand", async (req, res) => {
 	const results = await getAllProductsSameBrand(req.params);
-	// console.log(results);
+	console.log(results);
 	if (results.errno) {
 		return res.status(400).json({
 			status: 400,
@@ -111,7 +128,7 @@ router.get("/marques/:brand", async (req, res) => {
 	});
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/produits/:id", async (req, res) => {
 	const results = await getProduct(req.params);
 	console.log(req.params);
 	if (results?.errno) {

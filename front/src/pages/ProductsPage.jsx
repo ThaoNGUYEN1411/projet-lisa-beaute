@@ -36,7 +36,10 @@ const ProductsPage = () => {
 									className={cx("prod", "col", "l-3", "m-4", "c-6")}
 									key={crypto.randomUUID()}
 								>
-									<Link to={`/${product.id}`} key={crypto.randomUUID()}>
+									<Link
+										to={`/produits/${product.id}`}
+										key={crypto.randomUUID()}
+									>
 										<Product
 											imgProdWidth
 											product={product}
