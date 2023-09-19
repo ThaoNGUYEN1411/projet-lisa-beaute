@@ -49,8 +49,8 @@ const BlogPage = () => {
 		//recupérer des données de l'API
 		getAllproducts().then((data) => {
 			setProducts(data.data);
-			console.log(products);
-			console.log(data.data);
+			// console.log(products);
+			// console.log(data.data);
 		});
 	}, []);
 

@@ -1,6 +1,6 @@
-const getAllProductsSameType = async (type) => {
+const getAllProductsSameBrand = async (brand) => {
 	const requestProducts = new Request(
-		`http://localhost:3000/produits/categorie/${type}`,
+		`http://localhost:3000/produits/marques/${brand}`,
 	);
 	// console.log(requestProducts);
 	const request = await fetch(requestProducts);
@@ -9,4 +9,4 @@ const getAllProductsSameType = async (type) => {
 	return response;
 };
 
-export default getAllProductsSameType;
+export default getAllProductsSameBrand;

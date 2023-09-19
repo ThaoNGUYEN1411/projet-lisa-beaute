@@ -90,7 +90,7 @@ router.get("/produits", async (req, res) => {
 	});
 });
 
-router.get("/produits/categories/:type", async (req, res) => {
+router.get("/produits/categorie/:type", async (req, res) => {
 	// const { type } = req.params;
 
 	// console.log(req.params);
@@ -113,7 +113,7 @@ router.get("/produits/categories/:type", async (req, res) => {
 
 router.get("/produits/marques/:brand", async (req, res) => {
 	const results = await getAllProductsSameBrand(req.params);
-	console.log(results);
+	// console.log(results);
 	if (results.errno) {
 		return res.status(400).json({
 			status: 400,
@@ -130,7 +130,7 @@ router.get("/produits/marques/:brand", async (req, res) => {
 
 router.get("/produits/:id", async (req, res) => {
 	const results = await getProduct(req.params);
-	console.log(req.params);
+	// console.log(req.params);
 	if (results?.errno) {
 		return res.status(400).json({
 			status: 400,
@@ -147,7 +147,7 @@ router.get("/produits/:id", async (req, res) => {
 
 router.get("/commentaires/:id", async (req, res) => {
 	const results = await getAllComments(req.params);
-	console.log(req.params);
+	// console.log(req.params);
 	if (results?.errno) {
 		return res.status(400).json({
 			status: 400,
@@ -162,26 +162,23 @@ router.get("/commentaires/:id", async (req, res) => {
 	});
 });
 
-// router.post("/createNewMessage", async (req, res) => {
-// 	// const { email, sujet, contenu } = req.body;
-// 	console.log("req.body", req.body);
-// 	const result = await postNewMessage(req.body);
-
-// 	console.log("result", result);
-
-// 	// if (result.errno) {
-// 	// 	return res.status(400).json({
-// 	// 		status: 400,
-// 	// 		message: "Error",
-// 	// 	});
-// 	// }
-
-// 	// return res.status(200).json({
-// 	// 	status: 200,
-// 	// 	message: "Message added successfully",
-// 	// 	data: result,
-// 	// });
-// });
+router.post("/createNewMessage", async (req, res) => {
+	// const { email, sujet, contenu } = req.body;
+	// console.log("req.body", req.body);
+	// const result = await postNewMessage(req.body);
+	// console.log("result", result);
+	// if (result.errno) {
+	// 	return res.status(400).json({
+	// 		status: 400,
+	// 		message: "Error",
+	// 	});
+	// }
+	// return res.status(200).json({
+	// 	status: 200,
+	// 	message: "Message added successfully",
+	// 	data: result,
+	// });
+});
 
 const server = http.createServer(app);
 export default server;

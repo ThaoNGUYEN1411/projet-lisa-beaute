@@ -41,7 +41,8 @@ const Dropdown = ({ links, titleDropdown }) => {
 			// setIsIconUp(!isIconUp);
 		};
 	}, []);
-
+	// test
+	const linksNumber = links.length;
 	return (
 		<div className={cx("dropdown")}>
 			<div className={cx("wp-button")}>
@@ -80,20 +81,24 @@ const Dropdown = ({ links, titleDropdown }) => {
 					<ul>
 						{links.map((link) => (
 							<li key={crypto.randomUUID()} className={cx("link")}>
-								<Link
-									to={`/produits/categorie/${link.name}`}
-									key={crypto.randomUUID()}
-									className={cx("link-text")}
-								>
-									{link.name}
-								</Link>
-								{/* <a
-									href={link.url}
-									key={crypto.randomUUID()}
-									className={cx("link-text")}
-								>
-									{link.name}
-								</a> */}
+								{linksNumber < 7 && (
+									<Link
+										to={`/produits/categorie/${link.name}`}
+										key={crypto.randomUUID()}
+										className={cx("link-text")}
+									>
+										{link.name}
+									</Link>
+								)}
+								{linksNumber > 7 && (
+									<Link
+										to={`/produits/marques/${link.name}`}
+										key={crypto.randomUUID()}
+										className={cx("link-text")}
+									>
+										{link.name}
+									</Link>
+								)}
 							</li>
 						))}
 					</ul>

@@ -8,6 +8,7 @@ import getProduct from "../services/productApi";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getAllComments from "../services/commentApi";
+import { toLocaleDate } from "../services/dateService.js";
 
 const cx = classNames.bind(styles);
 
@@ -18,11 +19,11 @@ const ProductPage = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		console.log("id", id);
+		// console.log("id", id);
 		getProduct(id)
 			.then((data) => {
 				data && setProduct(data);
-				console.log("product", product);
+				// console.log("product", product);
 			})
 			.catch((error) => console.log("error getting one product", error));
 	}, [id]);
@@ -30,14 +31,13 @@ const ProductPage = () => {
 	useEffect(() => {
 		getAllComments(id).then((data) => {
 			data && setComments(data);
-			console.log(data);
-			console.log("comments", comments);
+			// console.log(data);
+			// console.log("comments", comments);
 		});
 	}, []);
 
 	return (
 		<div className={cx("grid", "wide")}>
-			{console.log("product rendre", product)}
 			<div className={cx("breadcrumbs-nav")}>
 				<ul className={cx("breadcrumbs")}>
 					<li className={cx("breadcrumbs-item")}>
@@ -74,7 +74,7 @@ const ProductPage = () => {
 						</h1>
 						<div>
 							<div className={cx("price")}>
-								30
+								{product.price}
 								<span className={cx("price-currency")}>€</span>
 							</div>
 							<div className={cx("icon-heart")}>
@@ -124,16 +124,30 @@ const ProductPage = () => {
 					</h3>
 					{comments.map((comment) => {
 						return (
-							<article>
-								<div className={cx("avis-header", "row")}>
-									<div className={cx("l-8", "m-8", "c-8")}>
-										<h4 className={cx("name-user")}>
+							<article key={crypto.randomUUID()}>
+								<div
+									className={cx("avis-header", "row")}
+									key={crypto.randomUUID()}
+								>
+									<div
+										className={cx("l-8", "m-8", "c-8")}
+										key={crypto.randomUUID()}
+									>
+										<h4 className={cx("name-user")} key={crypto.randomUUID()}>
 											{comment.user_firstName} {comment.user_lastName}
 										</h4>
-										<time className={cx("comment-date")}>{comment.time}</time>
+										<time
+											className={cx("comment-date")}
+											key={crypto.randomUUID()}
+										>
+											{toLocaleDate(comment.time)}
+										</time>
 									</div>
-									<div className={cx("star", "l-4", "m-4", "c-4")}>
-										<span>
+									<div
+										className={cx("star", "l-4", "m-4", "c-4")}
+										key={crypto.randomUUID()}
+									>
+										<span key={crypto.randomUUID()}>
 											<FontAwesomeIcon icon={faStar} />
 											<FontAwesomeIcon icon={faStar} />
 											<FontAwesomeIcon icon={faStar} />
@@ -141,8 +155,11 @@ const ProductPage = () => {
 										</span>
 									</div>
 								</div>
-								<div className={cx("avis-content", "margin-bloc")}>
-									<p>{comment.content}</p>
+								<div
+									className={cx("avis-content", "margin-bloc")}
+									key={crypto.randomUUID()}
+								>
+									<p key={crypto.randomUUID()}>{comment.content}</p>
 								</div>
 							</article>
 						);

@@ -4,25 +4,25 @@ import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
 import { Link, useParams } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
-import getAllProductsSameType from "../services/productsSameTypeApi";
+import getAllProductsSameBrand from "../services/productsSameBrandApi";
 
 const cx = classNames.bind(styles);
 
-const ProductsTypeDetail = () => {
+const ProductsBrandDetail = () => {
 	const [products, setProducts] = useState([]);
 
-	const { type } = useParams();
+	const { brand } = useParams();
 
 	// console.log(type);
 
 	useEffect(() => {
 		//recupérer des données de l'API
-		getAllProductsSameType(type).then((data) => {
+		getAllProductsSameBrand(brand).then((data) => {
 			setProducts(data.data);
-			// console.log(data.data);
+			console.log(data.data);
 			// console.log("products", products);
 		});
-	}, [type]);
+	}, [brand]);
 
 	return (
 		<div className={cx("grid", "wide")}>
@@ -60,4 +60,4 @@ const ProductsTypeDetail = () => {
 	);
 };
 
-export default ProductsTypeDetail;
+export default ProductsBrandDetail;

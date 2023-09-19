@@ -1,6 +1,6 @@
 const getAllproducts = async () => {
 	const requestProducts = new Request("http://localhost:3000/produits");
-	console.log(requestProducts);
+	// console.log(requestProducts);
 	const request = await fetch(requestProducts);
 
 	const response = await request.json();

@@ -25,15 +25,15 @@ const ContactPage = () => {
 		register,
 		formState: { isValid, isSubmitted, submitCount, errors },
 	} = useForm();
+
 	const onSubmit = (info) => {
 		console.log(info);
-		setInfosMessage(info);
+		// setInfosMessage(info);
+		// axios
+		// 	.post("http://localhost:3000/createNewMessage", infosMessage)
+		// 	.then((response) => console.log("response", response))
+		// 	.catch((error) => console.log("error", error));
 	};
-
-	axios
-		.post("http://localhost:3000/createNewMessage", infosMessage)
-		.then((response) => console.log("response", response))
-		.catch((error) => console.log("error", error));
 
 	useEffect(() => {
 		const subscription = watch((observer) => console.log(observer));
