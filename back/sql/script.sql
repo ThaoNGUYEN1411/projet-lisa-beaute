@@ -101,7 +101,7 @@ VALUES
     (NULL,  "The ordinary"),
     (NULL,  "Estée Lauder"),
     (NULL,  "Guerlain"),
-    (NULL,  "Ganier"),
+    (NULL,  "Madara"),
     (NULL,  "Bioderma")
     ;
 
@@ -157,13 +157,86 @@ VALUES
     Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme.Sublimez et prenez soin de votre peau avec la base Priming Serum, inspirée du soin Lancôme. Composée d’acide hyaluronique hydratant et de niacinamide au pouvoir lissant, cette base solide se transforme en baume à l’application sur la peau.", "Pour magnifier votre sillage, vaporisez à environ 20 cm de votre peau et privilégiez les points de pulsation - particulièrement chauds.", "KAOLIN, SQUALANE, GLYCERIN, DIMETHYL ISOSORBIDE, SILICA CETYL SILYLATE, SALICYLIC ACID, SODIUM POLYACRYLATE, PENTYLENE GLYCOL.", "chanel-p6.webp", 1)
     ;
 
+INSERT INTO lisabeaute.product
+VALUES
+    (NULL, "CICABIO SPF 50+ Crème Soin réparateur",34, "CICABIO SPF 50+ Crème 30ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p1.webp", 8  ),
+    (NULL, "CRÉALINE Yeux Soin contour yeux", 16, "CRÉALINE Yeux Soin 15ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p2.webp", 8  ),
+    (NULL, "CRÉALINE H2O, eau micellaire démaquillante visage et yeux ",14, "CRÉALINE H2O 500ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p3.webp", 8),
+    (NULL, "HYDRABIO Sérum Soin hydratant visagex ",23.9, "HYDRABIO Sérum 40ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p4.webp", 8),
+    (NULL, "SEBIUM NIGHT PEEL Soin anti-acnée, peau grasse, imperfections",18, "SEBIUM NIGHT PEEL 40ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p5.webp", 8  ),
+    (NULL, "SEBIUM Sensitive Soin de jour peau acnéique",18, "SEBIUM Sensitive 30 ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p6.webp", 8  ),
+     (NULL, "SÉBIUM H2O Eau micellaire visage peaux grasses à tendence acnéique",15, "SÉBIUM H2O 500ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p7.webp", 8  ),
+     (NULL, "SÉBIUM Mat Control 30ml",18, "SÉBIUM Mat Control 30ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p8.webp", 8  ),
+     (NULL, "ATODERM Mains & ongles 50 ml",5, "ATODERM Crème mains & ongles - 50 ml
+    Le soin 2 en 1 qui répare et protège du soleil la peau abimée pour limiter les marques cicatricielles.
+    Cicabio SPF 50+ favorise la réparation cutanée des peaux abîmées exposées au soleil en agissant sur chaque étape du processus biologique de la reconstruction épidermique et en limitant le risque d'hyperpigmentation post-cicatricielle (tache brune).", "Utilisez Cicabio SPF 50+ sur la zone concernée, appliquez jusqu'à une réparation complète.
+    Si il y a exposition au soleil, renouvelez régulièrement l'application en évitant le contour des yeux. Si les irritations persistent, nous vous recommandons de demander conseil à un professionnel de la santé.", "AQUA/WATER/EAU, GLYCERIN, CYCLOPENTASILOXANE, DIMETHICONE, OCTOCRYLENE, TITANIUM DIOXIDE (CI 77891), HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, TITANIUM DIOXIDE [NANO], DIPROPYLENE GLYCOL,", "bioderma-p9.webp", 8  )
+    ;
 
+INSERT INTO lisabeaute.product
+VALUES
+    (   NULL, "SKINONYM Fond de teint semi-mat aux peptides", 36.5, "35 TRUE BEIGE 30ml
+
+Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+
+Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-1.webp", 7 ),
+(   NULL, "PEEL Intense
+Sèrum Effet Peeling", 36.5, "30ml
+
+Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+
+Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-2.webp", 7 ),
+(   NULL, "Time Miracle Hydra Firm Gel Concentré D'Acide Hyaluronique", 36.5, "35 TRUE BEIGE 30ml
+
+Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+
+Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-3.webp", 7 ),
+(   NULL, "Citycc Hyaluronic Anti-Pollution CC Cream Spf 15", 36.5, "35 TRUE BEIGE 30ml
+
+Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+
+Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-4.webp", 7 ),
+(   NULL, "SKINONYM Fond de teint ", 36.5, "35 TRUE BEIGE 30ml
+
+Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+
+Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-5.webp", 7 ),
+(   NULL, "SKINONYM Fond de teint semi-mat", 36.5, "35 TRUE BEIGE 30ml
+
+Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+
+Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-6.webp", 7 )
+;
 -- Insérer table de jointure product_category
 INSERT INTO lisabeaute.product_category
 VALUES
     (1,3), (2,3), (2,4), (3,3), (4,3), (5,3), (6,3), (7,4), (8,3), (9,3),
     (10,3),(11,1),(12,3),(13,2),(14,2),(15,2),(16,2),(17,1),(18,1),(19,3),(20,3),
-    (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2)
+    (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3),(33,3),(34,3),(35,3),(36,5),(36,2),(37,5),(37,4),(37,3),(38,5),(39,5), (39,2),(40,5),(40,2),(41,5),(41,2)
     ;
 
 -- Insérer des users
