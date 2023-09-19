@@ -4,10 +4,29 @@ import Tippy from "@tippyjs/react/headless";
 
 import styles from "./Navbar.module.css";
 import WrapperPopper from "../../Popper/WrapperPopper";
+import getAllBrands from "../../../services/allBrandsApi";
+import { useEffect, useState } from "react";
+import getAllCategories from "../../../services/allCategoriesApi";
 
 const cx = classNames.bind(styles);
 
 const Navbar = ({ isOpen }) => {
+	const [allBrands, setAllBrands] = useState([]);
+	const [allCategories, setAllCategories] = useState([]);
+
+	useEffect(() => {
+		getAllBrands().then((data) => {
+			// console.log(data);
+			setAllBrands(data);
+		});
+	}, []);
+
+	useEffect(() => {
+		getAllCategories().then((data) => {
+			// console.log(data);
+			setAllCategories(data);
+		});
+	}, []);
 	return (
 		<nav
 			className={cx("navbar", {
@@ -17,6 +36,7 @@ const Navbar = ({ isOpen }) => {
 		>
 			<div>
 				<Tippy
+					// visible
 					interactive
 					delay={[0, 500]}
 					render={(attrs) => (
@@ -31,35 +51,17 @@ const Navbar = ({ isOpen }) => {
 								{/*les resultats 
 							afficher ici */}
 								<ul>
-									<li>
-										<Link
-											to={"/produits/parfum"}
-											className={cx("sub-menu-link")}
-										>
-											Parfum
-										</Link>
-									</li>
-									<li>
-										<Link
-											to={"/produits/maquillage"}
-											className={cx("sub-menu-link")}
-										>
-											Maquillage
-										</Link>
-									</li>
-									<li>
-										<Link to={"/produits/soin"} className={cx("sub-menu-link")}>
-											Soin
-										</Link>
-									</li>
-									<li>
-										<Link
-											to={"/produits/cheveux"}
-											className={cx("sub-menu-link")}
-										>
-											Cheveux
-										</Link>
-									</li>
+									{allCategories?.map((link) => (
+										<li key={crypto.randomUUID()}>
+											<Link
+												to={`/produits/categorie/${link.name}`}
+												className={cx("sub-menu-link")}
+												key={crypto.randomUUID()}
+											>
+												{link.name}
+											</Link>
+										</li>
+									))}
 								</ul>
 							</WrapperPopper>
 						</div>
@@ -86,26 +88,17 @@ const Navbar = ({ isOpen }) => {
 								{/*les resultats 
 							afficher ici */}
 								<ul>
-									<li>
-										<Link to={"/produits"} className={cx("sub-menu-link")}>
-											Chanel
-										</Link>
-									</li>
-									<li>
-										<Link to={"/produits"} className={cx("sub-menu-link")}>
-											Dior
-										</Link>
-									</li>
-									<li>
-										<Link to={"/produits"} className={cx("sub-menu-link")}>
-											Lancome
-										</Link>
-									</li>
-									<li>
-										<Link to={"/produits"} className={cx("sub-menu-link")}>
-											Yves Rocher
-										</Link>
-									</li>
+									{allBrands?.map((link) => (
+										<li key={crypto.randomUUID()}>
+											<Link
+												to={`/produits/marques/${link.name}`}
+												className={cx("sub-menu-link")}
+												key={crypto.randomUUID()}
+											>
+												{link.name}
+											</Link>
+										</li>
+									))}
 								</ul>
 							</WrapperPopper>
 						</div>
