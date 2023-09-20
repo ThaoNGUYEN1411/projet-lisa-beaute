@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import getAllproducts from "../services/productsApi";
 import classNames from "classnames/bind";
 import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
 import { Link } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
+import { getAllproducts } from "../services/productsApi";
 
 const cx = classNames.bind(styles);
 

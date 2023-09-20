@@ -31,13 +31,13 @@ const AsideProductsPage = () => {
 		{ id: 3, name: "Prix promotion" },
 	];
 
-	const numStarFilter = [
-		{ id: 1, name: "5/5 étoiles" },
-		{ id: 2, name: "4/5 étoiles" },
-		{ id: 3, name: "3/5 étoiles" },
-		{ id: 4, name: "2/5 étoiles" },
-		{ id: 5, name: "1/5 étoiles" },
-	];
+	// const numStarFilter = [
+	// 	{ id: 1, name: "5/5 étoiles" },
+	// 	{ id: 2, name: "4/5 étoiles" },
+	// 	{ id: 3, name: "3/5 étoiles" },
+	// 	{ id: 4, name: "2/5 étoiles" },
+	// 	{ id: 5, name: "1/5 étoiles" },
+	// ];
 
 	return (
 		<aside className={cx("container-filter", "col", "l-3", "m-3", "c-12")}>
@@ -52,11 +52,11 @@ const AsideProductsPage = () => {
 				</div>
 				<div className={cx("col", "l-12", "m-12", "c-6")}>
 					<Dropdown links={allBrands} titleDropdown="Marque" />
-					<hr className={cx("hr")} />
+					{/* <hr className={cx("hr")} /> */}
 				</div>
-				<div className={cx("col", "l-12", "m-12", "c-6")}>
+				{/* <div className={cx("col", "l-12", "m-12", "c-6")}>
 					<Dropdown links={numStarFilter} titleDropdown="Note" />
-				</div>
+				</div> */}
 			</div>
 		</aside>
 	);

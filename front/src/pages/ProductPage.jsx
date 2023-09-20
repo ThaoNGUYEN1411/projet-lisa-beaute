@@ -4,7 +4,7 @@ import { faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 import styles from "./ProductPage.module.css";
-import getProduct from "../services/productApi";
+import { getProduct } from "../services/productsApi";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getAllComments from "../services/commentApi";

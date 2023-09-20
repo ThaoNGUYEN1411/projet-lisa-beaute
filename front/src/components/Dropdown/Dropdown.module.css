@@ -35,6 +35,8 @@
 }
 .link-text {
   padding-left: 2rem;
+  display: block;
+  width: 100%;
 }
 
 .wp-button {

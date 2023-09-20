@@ -35,9 +35,9 @@
 // =================
 // essayer connecter le back (API) comme une fonction
 import { useEffect, useState } from "react";
-import getAllproducts from "../services/productsApi";
 import classNames from "classnames/bind";
 import styles from "./BlogPage.module.css";
+import { getAllproducts } from "../services/productsApi";
 
 const cx = classNames.bind(styles);
 

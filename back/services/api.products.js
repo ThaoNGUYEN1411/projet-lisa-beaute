@@ -42,7 +42,8 @@ const getAllProductsSameType = async (data) => {
 // selectionner tous les produits de la même marque, par exemple the ordinary
 const getAllProductsSameBrand = async (data) => {
 	const sql = `
-    SELECT product.*, brand.name AS brand_name, category.name AS category_name
+    SELECT product.*, brand.name AS brand_name, 
+	GROUP_CONCAT(category.name) AS category_name
     FROM lisabeaute.product
     JOIN lisabeaute.brand
     ON product.brand_id = brand.id
@@ -51,6 +52,7 @@ const getAllProductsSameBrand = async (data) => {
     ON product_category.category_id = category.id
     AND product_category.product_id = product.id
     WHERE brand.name = :brand
+	GROUP BY(product.id)
     ;
     `;
 
@@ -78,6 +80,15 @@ const getProduct = async (data) => {
 	} catch (error) {
 		return error;
 	}
+};
+
+const getAllProductsByOrdre = async (data) => {
+	const sql = `SELECT product.name, product.price,
+	brand.name AS brand_name
+FROM lisabeaute.product
+JOIN lisabeaute.brand
+ON product.brand_id = brand.id 
+ORDER BY product.price DESC;`;
 };
 
 export {

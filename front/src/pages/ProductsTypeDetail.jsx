@@ -4,7 +4,8 @@ import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
 import { Link, useParams } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
-import getAllProductsSameType from "../services/productsSameTypeApi";
+import { getAllProductsSameType } from "../services/productsApi";
+// import getAllProductsSameType from "../services/productsSameTypeApi";
 
 const cx = classNames.bind(styles);
 
