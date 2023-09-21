@@ -9,6 +9,7 @@ import {
 	getAllProducts,
 	getAllProductsSameBrand,
 	getProduct,
+	// getAllProductsPriceCroissant,
 } from "./services/api.products.js";
 import { getAllComments } from "./services/api.comment.js";
 // import { postNewMessage } from "./services/api.message.js";
@@ -73,8 +74,26 @@ router.get("/marques/:brand", async (req, res) => {
 	});
 });
 
-router.get("/produits", async (req, res) => {
-	const results = await getAllProducts();
+// router.get("/produits", async (req, res) => {
+// 	console.log("xouxou");
+// 	const results = await getAllProducts();
+// 	// console.log(results);
+// 	if (results.errno) {
+// 		return res.status(400).json({
+// 			status: 400,
+// 			message: "Error",
+// 		});
+// 	}
+
+// 	return res.status(200).json({
+// 		status: 200,
+// 		message: "OK",
+// 		data: results,
+// 	});
+// });
+
+router.get("/produits/croissant", async (req, res) => {
+	const results = await getAllProductsPriceCroissant();
 	// console.log(results);
 	if (results.errno) {
 		return res.status(400).json({
@@ -178,6 +197,41 @@ router.post("/createNewMessage", async (req, res) => {
 	// 	message: "Message added successfully",
 	// 	data: result,
 	// });
+});
+//
+
+router.get("/produits", async (req, res) => {
+	const sort = req.query.sort;
+	console.log(sort);
+	const results = await getAllProducts(sort);
+	// console.log(results);
+	if (results.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+
+	// Récupérer les paramètres d'URL
+	// const sort = req.query.sort;
+	// console.log(sort);
+	// // Copier les produits pour éviter de trier la liste d'origine
+	// const produitsCopie = [...produits];
+	// // Trier les produits en fonction du paramètre 'sort'
+	// if (sort === "asc") {
+	// 	produitsCopie.sort((a, b) => parseInt(a.price) - parseInt(b.price)); // Tri croissant
+	// } else if (sort === "desc") {
+	// 	produitsCopie.sort((a, b) => parseInt(b.price) - parseInt(a.price)); // Tri décroissant
+	// }
+	// console.log(produitsCopie);
+	// // Renvoyer les produits triés en réponse
+	// res.json(produitsCopie);
 });
 
 const server = http.createServer(app);

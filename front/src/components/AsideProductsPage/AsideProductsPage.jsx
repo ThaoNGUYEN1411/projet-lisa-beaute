@@ -26,9 +26,9 @@ const AsideProductsPage = () => {
 	}, []);
 
 	const priceFilter = [
-		{ id: 1, name: "Prix croissant" },
-		{ id: 2, name: "Prix décroissant" },
-		{ id: 3, name: "Prix promotion" },
+		{ id: 1, name: "Prix croissant", url: "asc" },
+		{ id: 2, name: "Prix décroissant", url: "desc" },
+		// { id: 3, name: "Prix promotion" },
 	];
 
 	// const numStarFilter = [

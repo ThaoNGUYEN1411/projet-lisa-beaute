@@ -8,6 +8,8 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductsTypeDetail from "../pages/ProductsTypeDetail";
 import ProductsBrandDetail from "../pages/ProductsBrandDetail";
+// import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
+import ConnectionPage from "../pages/ConnectionPage";
 
 const router = createBrowserRouter([
 	{
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
 			{
 				path: "",
 				element: <HomePage />,
+			},
+			{
+				path: "Connection",
+				element: <ConnectionPage />,
 			},
 			{
 				path: "produits",
@@ -37,6 +43,18 @@ const router = createBrowserRouter([
 					{
 						path: "/produits/marques/:brand",
 						element: <ProductsBrandDetail />,
+					},
+					// {
+					// 	path: "/produits/croissant",
+					// 	element: <ProductsPriceCroissant />,
+					// },
+					{
+						path: "/produits?sort=desc",
+						element: <ProductsPage />,
+					},
+					{
+						path: "/produits?sort=asc",
+						element: <ProductsPage />,
 					},
 					// {
 					// 	path: "/categories/:type",

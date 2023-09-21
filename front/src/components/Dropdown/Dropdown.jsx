@@ -81,7 +81,7 @@ const Dropdown = ({ links, titleDropdown }) => {
 					<ul>
 						{links.map((link) => (
 							<li key={crypto.randomUUID()} className={cx("link")}>
-								{linksNumber < 7 && (
+								{titleDropdown === "Catégories" && (
 									<Link
 										to={`/produits/categorie/${link.name}`}
 										key={crypto.randomUUID()}
@@ -90,9 +90,18 @@ const Dropdown = ({ links, titleDropdown }) => {
 										{link.name}
 									</Link>
 								)}
-								{linksNumber > 7 && (
+								{titleDropdown === "Marque" && (
 									<Link
 										to={`/produits/marques/${link.name}`}
+										key={crypto.randomUUID()}
+										className={cx("link-text")}
+									>
+										{link.name}
+									</Link>
+								)}
+								{titleDropdown === "Prix" && (
+									<Link
+										to={`/produits?sort=${link.url}`}
 										key={crypto.randomUUID()}
 										className={cx("link-text")}
 									>

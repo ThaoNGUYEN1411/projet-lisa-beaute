@@ -1,5 +1,7 @@
-const getAllproducts = async () => {
-	const requestProducts = new Request("http://localhost:3000/produits");
+const getAllproducts = async (sort) => {
+	const requestProducts = new Request(
+		`http://localhost:3000/produits?sort=${sort}`,
+	);
 	// console.log(requestProducts);
 	const request = await fetch(requestProducts);
 
@@ -39,9 +41,30 @@ const getAllProductsSameType = async (type) => {
 	return response;
 };
 
+const getAllProductsPriceCroissant = async () => {
+	const requestProducts = new Request(
+		"http://localhost:3000/produits/croissant",
+	);
+
+	const request = await fetch(requestProducts);
+
+	const reponse = await request.json();
+	return reponse;
+};
+
+// const getAllProductsFilter = async () => {
+// 	const requestProducts = new Request(
+// 		"http://localhost:3000/produits?sort=${sort}",
+// 	);
+// 	const request = await fetch(requestProducts);
+// 	const reponse = await request.json();
+// 	return reponse;
+// };
+
 export {
 	getProduct,
 	getAllproducts,
 	getAllProductsSameBrand,
 	getAllProductsSameType,
+	getAllProductsPriceCroissant,
 };

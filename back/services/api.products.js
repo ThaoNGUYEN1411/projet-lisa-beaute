@@ -1,14 +1,18 @@
 import dbConnection from "./dbConnection.js";
 
-const getAllProducts = async () => {
-	const sql = `
+const getAllProducts = async (sort) => {
+	let sql = `
 	SELECT product.*,
 		brand.name AS brand_name
 	FROM lisabeaute.product
 	JOIN lisabeaute.brand
-	ON product.brand_id = brand.id 
-;
+	ON product.brand_id = brand.id
     `;
+	if (sort === "asc" || sort === "desc") {
+		sql += `
+		  ORDER BY product.price ${sort}
+		`;
+	}
 	try {
 		const [results] = await dbConnection.execute(sql);
 		return results;
@@ -82,13 +86,19 @@ const getProduct = async (data) => {
 	}
 };
 
-const getAllProductsByOrdre = async (data) => {
-	const sql = `SELECT product.name, product.price,
+const getAllProductsPriceCroissant = async () => {
+	const sql = `SELECT product.*,
 	brand.name AS brand_name
-FROM lisabeaute.product
-JOIN lisabeaute.brand
-ON product.brand_id = brand.id 
-ORDER BY product.price DESC;`;
+	FROM lisabeaute.product
+	JOIN lisabeaute.brand
+	ON product.brand_id = brand.id 
+	ORDER BY product.price DESC;`;
+	try {
+		const [results] = await dbConnection.execute(sql);
+		return results;
+	} catch (error) {
+		return error;
+	}
 };
 
 export {
@@ -96,4 +106,5 @@ export {
 	getAllProductsSameType,
 	getAllProductsSameBrand,
 	getProduct,
+	getAllProductsPriceCroissant,
 };

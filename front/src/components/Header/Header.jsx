@@ -16,7 +16,7 @@ import SearchBar from "./SearchBar";
 
 const cx = classNames.bind(styles);
 const Header = () => {
-	const currentUser = true;
+	const currentUser = false;
 	const [isOpen, setIsopen] = useState(false);
 	const handleMenuMobile = () => {
 		setIsopen(!isOpen);
@@ -65,10 +65,10 @@ const Header = () => {
 						) : (
 							<>
 								<div className={cx("icon-account")}>
-									<a href="#" className={cx("icon-account-link")}>
+									<Link to={"/Connection"} className={cx("icon-account-link")}>
 										<FontAwesomeIcon icon={faUser} />
 										<span className={cx("title-icon")}>Mon Compte</span>
-									</a>
+									</Link>
 								</div>
 							</>
 						)}
