@@ -14,7 +14,7 @@ const ProductsPage = () => {
 
 	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
 
-	useEffect(() => {
+	useEffect((sort = "") => {
 		//recupérer des données de l'API
 		getAllproducts(sort).then((data) => {
 			setProducts(data.data);

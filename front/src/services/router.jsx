@@ -8,8 +8,9 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductsTypeDetail from "../pages/ProductsTypeDetail";
 import ProductsBrandDetail from "../pages/ProductsBrandDetail";
-// import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
+import CreateUserPage from "../pages/CreateUserPage";
 import ConnectionPage from "../pages/ConnectionPage";
+// import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
 	{
@@ -22,7 +23,13 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "Connection",
+				// element: <CreateUserPage />,
 				element: <ConnectionPage />,
+			},
+			{
+				path: "users/create",
+				element: <CreateUserPage />,
+				// element: <ConnectionPage />,
 			},
 			{
 				path: "produits",

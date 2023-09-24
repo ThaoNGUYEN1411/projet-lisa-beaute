@@ -3,12 +3,14 @@
 
 :root{
 --orange:#ffcc9c;
+--title-color:#F1B022;
 --black: #000;
 --text-color: #333;
 --red: #e41f36;
 --white: #fff;
 --logo-width: 130px;
 --button-color: #f49c17;
+--input-focus-color:rgb(71, 188, 42);
 /* Default layout */
 --default-layout-header-height: 120px;
 --default-layout-width: 1024px;
@@ -62,4 +64,8 @@ li{
     margin-bottom: 16px;
     margin-top: 4rem;
     text-transform: capitalize;
+  }
+
+  input:focus{
+    border: 1px solid var(--input-focus-color);
   }

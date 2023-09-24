@@ -137,7 +137,7 @@ const ContactPage = () => {
 							<input
 								className={cx("contact-input")}
 								type="email"
-								placeholder="Email est requis"
+								placeholder="Email"
 								{...register("email", {
 									required: "Email est requis",
 								})}

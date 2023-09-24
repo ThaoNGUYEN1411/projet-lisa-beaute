@@ -1,6 +1,6 @@
 import dbConnection from "./dbConnection.js";
 
-const getAllMarques = async () => {
+const getAllBrands = async () => {
 	const sql = `
     SELECT brand.*
     FROM lisabeaute.brand;
@@ -14,4 +14,4 @@ const getAllMarques = async () => {
 	}
 };
 
-export { getAllMarques };
+export { getAllBrands };
