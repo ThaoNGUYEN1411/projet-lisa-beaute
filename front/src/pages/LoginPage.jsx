@@ -4,10 +4,11 @@ import { useEffect } from "react";
 
 import styles from "./ContactPage.module.css";
 import Button from "../components/Button/Button";
+import { postLoginUser } from "../services/userApi.js";
 
 const cx = classNames.bind(styles);
 
-const ConnectionPage = () => {
+const LoginPage = () => {
 	const {
 		handleSubmit,
 		watch,
@@ -15,8 +16,9 @@ const ConnectionPage = () => {
 		formState: { isValid, isSubmitted, submitCount, errors },
 	} = useForm();
 
-	const onSubmit = (infosUser) => {
-		console.log(infosUser);
+	const onSubmit = async (values) => {
+		console.log(values);
+		const responseAPI = await postLoginUser(values);
 	};
 
 	useEffect(() => {
@@ -77,7 +79,7 @@ const ConnectionPage = () => {
 					Créez votre compte en quelques minutes
 				</p>
 
-				<Button primary className={cx("btn")} to={"/users/create"}>
+				<Button primary className={cx("btn")} to={"/users/registration"}>
 					CREER VOTRE COMPTE
 				</Button>
 			</section>
@@ -85,4 +87,4 @@ const ConnectionPage = () => {
 	);
 };
 
-export default ConnectionPage;
+export default LoginPage;

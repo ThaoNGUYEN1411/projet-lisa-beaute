@@ -6,6 +6,7 @@ import Button from "../components/Button/Button";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { postCreateUser } from "../services/userApi";
 
 const cx = classNames.bind(styles);
 
@@ -19,26 +20,10 @@ const CreateUserPage = () => {
 		formState: { isValid, isSubmitted, submitCount, errors },
 	} = useForm();
 
-	const onSubmit = async (infosUser) => {
-		const isSubmitted = true;
-		console.log(infosUser);
-		try {
-			const response = await fetch("http://localhost:3000/user/create", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(infosUser),
-			});
-			if (response.ok) {
-				console.log("Données enregistrées avec succès !");
-			} else {
-				// La requête a échoué
-				console.error("Échec de l'enregistrement des données.");
-			}
-		} catch (error) {
-			console.error("Erreur lors de la requête :", error);
-		}
+	const onSubmit = async (values) => {
+		console.log(values);
+
+		const responseAPI = await postCreateUser(values);
 	};
 
 	useEffect(() => {
@@ -108,7 +93,7 @@ const CreateUserPage = () => {
 							<span className={cx("errors")}>{errors.password?.message}</span>
 						</p>
 					</div>
-					{isSubmitted && (
+					{isValid && (
 						<p className={cx("success-message")}>
 							<FontAwesomeIcon icon={faCircleCheck} />
 							Merci! Votre compte a été créé avec succès

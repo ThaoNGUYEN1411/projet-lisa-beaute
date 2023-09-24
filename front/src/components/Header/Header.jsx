@@ -65,7 +65,7 @@ const Header = () => {
 						) : (
 							<>
 								<div className={cx("icon-account")}>
-									<Link to={"/Connection"} className={cx("icon-account-link")}>
+									<Link to={"/login"} className={cx("icon-account-link")}>
 										<FontAwesomeIcon icon={faUser} />
 										<span className={cx("title-icon")}>Mon Compte</span>
 									</Link>

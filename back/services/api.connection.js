@@ -2,7 +2,7 @@
 import dbConnection from "./dbConnection.js";
 import argon2 from "argon2";
 
-const postUserConnection = async (body) => {
+const postCreateUser = async (body) => {
 	const values = { ...body, password: await argon2.hash(body.password) };
 	// body.password = await argon2.hash(body.password);
 	// console.log(body);
@@ -25,4 +25,18 @@ const postUserConnection = async (body) => {
 	}
 };
 
-export { postUserConnection };
+const postLoginUser = async (body) => {
+	const sql = `
+	SELECT user.*
+	FROM lisabeaute.user
+	WHERE user.email = :email;`;
+
+	try {
+		const [results] = await dbConnection.execute(sql, body);
+		return results;
+	} catch (error) {
+		return error;
+	}
+};
+
+export { postLoginUser, postCreateUser };

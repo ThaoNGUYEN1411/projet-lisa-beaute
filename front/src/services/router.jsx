@@ -9,7 +9,7 @@ import ProductPage from "../pages/ProductPage";
 import ProductsTypeDetail from "../pages/ProductsTypeDetail";
 import ProductsBrandDetail from "../pages/ProductsBrandDetail";
 import CreateUserPage from "../pages/CreateUserPage";
-import ConnectionPage from "../pages/ConnectionPage";
+import LoginPage from "../pages/LoginPage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -22,12 +22,12 @@ const router = createBrowserRouter([
 				element: <HomePage />,
 			},
 			{
-				path: "Connection",
+				path: "login",
 				// element: <CreateUserPage />,
-				element: <ConnectionPage />,
+				element: <LoginPage />,
 			},
 			{
-				path: "users/create",
+				path: "users/registration",
 				element: <CreateUserPage />,
 				// element: <ConnectionPage />,
 			},
