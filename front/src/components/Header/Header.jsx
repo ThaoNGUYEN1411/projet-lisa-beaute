@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -12,16 +12,19 @@ import {
 import styles from "./Header.module.css";
 import Navbar from "./Navbar/Navbar";
 import SearchBar from "./SearchBar";
+import { SecurityContext } from "../../context/SecurityContextProvider";
+
 // import { useState } from "react";
 
 const cx = classNames.bind(styles);
 const Header = () => {
-	const currentUser = false;
+	const { user, setUser } = useContext(SecurityContext);
+	// const currentUser = false;
 	const [isOpen, setIsopen] = useState(false);
 	const handleMenuMobile = () => {
 		setIsopen(!isOpen);
 	};
-
+	console.log("user", user);
 	// apres log in setUserName = name client pour afficher
 	// const [userName, setUserName] = useState([]);
 	// setUserName("Thao Nguyen");
@@ -53,12 +56,12 @@ const Header = () => {
 								<span className={cx("title-icon")}>Magasin</span>
 							</a>
 						</div>
-						{currentUser ? (
+						{user ? (
 							<>
 								<div className={cx("current-user")}>
 									<a href="#" className={cx("icon-current-user")}>
 										<FontAwesomeIcon icon={faUserCheck} />
-										<span className={cx("title-icon")}>Thao Nguyen</span>
+										<span className={cx("title-icon")}>{user.lastName}</span>
 									</a>
 								</div>
 							</>

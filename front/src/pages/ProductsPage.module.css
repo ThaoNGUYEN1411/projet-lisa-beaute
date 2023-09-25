@@ -24,3 +24,43 @@
     display: flex;
     flex-wrap: wrap;
 }
+.prod{
+  position: relative;
+  margin-top: 2rem;
+
+}
+/* =========stype page Espace Perso Client ======== */
+
+.icon-aside{
+  padding-right: 1rem;
+}
+.nav-aside, .profil{
+  padding-bottom: 3rem;
+  margin-top: 3rem;
+  margin-left: 0.5rem;
+}
+.li-nav:hover{
+  background-color: rgb(244, 243, 242);
+  color: var(--red);
+}
+.li-nav:active{
+  color: var(--red);
+}
+/* ========== */
+.icon{
+  font-size: 2rem;
+  color: rgb(220, 218, 217);
+    }
+    .icon-heart{
+      position: absolute;
+      /* top: -5px; */
+      right: 0;
+      background-color: #f7f0f0;
+    }
+    .icon-heart:hover  .icon{
+     color: var(--red);
+    }
+  
+    .btn-heart{
+      background-color: transparent;
+    }

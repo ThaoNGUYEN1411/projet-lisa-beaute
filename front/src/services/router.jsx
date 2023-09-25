@@ -10,6 +10,8 @@ import ProductsTypeDetail from "../pages/ProductsTypeDetail";
 import ProductsBrandDetail from "../pages/ProductsBrandDetail";
 import CreateUserPage from "../pages/CreateUserPage";
 import LoginPage from "../pages/LoginPage";
+import EspacePersoClientPage from "../pages/EspacePersoClientPage";
+import WishlistPage from "../pages/WishlistPage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -23,17 +25,22 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "login",
-				// element: <CreateUserPage />,
 				element: <LoginPage />,
 			},
 			{
 				path: "users/registration",
 				element: <CreateUserPage />,
-				// element: <ConnectionPage />,
+			},
+			{
+				path: "EspacePersoClient",
+				element: <EspacePersoClientPage />,
+			},
+			{
+				path: "EspacePersoClient/Wishlist",
+				element: <WishlistPage />,
 			},
 			{
 				path: "produits",
-				// element: <ProductsPage />,
 				children: [
 					{
 						path: "",
@@ -51,10 +58,6 @@ const router = createBrowserRouter([
 						path: "/produits/marques/:brand",
 						element: <ProductsBrandDetail />,
 					},
-					// {
-					// 	path: "/produits/croissant",
-					// 	element: <ProductsPriceCroissant />,
-					// },
 					{
 						path: "/produits?sort=desc",
 						element: <ProductsPage />,
@@ -63,10 +66,6 @@ const router = createBrowserRouter([
 						path: "/produits?sort=asc",
 						element: <ProductsPage />,
 					},
-					// {
-					// 	path: "/categories/:type",
-					// 	element: <ProductsPage />,
-					// },
 				],
 			},
 			{

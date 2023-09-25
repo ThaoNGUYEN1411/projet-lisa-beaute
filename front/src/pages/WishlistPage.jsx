@@ -1,36 +1,32 @@
-import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
+// import styles from "./EspacePersoClientPage.module.css";
 import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
-import { Link, useParams } from "react-router-dom";
-import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
-import { getAllProductsSameBrand } from "../services/productsApi";
-
+import { useEffect, useState } from "react";
+import { getAllproducts } from "../services/productsApi";
+import { Link } from "react-router-dom";
+import AsideEspacePersoClient from "../components/AsideEspacePersoClient/AsideEspacePersoClient";
 const cx = classNames.bind(styles);
 
-const ProductsBrandDetail = () => {
+const WishlistPage = () => {
 	const [products, setProducts] = useState([]);
+	// const isCroissant = true;
 
-	const { brand } = useParams();
+	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
 
-	// console.log(type);
-
-	useEffect(() => {
+	useEffect((sort = "") => {
 		//recupérer des données de l'API
-		getAllProductsSameBrand(brand).then((data) => {
+		getAllproducts(sort).then((data) => {
 			setProducts(data.data);
-			// console.log("products", products);
 		});
-	}, [brand]);
-
+	}, []);
 	return (
 		<div className={cx("grid", "wide")}>
 			<div className={cx("prod-title")}>
-				<h1 className={cx("title")}>Tous les produits</h1>
+				<h1 className={cx("title")}>Mon compte</h1>
 			</div>
-
 			<div className={cx("grid", "wide", "row")}>
-				<AsideProductsPage />
+				<AsideEspacePersoClient />
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
 						{products.map((product) => {
@@ -59,4 +55,4 @@ const ProductsBrandDetail = () => {
 	);
 };
 
-export default ProductsBrandDetail;
+export default WishlistPage;

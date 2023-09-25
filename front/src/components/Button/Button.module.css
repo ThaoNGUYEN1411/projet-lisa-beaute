@@ -75,30 +75,9 @@ background-color: var(--button-color);
     background-color: rgba(22, 24, 35, 0.06);
   }
 
-/* .outline {
-    color: var(--primary);
-    border-color: currentColor;
-}
-.outline :hover {
-    border-color: currentColor;
-    background-color: rgba(254, 44, 85, 0.06);
-}
 
-.text {
-    &:hover {
-        text-decoration: underline;
-    }
-} */
-
- /* Disabled */
-
- /* Button sizes */
 .small {
     min-width: 76px;
     padding: 7px 10px;
 }
 
-/* .large {
-    padding: 14px 16px;
-    min-width: 140px;
-} */

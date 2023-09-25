@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
-import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
 import { Link } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
 import { getAllproducts } from "../services/productsApi";
-
+import styles from "./ProductsPage.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const cx = classNames.bind(styles);
 
 const ProductsPage = () => {
@@ -34,9 +35,15 @@ const ProductsPage = () => {
 						{products.map((product) => {
 							return (
 								<article
-									className={cx("prod", "col", "l-3", "m-4", "c-6")}
+									className={cx("prod", "col", "l-4", "m-4", "c-6")}
 									key={crypto.randomUUID()}
 								>
+									<div className={cx("icon-heart")}>
+										{/* rome-ignore lint/a11y/useButtonType: <explanation> */}
+										<button className={cx("btn-heart")}>
+											<FontAwesomeIcon icon={faHeart} className={cx("icon")} />
+										</button>
+									</div>
 									<Link
 										to={`/produits/${product.id}`}
 										key={crypto.randomUUID()}

@@ -1,14 +1,17 @@
 import classNames from "classnames/bind";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 import styles from "./ContactPage.module.css";
 import Button from "../components/Button/Button";
 import { postLoginUser } from "../services/userApi.js";
+import { SecurityContext } from "../context/SecurityContextProvider";
 
 const cx = classNames.bind(styles);
 
 const LoginPage = () => {
+	const { user, setUser } = useContext(SecurityContext);
+
 	const {
 		handleSubmit,
 		watch,
@@ -17,8 +20,16 @@ const LoginPage = () => {
 	} = useForm();
 
 	const onSubmit = async (values) => {
-		console.log(values);
+		// console.log(values);
 		const responseAPI = await postLoginUser(values);
+		console.log("responseAPI", responseAPI.data.lastName);
+		setUser(responseAPI.data);
+		// if (responseAPI.status === 200) {
+		// 	setUser(responseAPI.data);
+		// 	// setFlashMessage(response.message);
+		// 	// navigate("/");
+		// 	return;
+		// }
 	};
 
 	useEffect(() => {

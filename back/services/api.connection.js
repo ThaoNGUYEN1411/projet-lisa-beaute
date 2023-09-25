@@ -33,6 +33,7 @@ const postLoginUser = async (body) => {
 
 	try {
 		const [results] = await dbConnection.execute(sql, body);
+
 		return results;
 	} catch (error) {
 		return error;

@@ -18,7 +18,7 @@ const postCreateUser = async (values) => {
 };
 
 const postLoginUser = async (values) => {
-	console.log(values);
+	// console.log(values);
 	const requestInfos = new Request("http://localhost:3000/user/login", {
 		method: "POST",
 		headers: {
