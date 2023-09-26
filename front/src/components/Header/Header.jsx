@@ -31,9 +31,9 @@ const Header = () => {
 
 	return (
 		<div>
-			<a href="#" className={cx("text-header")}>
+			<Link to={"/login"} className={cx("text-header")}>
 				Vous souhaitez recevoir des promotions ? Rejoignez-nous !
-			</a>
+			</Link>
 
 			<header className={cx("wrapper")}>
 				<div className={cx("inner")}>

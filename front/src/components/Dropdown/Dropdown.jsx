@@ -1,19 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import classNames from "classnames/bind";
 
 import styles from "./Dropdown.module.css";
 import { Link } from "react-router-dom";
+import { SortPriceContext } from "../../context/SortPriceContextProvider";
 
 const cx = classNames.bind(styles);
 
 const Dropdown = ({ links, titleDropdown }) => {
 	const [isDropdownVisible, setDropdownVisibility] = useState(false);
 	const [isIconUp, setIsIconUp] = useState(false);
-
-	// useEffect(() => {}, []);
-
+	const { sort, setSort } = useContext(SortPriceContext);
+	// console.log(sort);
+	// console.log(window.location.href);
+	if (window.location.href === "http://localhost:5174/produits") {
+		setSort("");
+	}
 	const toggleDropdown = () => {
 		/*
 			if(isDropdownVisible){
@@ -104,6 +108,8 @@ const Dropdown = ({ links, titleDropdown }) => {
 										to={`/produits?sort=${link.url}`}
 										key={crypto.randomUUID()}
 										className={cx("link-text")}
+										onClick={() => setSort(link.url)}
+										value={link.url}
 									>
 										{link.name}
 									</Link>

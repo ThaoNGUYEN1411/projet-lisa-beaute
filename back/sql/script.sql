@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS lisabeaute;
+-- DROP DATABASE IF EXISTS lisabeaute;
 
 CREATE DATABASE lisabeaute;
 
@@ -32,12 +32,19 @@ CREATE TABLE lisabeaute.product_category(
     PRIMARY KEY(product_id, category_id)
 );
 
+CREATE TABLE lisabeaute.role(
+    id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL UNIQUE
+);
+
 CREATE TABLE lisabeaute.user(
     id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL
+    password VARCHAR(100) NOT NULL,
+    role_id SMALLINT UNSIGNED NOT NULL,
+    FOREIGN KEY(role_id) REFERENCES lisabeaute.role(id)
 );
 
 CREATE TABLE lisabeaute.user_product(
@@ -201,36 +208,36 @@ INSERT INTO lisabeaute.product
 VALUES
     (   NULL, "SKINONYM Fond de teint semi-mat aux peptides", 36.5, "35 TRUE BEIGE 30ml
 
-Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+    Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-1.webp", 7 ),
-(   NULL, "PEEL Intense
-Sèrum Effet Peeling", 36.5, "30ml
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-1.webp", 7 ),
+    (   NULL, "PEEL Intense
+    Sèrum Effet Peeling", 36.5, "30ml
 
-Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+    Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-2.webp", 7 ),
-(   NULL, "Time Miracle Hydra Firm Gel Concentré D'Acide Hyaluronique", 36.5, "35 TRUE BEIGE 30ml
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-2.webp", 7 ),
+    (   NULL, "Time Miracle Hydra Firm Gel Concentré D'Acide Hyaluronique", 36.5, "35 TRUE BEIGE 30ml
 
-Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+    Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-3.webp", 7 ),
-(   NULL, "Citycc Hyaluronic Anti-Pollution CC Cream Spf 15", 36.5, "35 TRUE BEIGE 30ml
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-3.webp", 7 ),
+    (   NULL, "Citycc Hyaluronic Anti-Pollution CC Cream Spf 15", 36.5, "35 TRUE BEIGE 30ml
 
-Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+    Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-4.webp", 7 ),
-(   NULL, "SKINONYM Fond de teint ", 36.5, "35 TRUE BEIGE 30ml
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-4.webp", 7 ),
+    (   NULL, "SKINONYM Fond de teint ", 36.5, "35 TRUE BEIGE 30ml
 
-Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+    Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-5.webp", 7 ),
-(   NULL, "SKINONYM Fond de teint semi-mat", 36.5, "35 TRUE BEIGE 30ml
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-5.webp", 7 ),
+    (   NULL, "SKINONYM Fond de teint semi-mat", 36.5, "35 TRUE BEIGE 30ml
 
-Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
+    Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-6.webp", 7 )
-;
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-6.webp", 7 )
+    ;
 -- Insérer table de jointure product_category
 INSERT INTO lisabeaute.product_category
 VALUES
@@ -240,11 +247,16 @@ VALUES
     ;
 
 -- Insérer des users
+INSERT INTO lisabeaute.role
+VALUES
+    (NULL, "admin"),
+    (NULL, "user")
+;
+-- CHANGER TABLE USER===============
 INSERT INTO lisabeaute.user
 VALUES 
-    (NULL, "Thao", "Nguyen", "phuongthaolyon@gmail.com", "thao123"),
-    (NULL, "Jean", "Doe", "jeandoe@gmail.com", "jeandoe123"),
-    (NULL, "Isma", "Hane", "ismahane@gmail.com", "isma123")
+    (NULL, "My", "Admin", "admin@admin.com", "$argon2i$v=19$m=16,t=2,p=1$R3VjZE5scGh4OG5Bd3F6cg$FDv6bP5bzcnLUmjw7I0aCw", 1),
+    (NULL, "Jean", "Doe", "user@user.com", "$argon2i$v=19$m=16,t=2,p=1$YkR4bEtwSXdsZzk4N0RsNQ$N3U2ml4QF0ZdWnmQ8pyIrg", 2)
     ;
 
 -- Insérer table de jointure User_produit pour définir la liste des produits préférés d'un utilisateur

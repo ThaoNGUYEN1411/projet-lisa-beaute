@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import Product from "../components/Product/Product";
 import { Link } from "react-router-dom";
@@ -7,20 +7,27 @@ import { getAllproducts } from "../services/productsApi";
 import styles from "./ProductsPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { SortPriceContext } from "../context/SortPriceContextProvider";
 const cx = classNames.bind(styles);
 
 const ProductsPage = () => {
 	const [products, setProducts] = useState([]);
+	const { sort, setSort } = useContext(SortPriceContext);
 	// const isCroissant = true;
+	console.log(sort);
 
 	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
 
-	useEffect((sort = "") => {
-		//recupérer des données de l'API
-		getAllproducts(sort).then((data) => {
-			setProducts(data.data);
-		});
-	}, []);
+	useEffect(
+		(sortPrice = sort) => {
+			console.log(sortPrice);
+			//recupérer des données de l'API
+			getAllproducts(sortPrice).then((data) => {
+				setProducts(data.data);
+			});
+		},
+		[sort],
+	);
 
 	return (
 		<div className={cx("grid", "wide")}>
