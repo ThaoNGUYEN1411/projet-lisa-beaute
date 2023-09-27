@@ -1,4 +1,4 @@
--- DROP DATABASE IF EXISTS lisabeaute;
+DROP DATABASE IF EXISTS lisabeaute;
 
 CREATE DATABASE lisabeaute;
 
@@ -256,20 +256,18 @@ VALUES
 INSERT INTO lisabeaute.user
 VALUES 
     (NULL, "My", "Admin", "admin@admin.com", "$argon2i$v=19$m=16,t=2,p=1$R3VjZE5scGh4OG5Bd3F6cg$FDv6bP5bzcnLUmjw7I0aCw", 1),
-    (NULL, "Jean", "Doe", "user@user.com", "$argon2i$v=19$m=16,t=2,p=1$YkR4bEtwSXdsZzk4N0RsNQ$N3U2ml4QF0ZdWnmQ8pyIrg", 2)
+    (NULL, "Jean", "Doe", "user@user.com", "$argon2i$v=19$m=16,t=2,p=1$YkR4bEtwSXdsZzk4N0RsNQ$N3U2ml4QF0ZdWnmQ8pyIrg", 2),
+    (NULL, "Test", "Test", "test@test.com", "$argon2i$v=19$m=16,t=2,p=1$NkNDOWVLMDBmdkJwUHEydw$F/lE3MN83QwQArixATvwIw", 2)
     ;
 
 -- Insérer table de jointure User_produit pour définir la liste des produits préférés d'un utilisateur
 INSERT INTO lisabeaute.user_product
 VALUES
-    (1,5),
-    (1,9),
-    (1,19),
+    (2,5),
+    (2,9),
+    (2,19),
     (2,8),
-    (2,12),
-    (3,21),
-    (3,2),
-    (3,4)
+    (2,12)
 ;
 
 -- Insérer des commentaires d'exemple

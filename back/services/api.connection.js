@@ -13,7 +13,8 @@ const postCreateUser = async (body) => {
         :firstName,
         :lastName,
         :email,
-        :password
+        :password,
+		2
     );
     `;
 
@@ -27,8 +28,10 @@ const postCreateUser = async (body) => {
 
 const postLoginUser = async (body) => {
 	const sql = `
-	SELECT user.*
+	SELECT user.*, role.name AS role
 	FROM lisabeaute.user
+	JOIN formation.role
+	ON role.id = user.role_id
 	WHERE user.email = :email;`;
 
 	try {

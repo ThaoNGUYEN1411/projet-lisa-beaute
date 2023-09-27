@@ -12,6 +12,12 @@ import CreateUserPage from "../pages/CreateUserPage";
 import LoginPage from "../pages/LoginPage";
 import EspacePersoClientPage from "../pages/EspacePersoClientPage";
 import WishlistPage from "../pages/WishlistPage";
+import Guard from "../components/ComponentsAdmin/Guard";
+import AdminHomePage from "../pages/admin/AdminHomePage";
+import AdminProductPage from "../pages/admin/AdminProductPage";
+import AdminCategoryPage from "../pages/admin/AdminCategoryPage";
+import AdminBrandPage from "../pages/admin/AdminBrandPage";
+import RootLayoutAdmin from "../layouts/RootLayoutAdmin";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -79,6 +85,32 @@ const router = createBrowserRouter([
 			{
 				path: "contact",
 				element: <ContactPage />,
+			},
+		],
+	},
+	{
+		path: "/admin/",
+		element: (
+			<Guard role="admin">
+				<RootLayoutAdmin />
+			</Guard>
+		),
+		children: [
+			{
+				path: "",
+				element: <AdminHomePage />,
+			},
+			{
+				path: "produits",
+				element: <AdminProductPage />,
+			},
+			{
+				path: "categories",
+				element: <AdminCategoryPage />,
+			},
+			{
+				path: "marques",
+				element: <AdminBrandPage />,
 			},
 		],
 	},

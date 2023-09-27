@@ -44,7 +44,7 @@
 -- ????????
 
 -- 3 Sélectionner les produits qui contiennent le texte de recherche, puis affichez 8 résultats
--- SELECT product.name, brand.name
+-- SELECT product.name, brand.name AS brand
 -- FROM lisabeaute.product
 -- JOIN lisabeaute.brand
 -- ON product.brand_id = brand.id 

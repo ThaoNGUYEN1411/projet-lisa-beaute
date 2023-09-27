@@ -101,10 +101,31 @@ const getAllProductsPriceCroissant = async () => {
 	}
 };
 
+const getProductsBySearch = async (search) => {
+	const sql = `SELECT product.name, brand.name AS brand
+	FROM lisabeaute.product
+	JOIN lisabeaute.brand
+	ON product.brand_id = brand.id 
+	WHERE product.name 
+	LIKE "%${search}%"
+	OR brand.name
+	LIKE "%${search}%"
+	LIMIT 8;`;
+
+	console.log(sql);
+	try {
+		const [results] = await dbConnection.execute(sql);
+		return results;
+	} catch (error) {
+		return error;
+	}
+};
+
 export {
 	getAllProducts,
 	getAllProductsSameType,
 	getAllProductsSameBrand,
 	getProduct,
 	getAllProductsPriceCroissant,
+	getProductsBySearch,
 };

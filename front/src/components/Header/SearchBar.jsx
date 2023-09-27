@@ -32,11 +32,23 @@ const SearchBar = () => {
 	const handleHideResult = () => {
 		setShowResult(false);
 	};
+	const handleChange = async () => {
+		// console.log(inputRef.current.value);
+		const requestProduct = new Request(
+			`http://localhost:3000/search?q=${inputRef.current.value}`,
+		);
 
+		const request = await fetch(requestProduct);
+
+		const response = await request.json();
+
+		setSearchResult(response.data);
+	};
 	//call api => afficher quand il aura le resultat, exemple 3s
 	useEffect(() => {
 		setTimeout(() => {
-			setSearchResult([]);
+			// setSearchResult([]);
+			setSearchResult(searchResult);
 			// / ajouter array pour essayer ["parfum Miss dior", "parfum Chanel", "parfum Hermes"]
 		}, 0);
 	}, []);
@@ -67,7 +79,7 @@ const SearchBar = () => {
 												key={crypto.randomUUID()}
 												className={cx("li-list-result")}
 											>
-												{productName}
+												{productName.name}
 											</li>
 										</ul>
 									</div>
@@ -80,15 +92,16 @@ const SearchBar = () => {
 			>
 				<div className={cx("search")}>
 					<input
-						value={searchValue}
+						// value={searchValue}
 						type="text"
 						placeholder="Rechercher un produit"
 						spellCheck={false}
 						className={cx("search-input")}
 						ref={inputRef}
-						onChange={(e) => {
-							setSearchValue(e.target.value);
-						}}
+						// onChange={(e) => {
+						// 	setSearchValue(e.target.value);
+						// }}
+						onChange={handleChange}
 					/>
 					{!!searchValue && (
 						<button className={cx("clear")} onClick={handleClear}>

@@ -6,12 +6,15 @@ import styles from "./ContactPage.module.css";
 import Button from "../components/Button/Button";
 import { postLoginUser } from "../services/userApi.js";
 import { SecurityContext } from "../context/SecurityContextProvider";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
 const LoginPage = () => {
 	const { user, setUser } = useContext(SecurityContext);
-
+	const [message, setMessage] = useState();
+	const navigate = useNavigate();
 	const {
 		handleSubmit,
 		watch,
@@ -20,20 +23,25 @@ const LoginPage = () => {
 	} = useForm();
 
 	const onSubmit = async (values) => {
-		// console.log(values);
 		const responseAPI = await postLoginUser(values);
-		console.log("responseAPI", responseAPI.data.lastName);
-		setUser(responseAPI.data);
-		// if (responseAPI.status === 200) {
-		// 	setUser(responseAPI.data);
-		// 	// setFlashMessage(response.message);
-		// 	// navigate("/");
-		// 	return;
-		// }
+		if (responseAPI.status === 200) {
+			console.log("responseAPI", responseAPI);
+			setUser(responseAPI.data);
+			window.sessionStorage.setItem("notice", "Vous êtes connecté");
+			if (responseAPI.data.role === "admin") {
+				navigate("/admin");
+			} else {
+				navigate("/EspacePersoClient");
+			}
+		} else {
+			setMessage("Identifiants invalides");
+			setTimeout(() => setMessage(), 5000);
+		}
 	};
 
 	useEffect(() => {
-		const subscription = watch((observer) => console.log(observer));
+		// const subscription = watch((observer) => console.log(observer));
+		const subscription = watch((observer) => null);
 
 		return () => subscription.unsubscribe();
 	}, [watch]);

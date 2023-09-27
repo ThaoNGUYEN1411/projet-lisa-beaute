@@ -52,6 +52,18 @@ const getAllProductsPriceCroissant = async () => {
 	return reponse;
 };
 
+const getAllProductsBySearch = async () => {
+	const requestProduct = new Request(
+		`http://localhost:3000/search?q=${inputRef.current.value}`,
+	);
+
+	const request = await fetch(requestProduct);
+
+	const response = await request.json();
+
+	// setSearchResult(response.data);
+	return response.data;
+};
 // const getAllProductsFilter = async () => {
 // 	const requestProducts = new Request(
 // 		"http://localhost:3000/produits?sort=${sort}",
@@ -67,4 +79,5 @@ export {
 	getAllProductsSameBrand,
 	getAllProductsSameType,
 	getAllProductsPriceCroissant,
+	getAllProductsBySearch,
 };

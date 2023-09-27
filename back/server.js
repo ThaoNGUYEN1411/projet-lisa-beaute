@@ -6,6 +6,7 @@ import brandRouter from "./routes/brandRouter.js";
 import categoryRouter from "./routes/categoryRouter.js";
 import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
+import searchRouter from "./routes/searchRouter.js";
 // import { postNewMessage } from "./services/api.message.js";
 
 const app = express();
@@ -21,6 +22,7 @@ router.use("/marques", brandRouter);
 router.use("/produits", productRouter);
 
 router.use("/user", userRouter);
+router.use("/search", searchRouter);
 
 router.post("/createNewMessage", async (req, res) => {
 	// const { email, sujet, contenu } = req.body;
