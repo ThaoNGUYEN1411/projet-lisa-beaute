@@ -30,7 +30,9 @@ const AsideEspacePersoClient = () => {
 					</Link>
 				</li>
 			</ul>
-			<Button primary>ME DECONNECTER</Button>
+			<Button primary to={"/logout"}>
+				ME DECONNECTER
+			</Button>
 		</aside>
 	);
 };

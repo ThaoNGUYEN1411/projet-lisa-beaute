@@ -18,6 +18,7 @@ import AdminProductPage from "../pages/admin/AdminProductPage";
 import AdminCategoryPage from "../pages/admin/AdminCategoryPage";
 import AdminBrandPage from "../pages/admin/AdminBrandPage";
 import RootLayoutAdmin from "../layouts/RootLayoutAdmin";
+import LogoutPage from "../pages/LogoutPage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
 			{
 				path: "login",
 				element: <LoginPage />,
+			},
+			{
+				path: "logout",
+				element: <LogoutPage />,
 			},
 			{
 				path: "users/registration",
