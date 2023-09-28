@@ -1,16 +1,16 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faCircleXmark,
-	faLocationDot,
 	faMagnifyingGlass,
-	faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
 
 import styles from "./Header.module.css";
 import WrapperPopper from "../Popper/WrapperPopper";
+import { getAllProductsBySearch } from "../../services/productsApi";
 
 const cx = classNames.bind(styles);
 
@@ -32,26 +32,18 @@ const SearchBar = () => {
 	const handleHideResult = () => {
 		setShowResult(false);
 	};
-	const handleChange = async () => {
-		// console.log(inputRef.current.value);
-		const requestProduct = new Request(
-			`http://localhost:3000/search?q=${inputRef.current.value}`,
-		);
 
-		const request = await fetch(requestProduct);
-
-		const response = await request.json();
-
-		setSearchResult(response.data);
-	};
-	//call api => afficher quand il aura le resultat, exemple 3s
 	useEffect(() => {
-		setTimeout(() => {
-			// setSearchResult([]);
-			setSearchResult(searchResult);
-			// / ajouter array pour essayer ["parfum Miss dior", "parfum Chanel", "parfum Hermes"]
-		}, 0);
-	}, []);
+		if (!searchValue.trim()) {
+			setSearchResult([]);
+			return;
+		}
+
+		getAllProductsBySearch(searchValue).then((res) => setSearchResult(res));
+		setShowResult(true);
+		console.log(searchResult);
+		//chaque lettre qui change, il appele api
+	}, [searchValue]);
 
 	return (
 		//utiliser tippyjs react props => headless
@@ -71,7 +63,7 @@ const SearchBar = () => {
 						<WrapperPopper>
 							{/*les resultats afficher ici */}
 
-							{searchResult.map((productName) => {
+							{searchResult.map((product) => {
 								return (
 									<div className={cx("list-result")} key={crypto.randomUUID()}>
 										<ul key={crypto.randomUUID()}>
@@ -79,7 +71,9 @@ const SearchBar = () => {
 												key={crypto.randomUUID()}
 												className={cx("li-list-result")}
 											>
-												{productName.name}
+												<Link to={`/produits/${product.id}`}>
+													{product.brand} {product.name}
+												</Link>
 											</li>
 										</ul>
 									</div>
@@ -92,23 +86,25 @@ const SearchBar = () => {
 			>
 				<div className={cx("search")}>
 					<input
-						// value={searchValue}
+						value={searchValue}
 						type="text"
 						placeholder="Rechercher un produit"
 						spellCheck={false}
 						className={cx("search-input")}
 						ref={inputRef}
-						// onChange={(e) => {
-						// 	setSearchValue(e.target.value);
-						// }}
-						onChange={handleChange}
+						onChange={(e) => {
+							setSearchValue(e.target.value);
+						}}
+						onFocus={() => setShowResult(true)}
 					/>
 					{!!searchValue && (
+						// rome-ignore lint/a11y/useButtonType: <explanation>
 						<button className={cx("clear")} onClick={handleClear}>
 							<FontAwesomeIcon icon={faCircleXmark} />
 						</button>
 					)}
 
+					{/* rome-ignore lint/a11y/useButtonType: <explanation> */}
 					<button className={cx("search-btn")}>
 						<FontAwesomeIcon icon={faMagnifyingGlass} />
 					</button>

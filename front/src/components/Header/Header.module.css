@@ -74,9 +74,11 @@
   caret-color: var(--primary);
   background-color: transparent;
 }
-
+.search-input:focus{
+  border: none;
+}
 .search-input:not(:placeholder-shown) ~ .search-btn {
-  color: rgba(22, 24, 35, 0.75);
+  color: rgba(4, 5, 7, 0.75);
 }
 
 .clear,
@@ -109,6 +111,7 @@
 .li-list-result {
   padding: 6px 16px;
   cursor: pointer;
+  /* text-transform: capitalize; */
 }
 .li-list-result:hover {
   background: rgba(22, 24, 35, 0.03);

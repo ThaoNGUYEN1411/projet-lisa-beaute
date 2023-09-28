@@ -52,10 +52,8 @@ const getAllProductsPriceCroissant = async () => {
 	return reponse;
 };
 
-const getAllProductsBySearch = async () => {
-	const requestProduct = new Request(
-		`http://localhost:3000/search?q=${inputRef.current.value}`,
-	);
+const getAllProductsBySearch = async (value) => {
+	const requestProduct = new Request(`http://localhost:3000/search?q=${value}`);
 
 	const request = await fetch(requestProduct);
 

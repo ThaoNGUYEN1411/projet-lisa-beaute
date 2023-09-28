@@ -102,7 +102,7 @@ const getAllProductsPriceCroissant = async () => {
 };
 
 const getProductsBySearch = async (search) => {
-	const sql = `SELECT product.name, brand.name AS brand
+	const sql = `SELECT product.id, product.name, brand.name AS brand
 	FROM lisabeaute.product
 	JOIN lisabeaute.brand
 	ON product.brand_id = brand.id 
