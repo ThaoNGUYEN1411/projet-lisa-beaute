@@ -6,7 +6,7 @@ import styles from "./Navbar.module.css";
 import WrapperPopper from "../../Popper/WrapperPopper";
 import getAllBrands from "../../../services/allBrandsApi";
 import { useEffect, useState } from "react";
-import getAllCategories from "../../../services/allCategoriesApi";
+import { getAllCategories } from "../../../services/allCategoriesApi";
 
 const cx = classNames.bind(styles);
 

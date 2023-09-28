@@ -14,11 +14,13 @@ import EspacePersoClientPage from "../pages/EspacePersoClientPage";
 import WishlistPage from "../pages/WishlistPage";
 import Guard from "../components/ComponentsAdmin/Guard";
 import AdminHomePage from "../pages/admin/AdminHomePage";
-import AdminProductPage from "../pages/admin/AdminProductPage";
-import AdminCategoryPage from "../pages/admin/AdminCategoryPage";
-import AdminBrandPage from "../pages/admin/AdminBrandPage";
+// import AdminBrandPage from "../pages/admin/brands/AdminBrandPage";
 import RootLayoutAdmin from "../layouts/RootLayoutAdmin";
 import LogoutPage from "../pages/LogoutPage";
+import AdminCategoryPage from "../pages/admin/categories/AdminCategoryPage";
+import AdminProductPage from "../pages/admin/products/AdminProductPage";
+import AdminBrandPage from "../pages/admin/brands/AdminBrandPage";
+import AdminCategoryFormPage from "../pages/admin/categories/AdminCategoryFormPage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -105,13 +107,21 @@ const router = createBrowserRouter([
 				path: "",
 				element: <AdminHomePage />,
 			},
+			// {
+			// 	path: "produits",
+			// 	element: <AdminProductPage />,
+			// },
 			{
 				path: "produits",
-				element: <AdminProductPage />,
+				element: <AdminCategoryFormPage />,
 			},
 			{
-				path: "categories",
+				path: "categories/:id?",
 				element: <AdminCategoryPage />,
+			},
+			{
+				path: "categories/:id?/form",
+				element: <AdminCategoryFormPage />,
 			},
 			{
 				path: "marques",

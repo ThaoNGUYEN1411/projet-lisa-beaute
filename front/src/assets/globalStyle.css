@@ -71,3 +71,6 @@ li{
   input:focus{
     border: 1px solid var(--input-focus-color);
   }
+.message-danger{
+    color: var(--red);
+}

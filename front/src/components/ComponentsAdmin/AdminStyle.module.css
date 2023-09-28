@@ -1,0 +1,60 @@
+.ad-nav{
+    height: 60px;
+    width: 100%;
+    background: #5eacef;
+    box-shadow: 0px 5px 0px 0px rgba(176, 178, 178, 0.2);;
+}
+.nav-item{
+    padding:0 4rem ;
+    align-items: center;
+    line-height: 60px;
+  }
+.nav-item:hover{
+    color: var(--red);
+}
+.td{
+    padding: 1rem 3rem;
+
+}
+.table, .td, .tr{
+    border: 1px solid #333;
+
+}
+.table{
+  margin-top: 1.5rem;
+}
+.ad-title {
+    padding: 2.5rem 3rem;
+    /* background-color: rgb(255, 230, 201); */
+  }
+  
+  .title {
+    text-transform: uppercase;
+  }
+
+  .admin-bloc{
+    margin: 3rem;
+  }
+  .admin-title{
+    /* color: green; */
+    /* background: rgb(246, 222, 155); */
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
+  
+  .admin-title:hover{
+    color: var(--red);
+    background: rgb(192, 187, 187);
+  }
+.ad-btn{
+  color: #0886f4;
+}
+.ad-btn:hover{
+  color:var(--red);
+}
+.back-btn{
+  padding: 0.5rem 2rem;
+}
+.ad-input{
+  border: 1px solid #333;
+}

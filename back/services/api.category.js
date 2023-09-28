@@ -14,4 +14,21 @@ const getAllCategories = async () => {
 	}
 };
 
-export { getAllCategories };
+const deleteCategory = async (req, res) => {
+	const sql = `
+	DELETE FROM lisabeaute.category
+	WHERE category.id = :id;
+    `;
+
+	try {
+		console.log(req);
+		const [results] = await dbConnection.execute(sql, req.body);
+		// console.log("Ok");
+		return results;
+	} catch (error) {
+		console.log(error);
+
+		return error;
+	}
+};
+export { getAllCategories, deleteCategory };

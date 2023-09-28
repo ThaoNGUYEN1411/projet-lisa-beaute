@@ -1,18 +1,25 @@
 import { Link } from "react-router-dom";
-// import classNames from "classnames/bind";
-import styles from "../Header/Navbar/Navbar.module.css";
-// import styles from "../../components/"
-// /home/thaonguyen/workspace/projet-lisa-beaute/front/src/components/Header/Navbar/Navbar.module.css
-// /home/thaonguyen/workspace/projet-lisa-beaute/front/src/components/ComponentsAdmin/NavbarAdmin.jsx
-// const cx = classNames.bind(styles);
+import classNames from "classnames/bind";
+// import styles from "../Header/Navbar/Navbar.module.css";
+import styles from "../ComponentsAdmin/AdminStyle.module.css";
+
+const cx = classNames.bind(styles);
 
 const NavbarAdmin = () => {
 	return (
-		<nav>
-			<Link to={"/produits"}>Produits</Link>
-			<Link to={"/categories"}>Catégories</Link>
-			<Link to={"/marques"}>Marques</Link>
-		</nav>
+		<div className={cx("ad-nav")}>
+			<nav className={cx("grid wide")}>
+				<Link to={"/produits"} className={cx("nav-item")}>
+					Produits
+				</Link>
+				<Link to={"/categories"} className={cx("nav-item")}>
+					Catégories
+				</Link>
+				<Link to={"/marques"} className={cx("nav-item")}>
+					Marques
+				</Link>
+			</nav>
+		</div>
 	);
 };
 

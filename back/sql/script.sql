@@ -97,7 +97,8 @@ VALUES
     (NULL,  "Maquillage"),
     (NULL,  "Soin"),
     (NULL,  "Nouveauté"),
-    (NULL,  "Bio")
+    (NULL,  "Bio"),
+    (NULL,  "CatTest")
     ;
 
 INSERT INTO lisabeaute.brand

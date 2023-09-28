@@ -3,7 +3,7 @@ import styles from "./AsideProductsPage.module.css";
 import Dropdown from "../Dropdown/Dropdown";
 import { useEffect, useState } from "react";
 import getAllBrands from "../../services/allBrandsApi";
-import getAllCategories from "../../services/allCategoriesApi";
+import { getAllCategories } from "../../services/allCategoriesApi";
 
 const cx = classNames.bind(styles);
 
