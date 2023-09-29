@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteCategory, getAllCategories } from "../services/api.category.js";
+import { getAllCategories } from "../services/api.category.js";
 import dbConnection from "../services/dbConnection.js";
 
 const categoryRouter = express.Router();

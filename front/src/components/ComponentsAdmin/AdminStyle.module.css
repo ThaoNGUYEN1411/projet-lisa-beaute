@@ -1,13 +1,14 @@
 .ad-nav{
-    height: 60px;
+    height: 80px;
     width: 100%;
     background: #5eacef;
-    box-shadow: 0px 5px 0px 0px rgba(176, 178, 178, 0.2);;
+    box-shadow: 0px 5px 0px 0px rgba(176, 178, 178, 0.2);
+    display: flex;
 }
 .nav-item{
     padding:0 4rem ;
     align-items: center;
-    line-height: 60px;
+    line-height: 80px;
   }
 .nav-item:hover{
     color: var(--red);
@@ -57,4 +58,13 @@
 }
 .ad-input{
   border: 1px solid #333;
+}
+
+.logo {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  width: var(--logo-width);
+  height: auto;
+  /* align-items: center; */
+  line-height: 80px;
 }

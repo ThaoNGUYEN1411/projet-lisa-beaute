@@ -37,6 +37,7 @@ const AdminListCaterories = () => {
 			setTimeout(() => setMessage(null), 5000);
 		}
 	});
+
 	// supprimer un caterogy
 	const handleClick = async (id) => {
 		console.log(id);
@@ -50,6 +51,7 @@ const AdminListCaterories = () => {
 
 		setForceUpdate(!forceUpdate);
 	};
+
 	return (
 		<>
 			<div className={cx("admin-bloc", "text-center")}>

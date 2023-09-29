@@ -37,6 +37,7 @@ const AdminCategoryForm = () => {
 		// préremplir le formulaire avec un élève existant
 		prefillForm();
 	}, []);
+
 	// préremplir le formulaire avec un élève existant
 	const prefillForm = async () => {
 		if (id) {
@@ -49,6 +50,7 @@ const AdminCategoryForm = () => {
 			});
 		}
 	};
+
 	useEffect(() => {
 		// const subscription = watch((observer) => console.log(observer));
 		const subscription = watch((observer) => null);
@@ -72,6 +74,7 @@ const AdminCategoryForm = () => {
 		}
 		navigate("/admin/categories");
 	};
+
 	return (
 		<>
 			<form onSubmit={handleSubmit(onSubmit)}>

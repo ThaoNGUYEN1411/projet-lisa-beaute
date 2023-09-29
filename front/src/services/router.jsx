@@ -21,6 +21,8 @@ import AdminCategoryPage from "../pages/admin/categories/AdminCategoryPage";
 import AdminProductPage from "../pages/admin/products/AdminProductPage";
 import AdminBrandPage from "../pages/admin/brands/AdminBrandPage";
 import AdminCategoryFormPage from "../pages/admin/categories/AdminCategoryFormPage";
+import AdminMessagesPage from "../pages/admin/messages/AdminMessagesPage";
+import AdminBlogPage from "../pages/admin/blog/AdminBlogPage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -107,14 +109,14 @@ const router = createBrowserRouter([
 				path: "",
 				element: <AdminHomePage />,
 			},
-			// {
-			// 	path: "produits",
-			// 	element: <AdminProductPage />,
-			// },
 			{
 				path: "produits",
-				element: <AdminCategoryFormPage />,
+				element: <AdminProductPage />,
 			},
+			// {
+			// 	path: "produits",
+			// 	element: <AdminCategoryFormPage />,
+			// },
 			{
 				path: "categories/:id?",
 				element: <AdminCategoryPage />,
@@ -126,6 +128,14 @@ const router = createBrowserRouter([
 			{
 				path: "marques",
 				element: <AdminBrandPage />,
+			},
+			{
+				path: "messages",
+				element: <AdminMessagesPage />,
+			},
+			{
+				path: "blog",
+				element: <AdminBlogPage />,
 			},
 		],
 	},
