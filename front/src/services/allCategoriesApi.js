@@ -35,4 +35,34 @@ const createCategory = async (values) => {
 	console.log(response);
 	return response;
 };
-export { getAllCategories, deleteCategory, createCategory };
+
+const updateCategory = async (values) => {
+	const requestInfos = new Request("http://localhost:3000/categories/update", {
+		method: "put",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(values),
+	});
+	const request = await fetch(requestInfos);
+	const response = await request.json();
+	// console.log(response);
+	return response;
+};
+
+const getCategoryById = async (id) => {
+	const requestInfos = new Request(`http://localhost:3000/categories/${id}`, {
+		method: "get",
+	});
+	const request = await fetch(requestInfos);
+	const response = await request.json();
+	console.log(response);
+	return response;
+};
+export {
+	getAllCategories,
+	deleteCategory,
+	createCategory,
+	updateCategory,
+	getCategoryById,
+};

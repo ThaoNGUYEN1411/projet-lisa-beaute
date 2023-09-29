@@ -4,7 +4,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
 import { useEffect, useState } from "react";
-import { createCategory } from "../../services/allCategoriesApi";
+import {
+	createCategory,
+	getCategoryById,
+	updateCategory,
+} from "../../services/allCategoriesApi";
 const cx = classNames.bind(styles);
 
 const AdminCategoryForm = () => {
@@ -26,7 +30,7 @@ const AdminCategoryForm = () => {
 		const allPromises = Promise.allSettled([setCategory()]);
 
 		allPromises.then((results) => {
-			setClassrooms(results[0].value.data);
+			setCategory(results[0].data);
 			console.log(results);
 		});
 
@@ -37,12 +41,11 @@ const AdminCategoryForm = () => {
 	const prefillForm = async () => {
 		if (id) {
 			// console.log(id);
-			const responseAPI = await getCategoryByID(id);
-			const student = responseAPI.data;
-			// console.log(student);
+			const responseAPI = await getCategoryById(id);
+			const category = responseAPI.data;
 			reset({
-				id: student.id,
-				name: student.firstname,
+				id: category.id,
+				name: category.name,
 			});
 		}
 	};
@@ -54,7 +57,9 @@ const AdminCategoryForm = () => {
 
 	const onSubmit = async (values) => {
 		// console.log(values);
-		const responseAPI = id ? console.log(id) : await createCategory(values);
+		const responseAPI = id
+			? await updateCategory(values)
+			: await createCategory(values);
 
 		if (responseAPI.status === 200) {
 			window.sessionStorage.setItem(
