@@ -31,7 +31,7 @@ const AdminCategoryForm = () => {
 
 		allPromises.then((results) => {
 			setCategory(results[0].data);
-			console.log(results);
+			// console.log(results);
 		});
 
 		// préremplir le formulaire avec un élève existant
@@ -50,7 +50,8 @@ const AdminCategoryForm = () => {
 		}
 	};
 	useEffect(() => {
-		const subscription = watch((observer) => console.log(observer));
+		// const subscription = watch((observer) => console.log(observer));
+		const subscription = watch((observer) => null);
 
 		return () => subscription.unsubscribe();
 	}, [watch]);

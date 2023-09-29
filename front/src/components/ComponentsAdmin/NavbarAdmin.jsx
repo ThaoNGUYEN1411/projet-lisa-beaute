@@ -9,13 +9,13 @@ const NavbarAdmin = () => {
 	return (
 		<div className={cx("ad-nav")}>
 			<nav className={cx("grid wide")}>
-				<Link to={"/produits"} className={cx("nav-item")}>
+				<Link to={"/admin/produits"} className={cx("nav-item")}>
 					Produits
 				</Link>
-				<Link to={"/categories"} className={cx("nav-item")}>
+				<Link to={"/admin/categories"} className={cx("nav-item")}>
 					Catégories
 				</Link>
-				<Link to={"/marques"} className={cx("nav-item")}>
+				<Link to={"/admin/marques"} className={cx("nav-item")}>
 					Marques
 				</Link>
 			</nav>
