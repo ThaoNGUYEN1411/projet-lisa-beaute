@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createCategory } from "../../services/allCategoriesApi";
 const cx = classNames.bind(styles);
 
 const AdminCategoryForm = () => {
 	const { id } = useParams();
+	const [category, setCategory] = useState([]);
 
 	const {
 		formState: { errors },
@@ -20,31 +21,31 @@ const AdminCategoryForm = () => {
 
 	// importer le hook de redirection
 	const navigate = useNavigate();
-	useEffect(() => {});
-	// useEffect(() => {
-	// 	const allPromises = Promise.allSettled([getClassrooms()]);
 
-	// 	allPromises.then((results) => {
-	// 		setClassrooms(results[0].value.data);
-	// 		console.log(results);
-	// 	});
+	useEffect(() => {
+		const allPromises = Promise.allSettled([setCategory()]);
 
-	// 	// préremplir le formulaire avec un élève existant
-	// 	prefillForm();
-	// }, []);
+		allPromises.then((results) => {
+			setClassrooms(results[0].value.data);
+			console.log(results);
+		});
+
+		// préremplir le formulaire avec un élève existant
+		prefillForm();
+	}, []);
 	// préremplir le formulaire avec un élève existant
-	// const prefillForm = async () => {
-	// 	if (id) {
-	// 		// console.log(id);
-	// 		const responseAPI = await getStudentsByID(id);
-	// 		const student = responseAPI.data;
-	// 		// console.log(student);
-	// 		reset({
-	// 			id: student.id,
-	// 			name: student.firstname,
-	// 		});
-	// 	}
-	// };
+	const prefillForm = async () => {
+		if (id) {
+			// console.log(id);
+			const responseAPI = await getCategoryByID(id);
+			const student = responseAPI.data;
+			// console.log(student);
+			reset({
+				id: student.id,
+				name: student.firstname,
+			});
+		}
+	};
 	useEffect(() => {
 		const subscription = watch((observer) => console.log(observer));
 

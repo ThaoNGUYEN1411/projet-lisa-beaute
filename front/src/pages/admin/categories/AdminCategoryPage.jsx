@@ -11,15 +11,16 @@ const AdminCategoryPage = () => {
 			<div className={cx("ad-title")}>
 				<h1 className={cx("title")}>Admin Categories</h1>
 			</div>
+			<AdminListCaterories />
+			{/* 
 			<div className={cx("admin-bloc", "text-center")}>
-				<Button primary to="/categories/form">
+				<Button primary to={`/admin/categories/${value.id}/form`}>
 					Ajouter une nouvelle catégorie{" "}
 				</Button>
 			</div>
 			<section>
 				<h2>La list de catégories</h2>
-				<AdminListCaterories />
-			</section>
+			</section> */}
 		</div>
 	);
 };

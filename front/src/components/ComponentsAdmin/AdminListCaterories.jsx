@@ -8,6 +8,7 @@ import {
 } from "../../services/allCategoriesApi";
 import classNames from "classnames/bind";
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
+import Button from "../Button/Button";
 const cx = classNames.bind(styles);
 
 const AdminListCaterories = () => {
@@ -51,46 +52,59 @@ const AdminListCaterories = () => {
 	};
 	return (
 		<>
-			<p>{message}</p>
-			<table className={cx("table")}>
-				<thead>
-					<tr className={cx("tr")}>
-						<td className={cx("td")}>id</td>
-						<td className={cx("td")}>Nom</td>
-						<td className={cx("td")}>Modifier</td>
-						<td className={cx("td")}>Supprimer</td>
+			<div className={cx("admin-bloc", "text-center")}>
+				<Button primary to={"/admin/categories/form"}>
+					Ajouter une nouvelle catégorie
+				</Button>
+			</div>
+			<section>
+				<h2>La list de catégories</h2>
+				{/* <AdminListCaterories /> */}
 
-						{/* <td> </td> */}
-					</tr>
-				</thead>
-				<tbody>
-					{categories.map((value) => (
-						<tr className={cx("tr")} key={crypto.randomUUID()}>
-							<td className={cx("td")}>{value.id}</td>
-							<td className={cx("td")}>{`${value.name}`}</td>
+				<p>{message}</p>
+				<table className={cx("table")}>
+					<thead>
+						<tr className={cx("tr")}>
+							<td className={cx("td")}>id</td>
+							<td className={cx("td")}>Nom</td>
+							<td className={cx("td")}>Modifier</td>
+							<td className={cx("td")}>Supprimer</td>
 
-							<td className={cx("td")}>
-								<Link to={`/admin/categories/${value.id}/form`}>
-									<FontAwesomeIcon
-										icon={faPenToSquare}
-										className={cx("ad-btn")}
-									/>
-								</Link>
-							</td>
-							<td className={cx("td")}>
-								<Link
-									onClick={() => {
-										handleClick(value.id);
-										console.log(value.id);
-									}}
-								>
-									<FontAwesomeIcon icon={faTrashAlt} className={cx("ad-btn")} />
-								</Link>
-							</td>
+							{/* <td> </td> */}
 						</tr>
-					))}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{categories.map((value) => (
+							<tr className={cx("tr")} key={crypto.randomUUID()}>
+								<td className={cx("td")}>{value.id}</td>
+								<td className={cx("td")}>{`${value.name}`}</td>
+
+								<td className={cx("td")}>
+									<Link to={`/admin/categories/${value.id}/form`}>
+										<FontAwesomeIcon
+											icon={faPenToSquare}
+											className={cx("ad-btn")}
+										/>
+									</Link>
+								</td>
+								<td className={cx("td")}>
+									<Link
+										onClick={() => {
+											handleClick(value.id);
+											console.log(value.id);
+										}}
+									>
+										<FontAwesomeIcon
+											icon={faTrashAlt}
+											className={cx("ad-btn")}
+										/>
+									</Link>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</section>
 		</>
 	);
 };
