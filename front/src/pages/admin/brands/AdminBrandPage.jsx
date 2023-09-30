@@ -8,7 +8,7 @@ const AdminBrandPage = () => {
 	return (
 		<div className={cx("grid wide")}>
 			<div className={cx("ad-title")}>
-				<h1 className={cx("title")}>Admin Categories</h1>
+				<h1 className={cx("title")}>Administration des Marques</h1>
 			</div>
 			<AdminListBrands />
 		</div>

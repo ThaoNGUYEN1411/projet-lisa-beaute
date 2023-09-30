@@ -9,34 +9,47 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import Button from "../components/Button/Button";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Product from "../components/Product/Product";
-import ProductsPage from "./ProductsPage";
+import { useEffect, useRef, useState } from "react";
+import { createNewMessage } from "../services/messageApi";
+import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 const ContactPage = () => {
 	const [infosMessage, setInfosMessage] = useState();
-
+	const [message, setMessage] = useState();
+	const navigate = useNavigate();
+	// const refForm = useRef();
 	const {
 		handleSubmit,
 		watch,
 		register,
 		formState: { isValid, isSubmitted, submitCount, errors },
+		reset,
 	} = useForm();
 
-	const onSubmit = (info) => {
+	const onSubmit = async (info) => {
 		console.log(info);
-		// setInfosMessage(info);
-		// axios
-		// 	.post("http://localhost:3000/createNewMessage", infosMessage)
-		// 	.then((response) => console.log("response", response))
-		// 	.catch((error) => console.log("error", error));
+		const response = await createNewMessage(info);
+
+		if (response.status === 200) {
+			window.sessionStorage.setItem("notice", "Votre message a été envoyé");
+		} else {
+			window.sessionStorage.setItem("notice", "Error");
+		}
+		navigate("/contact");
+		reset();
 	};
 
 	useEffect(() => {
-		const subscription = watch((observer) => console.log(observer));
+		if (window.sessionStorage.getItem("notice")) {
+			setMessage(window.sessionStorage.getItem("notice"));
+		}
+	}, []);
+
+	useEffect(() => {
+		// const subscription = watch((observer) => console.log(observer));
+		const subscription = watch((observer) => null);
 
 		return () => subscription.unsubscribe();
 	}, [watch]);
@@ -79,7 +92,7 @@ const ContactPage = () => {
 				<h2 className={cx("text-center", "title-form")}>
 					Envoyez nous un message
 				</h2>
-
+				<p>{message}</p>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className={cx("contact-bloc", "row")}>
 						<p className={cx("contact-info", "l-12", "m-12", "c-12")}>
