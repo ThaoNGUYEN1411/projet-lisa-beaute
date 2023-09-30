@@ -25,7 +25,7 @@ router.use("/produits", productRouter);
 router.use("/user", userRouter);
 router.use("/search", searchRouter);
 
-router.use("/createNewMessage", messageRouter);
+router.use("/messages", messageRouter);
 
 // router.post("/createNewMessage", async (req, res) => {
 // 	// const { email, sujet, contenu } = req.body;

@@ -1,47 +1,47 @@
-import dbConnection from "./dbConnection.js";
+// import dbConnection from "./dbConnection.js";
 
-const postNewMessage = async (newMessage) => {
-	// const { sujet, lastName, firstName, email, message } = newMessage;
+// const postNewMessage = async (newMessage) => {
+// 	// const { sujet, lastName, firstName, email, message } = newMessage;
 
-	// console.log("newMEssage", newMessage);
+// 	// console.log("newMEssage", newMessage);
 
-	const sql = `
-    INSERT INTO lisabeaute.message
-    VALUES
-    (NULL, :sujet, :lastName, :firstName, :email, :messageContent)
-    `;
+// 	const sql = `
+//     INSERT INTO lisabeaute.message
+//     VALUES
+//     (NULL, :sujet, :lastName, :firstName, :email, :messageContent)
+//     `;
 
-	dbConnection.query(
-		sql,
-		[
-			newMessage.id,
-			newMessage.sujet,
-			newMessage.lastName,
-			newMessage.firstName,
-			newMessage.email,
-			newMessage.messageContent,
-		],
-		(err, result) => {
-			if (err) {
-				console.error("Error inserting message: ", err);
-				res.status(500).json({ errno: "Error inserting message" });
-				return;
-			}
-			console.log("Product added successfully");
-			return result;
-		},
-	);
-};
-
-// const newMessage = {
-// 	id: 1,
-// 	sujet: "publicité",
-// 	lastName: "ha",
-// 	firstName: "ha",
-// 	email: "ha@gmail.com",
-// 	messageContent: "message",
+// 	dbConnection.query(
+// 		sql,
+// 		[
+// 			newMessage.id,
+// 			newMessage.sujet,
+// 			newMessage.lastName,
+// 			newMessage.firstName,
+// 			newMessage.email,
+// 			newMessage.messageContent,
+// 		],
+// 		(err, result) => {
+// 			if (err) {
+// 				console.error("Error inserting message: ", err);
+// 				res.status(500).json({ errno: "Error inserting message" });
+// 				return;
+// 			}
+// 			console.log("Product added successfully");
+// 			return result;
+// 		},
+// 	);
 // };
 
-// console.log("test", postNewMessage(newMessage));
+// // const newMessage = {
+// // 	id: 1,
+// // 	sujet: "publicité",
+// // 	lastName: "ha",
+// // 	firstName: "ha",
+// // 	email: "ha@gmail.com",
+// // 	messageContent: "message",
+// // };
 
-export { postNewMessage };
+// // console.log("test", postNewMessage(newMessage));
+
+// export { postNewMessage };

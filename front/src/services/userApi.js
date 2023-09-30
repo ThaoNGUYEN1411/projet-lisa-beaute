@@ -35,4 +35,17 @@ const postLoginUser = async (values) => {
 	//renvoyer la réponse
 	return reponse;
 };
-export { postCreateUser, postLoginUser };
+
+const getWishlistOfUser = async (id) => {
+	const requestProduct = new Request(
+		`http://localhost:3000/user/Wishlist/${id}`,
+	);
+
+	const request = await fetch(requestProduct);
+
+	const response = await request.json();
+
+	return response.data;
+};
+
+export { postCreateUser, postLoginUser, getWishlistOfUser };

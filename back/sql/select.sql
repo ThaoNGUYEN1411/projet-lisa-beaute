@@ -16,16 +16,25 @@
 -- ;
 
 -- 1 selectionner les produits préféré d'un utilisateur
--- SELECT user.firstName, user.lastName, 
--- GROUP_CONCAT(product.name) AS favorite_products
--- FROM lisabeaute.user
--- JOIN lisabeaute.product
--- JOIN lisabeaute.user_product
--- ON user_product.product_id = product.id
--- AND user_product.user_id = user.id 
--- GROUP BY 
--- user.firstName, user.lastName
--- ;
+SELECT user.firstName, user.lastName, 
+GROUP_CONCAT(product.name) AS favorite_products
+FROM lisabeaute.user
+JOIN lisabeaute.product
+JOIN lisabeaute.user_product
+ON user_product.product_id = product.id
+AND user_product.user_id = user.id 
+GROUP BY 
+user.firstName, user.lastName
+;
+
+SELECT product.*
+FROM lisabeaute.product
+JOIN lisabeaute.user
+JOIN lisabeaute.user_product
+ON user_product.product_id = product.id
+AND user_product.user_id = user.id 
+WHERE user.id = 1
+;
 
 -- Sélectionner les commentaires qu'un utilisateur a laissés sur un produit.
 -- SELECT product.name, user.lastName, comment.content, comment.time
@@ -92,10 +101,10 @@
 --     ;
 
 -- Sélectionner les produits trier selon le prix croissant ou  décroissant
-SELECT product.name, product.price,
-		brand.name AS brand_name
-	FROM lisabeaute.product
-	JOIN lisabeaute.brand
-	ON product.brand_id = brand.id 
-    ORDER BY product.price DESC;
-    -- ASC 
+-- SELECT product.name, product.price,
+-- 		brand.name AS brand_name
+-- 	FROM lisabeaute.product
+-- 	JOIN lisabeaute.brand
+-- 	ON product.brand_id = brand.id 
+--     ORDER BY product.price DESC;
+--     -- ASC 

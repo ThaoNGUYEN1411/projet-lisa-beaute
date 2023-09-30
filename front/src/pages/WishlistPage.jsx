@@ -2,24 +2,23 @@ import classNames from "classnames/bind";
 // import styles from "./EspacePersoClientPage.module.css";
 import styles from "./ProductsPage.module.css";
 import Product from "../components/Product/Product";
-import { useEffect, useState } from "react";
-import { getAllproducts } from "../services/productsApi";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AsideEspacePersoClient from "../components/AsideEspacePersoClient/AsideEspacePersoClient";
+import { SecurityContext } from "../context/SecurityContextProvider";
+import { getWishlistOfUser } from "../services/userApi";
 const cx = classNames.bind(styles);
 
 const WishlistPage = () => {
 	const [products, setProducts] = useState([]);
-	// const isCroissant = true;
+	const { user, setUser } = useContext(SecurityContext);
 
-	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
-
-	useEffect((sort = "") => {
-		//recupérer des données de l'API
-		getAllproducts(sort).then((data) => {
-			setProducts(data.data);
+	useEffect(() => {
+		getWishlistOfUser(user?.id).then((data) => {
+			setProducts(data);
 		});
 	}, []);
+
 	return (
 		<div className={cx("grid", "wide")}>
 			<div className={cx("prod-title")}>
@@ -29,7 +28,7 @@ const WishlistPage = () => {
 				<AsideEspacePersoClient />
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
-						{products.map((product) => {
+						{products?.map((product) => {
 							return (
 								<article
 									className={cx("prod", "col", "l-3", "m-4", "c-6")}

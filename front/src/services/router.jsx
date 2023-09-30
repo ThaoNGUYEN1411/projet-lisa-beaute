@@ -139,7 +139,7 @@ const router = createBrowserRouter([
 				element: <AdminBrandFormPage />,
 			},
 			{
-				path: "messages",
+				path: "messages/:id?",
 				element: <AdminMessagesPage />,
 			},
 			{

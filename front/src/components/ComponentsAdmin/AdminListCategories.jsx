@@ -11,7 +11,7 @@ import styles from "../ComponentsAdmin/AdminStyle.module.css";
 import Button from "../Button/Button";
 const cx = classNames.bind(styles);
 
-const AdminListCaterories = () => {
+const AdminListCategories = () => {
 	const [categories, setCategories] = useState([]);
 	const [forceUpdate, setForceUpdate] = useState(false);
 	const [message, setMessage] = useState();
@@ -61,7 +61,7 @@ const AdminListCaterories = () => {
 			</div>
 			<section>
 				<h2>La list de catégories</h2>
-				{/* <AdminListCaterories /> */}
+				{/* <AdminListCategories /> */}
 
 				<p>{message}</p>
 				<table className={cx("table")}>
@@ -111,4 +111,4 @@ const AdminListCaterories = () => {
 	);
 };
 
-export default AdminListCaterories;
+export default AdminListCategories;

@@ -57,4 +57,34 @@ userRouter.post("/login", async (req, res) => {
 	}
 });
 
+userRouter.get("/Wishlist/:id", async (req, res) => {
+	const { id } = req.params;
+	const query = `
+	SELECT product.*
+	FROM lisabeaute.product
+	JOIN lisabeaute.user
+	JOIN lisabeaute.user_product
+	ON user_product.product_id = product.id
+	AND user_product.user_id = user.id 
+	WHERE user.id = :id
+	;
+	`;
+	try {
+		// const [results] = await dbConnection.execute(query, { id: 1 });
+		const [results] = await dbConnection.execute(query, req.params);
+		console.log("results", results);
+		return res.status(200).json({
+			status: 200,
+			message: "OK",
+			// shift : récupérer le premier indice d'un array
+			data: results,
+		});
+	} catch (error) {
+		// renvoyer une erreur
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+});
 export default userRouter;
