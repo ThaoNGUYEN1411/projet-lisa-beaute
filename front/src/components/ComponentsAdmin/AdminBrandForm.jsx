@@ -2,20 +2,20 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
+import { useEffect, useState } from "react";
 
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
-import { useEffect, useState } from "react";
 import {
-	createCategory,
-	getCategoryById,
-	updateCategory,
-} from "../../services/allCategoriesApi";
+	createBrands,
+	getBrandsById,
+	updateBrands,
+} from "../../services/allBrandsApi";
 
 const cx = classNames.bind(styles);
 
-const AdminCategoryForm = () => {
+const AdminBrandForm = () => {
 	const { id } = useParams();
-	const [category, setCategory] = useState([]);
+	const [brand, setBrand] = useState([]);
 
 	const {
 		formState: { errors },
@@ -29,10 +29,10 @@ const AdminCategoryForm = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const allPromises = Promise.allSettled([setCategory()]);
+		const allPromises = Promise.allSettled([setBrand()]);
 
 		allPromises.then((results) => {
-			setCategory(results[0].data);
+			setBrand(results[0].data);
 			// console.log(results);
 		});
 
@@ -43,12 +43,12 @@ const AdminCategoryForm = () => {
 	// préremplir le formulaire avec un élève existant
 	const prefillForm = async () => {
 		if (id) {
-			// console.log(id);
-			const responseAPI = await getCategoryById(id);
-			const category = responseAPI.data;
+			console.log(id);
+			const responseAPI = await getBrandsById(id);
+			const brand = responseAPI.data;
 			reset({
-				id: category.id,
-				name: category.name,
+				id: brand.id,
+				name: brand.name,
 			});
 		}
 	};
@@ -63,18 +63,18 @@ const AdminCategoryForm = () => {
 	const onSubmit = async (values) => {
 		// console.log(values);
 		const responseAPI = id
-			? await updateCategory(values)
-			: await createCategory(values);
+			? await updateBrands(values)
+			: await createBrands(values);
 
 		if (responseAPI.status === 200) {
 			window.sessionStorage.setItem(
 				"notice",
-				id ? "Catégorie mise à jour" : "Catégorie créée",
+				id ? "Marque mise à jour" : "Marque créée",
 			);
 		} else {
 			window.sessionStorage.setItem("notice", "Error");
 		}
-		navigate("/admin/categories");
+		navigate("/admin/marques");
 	};
 
 	return (
@@ -96,7 +96,7 @@ const AdminCategoryForm = () => {
 						className={cx("ad-input")}
 						type="text"
 						{...register("name", {
-							required: "Le nom de la catégorie est requis.",
+							required: "Le nom de la marques est requis.",
 						})}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
@@ -109,7 +109,7 @@ const AdminCategoryForm = () => {
 				</p>
 			</form>
 			<p>
-				<Link to={"/admin/categories"} className={cx("back-btn")}>
+				<Link to={"/admin/marques"} className={cx("back-btn")}>
 					Back
 				</Link>
 			</p>
@@ -117,4 +117,4 @@ const AdminCategoryForm = () => {
 	);
 };
 
-export default AdminCategoryForm;
+export default AdminBrandForm;

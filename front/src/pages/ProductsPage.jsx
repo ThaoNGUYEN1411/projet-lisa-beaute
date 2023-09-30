@@ -14,13 +14,13 @@ const ProductsPage = () => {
 	const [products, setProducts] = useState([]);
 	const { sort, setSort } = useContext(SortPriceContext);
 	// const isCroissant = true;
-	console.log(sort);
+	// console.log(sort);
 
 	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
 
 	useEffect(
 		(sortPrice = sort) => {
-			console.log(sortPrice);
+			// console.log(sortPrice);
 			//recupérer des données de l'API
 			getAllproducts(sortPrice).then((data) => {
 				setProducts(data.data);

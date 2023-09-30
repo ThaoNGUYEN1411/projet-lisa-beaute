@@ -1,5 +1,5 @@
 const postCreateUser = async (values) => {
-	console.log(values);
+	// console.log(values);
 	const requestInfos = new Request("http://localhost:3000/user/registration", {
 		method: "POST",
 		headers: {
@@ -31,7 +31,7 @@ const postLoginUser = async (values) => {
 
 	//recupérer le réponse HTTP
 	const reponse = await requete.json();
-	console.log(reponse);
+	// console.log(reponse);
 	//renvoyer la réponse
 	return reponse;
 };

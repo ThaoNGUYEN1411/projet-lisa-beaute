@@ -14,12 +14,13 @@ import EspacePersoClientPage from "../pages/EspacePersoClientPage";
 import WishlistPage from "../pages/WishlistPage";
 import Guard from "../components/ComponentsAdmin/Guard";
 import AdminHomePage from "../pages/admin/AdminHomePage";
-// import AdminBrandPage from "../pages/admin/brands/AdminBrandPage";
 import RootLayoutAdmin from "../layouts/RootLayoutAdmin";
 import LogoutPage from "../pages/LogoutPage";
 import AdminCategoryPage from "../pages/admin/categories/AdminCategoryPage";
 import AdminProductPage from "../pages/admin/products/AdminProductPage";
 import AdminBrandPage from "../pages/admin/brands/AdminBrandPage";
+import AdminBrandFormPage from "../pages/admin/brands/AdminBrandFormPage";
+
 import AdminCategoryFormPage from "../pages/admin/categories/AdminCategoryFormPage";
 import AdminMessagesPage from "../pages/admin/messages/AdminMessagesPage";
 import AdminBlogPage from "../pages/admin/blog/AdminBlogPage";
@@ -125,9 +126,17 @@ const router = createBrowserRouter([
 				path: "categories/:id?/form",
 				element: <AdminCategoryFormPage />,
 			},
+			// {
+			// 	path: "marques",
+			// 	element: <AdminBrandPage />,
+			// },
 			{
-				path: "marques",
+				path: "marques/:id?",
 				element: <AdminBrandPage />,
+			},
+			{
+				path: "marques/:id?/form",
+				element: <AdminBrandFormPage />,
 			},
 			{
 				path: "messages",

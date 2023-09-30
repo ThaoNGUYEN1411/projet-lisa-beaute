@@ -25,7 +25,7 @@ const LoginPage = () => {
 	const onSubmit = async (values) => {
 		const responseAPI = await postLoginUser(values);
 		if (responseAPI.status === 200) {
-			console.log("responseAPI", responseAPI);
+			// console.log("responseAPI", responseAPI);
 			setUser(responseAPI.data);
 			window.sessionStorage.setItem("notice", "Vous êtes connecté");
 			if (responseAPI.data.role === "admin") {

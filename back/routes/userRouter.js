@@ -53,7 +53,7 @@ userRouter.post("/login", async (req, res) => {
 			message: "Connexion réussie.",
 			data: user,
 		});
-		console.log("Accès réussi");
+		// console.log("Accès réussi");
 	}
 });
 

@@ -112,7 +112,7 @@ const getProductsBySearch = async (search) => {
 	LIKE "%${search}%"
 	LIMIT 8;`;
 
-	console.log(sql);
+	// console.log(sql);
 	try {
 		const [results] = await dbConnection.execute(sql);
 		return results;

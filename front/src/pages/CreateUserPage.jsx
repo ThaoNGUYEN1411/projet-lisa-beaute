@@ -21,13 +21,13 @@ const CreateUserPage = () => {
 	} = useForm();
 
 	const onSubmit = async (values) => {
-		console.log(values);
+		// console.log(values);
 
 		const responseAPI = await postCreateUser(values);
 	};
 
 	useEffect(() => {
-		const subscription = watch((observer) => console.log(observer));
+		const subscription = watch((observer) => null);
 
 		return () => subscription.unsubscribe();
 	}, [watch]);

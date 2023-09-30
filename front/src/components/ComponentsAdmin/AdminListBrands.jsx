@@ -2,24 +2,22 @@ import { faPenToSquare, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-	deleteCategory,
-	getAllCategories,
-} from "../../services/allCategoriesApi";
 import classNames from "classnames/bind";
+
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
 import Button from "../Button/Button";
+import { deleteBrands, getAllBrands } from "../../services/allBrandsApi";
 const cx = classNames.bind(styles);
 
-const AdminListCaterories = () => {
-	const [categories, setCategories] = useState([]);
+const AdminListBrands = () => {
+	const [brands, setBrands] = useState([]);
 	const [forceUpdate, setForceUpdate] = useState(false);
 	const [message, setMessage] = useState();
 
 	useEffect(() => {
-		getAllCategories().then((data) => {
+		getAllBrands().then((data) => {
 			// console.log(data);
-			setCategories(data);
+			setBrands(data);
 		});
 	}, [forceUpdate]);
 
@@ -40,8 +38,8 @@ const AdminListCaterories = () => {
 
 	// supprimer un caterogy
 	const handleClick = async (id) => {
-		// console.log(id);
-		const responseAPI = await deleteCategory(id);
+		console.log(id);
+		const responseAPI = await deleteBrands(id);
 
 		if (responseAPI.status === 200) {
 			window.sessionStorage.setItem("notice", "Catégorie supprimé");
@@ -55,13 +53,13 @@ const AdminListCaterories = () => {
 	return (
 		<>
 			<div className={cx("admin-bloc", "text-center")}>
-				<Button primary to={"/admin/categories/form"}>
-					Ajouter une nouvelle catégorie
+				<Button primary to={"/admin/marques/form"}>
+					Ajouter un nouveau marque
 				</Button>
 			</div>
 			<section>
-				<h2>La list de catégories</h2>
-				{/* <AdminListCaterories /> */}
+				<h2>La list de marques</h2>
+				{/* <AdminListBrands /> */}
 
 				<p>{message}</p>
 				<table className={cx("table")}>
@@ -71,18 +69,16 @@ const AdminListCaterories = () => {
 							<td className={cx("td")}>Nom</td>
 							<td className={cx("td")}>Modifier</td>
 							<td className={cx("td")}>Supprimer</td>
-
-							{/* <td> </td> */}
 						</tr>
 					</thead>
 					<tbody>
-						{categories.map((value) => (
+						{brands.map((value) => (
 							<tr className={cx("tr")} key={crypto.randomUUID()}>
 								<td className={cx("td")}>{value.id}</td>
 								<td className={cx("td")}>{`${value.name}`}</td>
 
 								<td className={cx("td")}>
-									<Link to={`/admin/categories/${value.id}/form`}>
+									<Link to={`/admin/marques/${value.id}/form`}>
 										<FontAwesomeIcon
 											icon={faPenToSquare}
 											className={cx("ad-btn")}
@@ -111,4 +107,4 @@ const AdminListCaterories = () => {
 	);
 };
 
-export default AdminListCaterories;
+export default AdminListBrands;

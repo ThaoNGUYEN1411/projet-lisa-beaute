@@ -4,7 +4,7 @@ import Tippy from "@tippyjs/react/headless";
 
 import styles from "./Navbar.module.css";
 import WrapperPopper from "../../Popper/WrapperPopper";
-import getAllBrands from "../../../services/allBrandsApi";
+import { getAllBrands } from "../../../services/allBrandsApi";
 import { useEffect, useState } from "react";
 import { getAllCategories } from "../../../services/allCategoriesApi";
 
