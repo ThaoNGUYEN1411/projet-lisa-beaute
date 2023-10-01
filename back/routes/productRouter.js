@@ -96,4 +96,5 @@ productRouter.get("/commentaires/:id", async (req, res) => {
 		data: results,
 	});
 });
+
 export default productRouter;

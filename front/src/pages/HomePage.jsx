@@ -8,6 +8,7 @@ import {
 	faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 const HomePage = () => {
 	return (
@@ -18,36 +19,39 @@ const HomePage = () => {
 					<article
 						className={cx("upper-banner", "col", "l-12", "m-12", "c-12")}
 					>
-						<a href="#" className={cx("banner")}>
+						<div className={cx("banner")}>
 							<img
 								src="/images/banner-upper-g.jpg"
 								alt=""
 								className={cx("banner-img")}
 							/>
-						</a>
+						</div>
 					</article>
 				</div>
 
 				<div className={cx("under-banners", "row")}>
 					<article className={cx("under-banner", "col", "l-4", "m-4", "c-12")}>
-						<a href="#">
+						<Link to={"/produits/categorie/Nouveauté"} className={cx("wp-img")}>
 							<img src="/images/b3.jpg" alt="" className={cx("banner-img")} />
-							<span className={cx("banner-title")}>Formats avantageux</span>
-						</a>
+							<span className={cx("banner-title")}>Nouveauté</span>
+						</Link>
 					</article>
 					<article
 						className={cx("under-banner", ["col", "l-4", "m-4", "c-12"])}
 					>
-						<a href="#">
+						<Link
+							to={"/produits/categorie/Maquillage"}
+							className={cx("wp-img")}
+						>
 							<img src="/images/b.jpg" alt="" className={cx("banner-img")} />
 							<span className={cx("banner-title")}>Soin & maquillage</span>
-						</a>
+						</Link>
 					</article>
 					<article className={cx("under-banner", "col", "l-4", "m-4", "c-12")}>
-						<a href="#">
+						<Link to={"/produits"} className={cx("wp-img")}>
 							<img src="/images/b.webp" alt="" className={cx("banner-img")} />
 							<span className={cx("banner-title")}>Top vents</span>
-						</a>
+						</Link>
 					</article>
 				</div>
 			</section>
@@ -68,16 +72,20 @@ const HomePage = () => {
 							"c-12",
 						)}
 					>
-						<img
-							src="/images/product1-remp.gif"
-							alt=""
-							className={cx("product-img")}
-						/>
-						<div className={cx("product-description")}>
-							<span className={cx("product-brand")}>name</span>
-							<span className={cx("product-name")}>sub name</span>
-							<span className={cx("product-price")}>Prix</span>
-						</div>
+						<Link to={"/produits/6"}>
+							<img
+								src="/images/product1-remp.gif"
+								alt=""
+								className={cx("product-img")}
+							/>
+							<div className={cx("product-description")}>
+								<span className={cx("product-brand")}>The ordinary</span>
+								<span className={cx("product-name")}>
+									Masque à l'Acide Salicylique 2%
+								</span>
+								<span className={cx("product-price")}>25€</span>
+							</div>
+						</Link>
 					</article>
 					<article
 						className={cx(
@@ -89,16 +97,18 @@ const HomePage = () => {
 							"c-12",
 						)}
 					>
-						<img
-							src="/images/product2-rs.jpg"
-							alt=""
-							className={cx("product-img")}
-						/>
-						<div className={cx("product-description")}>
-							<span className={cx("product-brand")}>name</span>
-							<span className={cx("product-namel")}>sub name</span>
-							<span className={cx("product-price")}>Prix</span>
-						</div>
+						<Link to={"/produits/14"}>
+							<img
+								src="/images/product2-rs.jpg"
+								alt=""
+								className={cx("product-img")}
+							/>
+							<div className={cx("product-description")}>
+								<span className={cx("product-brand")}>Lancôme</span>
+								<span className={cx("product-name")}>Base Maquillage</span>
+								<span className={cx("product-price")}>62€</span>
+							</div>
+						</Link>
 					</article>
 					<article
 						className={cx(
@@ -110,16 +120,20 @@ const HomePage = () => {
 							"c-12",
 						)}
 					>
-						<img
-							src="/images/product3-rs.jpg"
-							alt=""
-							className={cx("product-img")}
-						/>
-						<div className={cx("product-description")}>
-							<span className={cx("product-brand")}>name</span>
-							<span className={cx("product-name")}>sub name</span>
-							<span className={cx("product-price")}>Prix</span>
-						</div>
+						<Link to={"/produits/1"}>
+							<img
+								src="/images/product3-rs.jpg"
+								alt="The ordinary"
+								className={cx("product-img")}
+							/>
+							<div className={cx("product-description")}>
+								<span className={cx("product-brand")}>The ordinary</span>
+								<span className={cx("product-name")}>
+									The Ordinary peeling L'AHA
+								</span>
+								<span className={cx("product-price")}>13€</span>
+							</div>
+						</Link>
 					</article>
 					<article
 						className={cx(
@@ -131,16 +145,20 @@ const HomePage = () => {
 							"c-12",
 						)}
 					>
-						<img
-							src="/images/product6-rs.jpg"
-							alt=""
-							className={cx("product-img")}
-						/>
-						<div className={cx("product-description")}>
-							<span className={cx("product-brand")}>name</span>
-							<span className={cx("product-name")}>sub name</span>
-							<span className={cx("product-price")}>Prix</span>
-						</div>
+						<Link to={"/produits/42"}>
+							<img
+								src="/images/product6-rs.jpg"
+								alt=""
+								className={cx("product-img")}
+							/>
+							<div className={cx("product-description")}>
+								<span className={cx("product-brand")}>GUERLAIN</span>
+								<span className={cx("product-name")}>
+									AQUA ALLEGORIA FORTE Mandarine Basilic
+								</span>
+								<span className={cx("product-price")}>122€</span>
+							</div>
+						</Link>
 					</article>
 				</div>
 				<div className={cx("text-center")}>

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const postCreateUser = async (values) => {
 	// console.log(values);
 	const requestInfos = new Request("http://localhost:3000/user/registration", {
@@ -48,4 +50,42 @@ const getWishlistOfUser = async (id) => {
 	return response.data;
 };
 
-export { postCreateUser, postLoginUser, getWishlistOfUser };
+const addProductToWishlist = async (values) => {
+	// console.log("addddd");
+	const requestInfos = new Request("http://localhost:3000/user/Wishlist/add", {
+		method: "post",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(values),
+	});
+	console.log("requestInfos", requestInfos);
+	const request = await fetch(requestInfos);
+	const response = await request.json();
+	console.log(response);
+	return response;
+};
+
+const deleteProductFrompWishlist = async (values) => {
+	const requestInfos = new Request(
+		"http://localhost:3000/user/Wishlist/delete",
+		{
+			method: "delete",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ id: values }),
+		},
+	);
+	const request = await fetch(requestInfos);
+	const response = await request.json();
+	// console.log(response);
+	return response;
+};
+export {
+	postCreateUser,
+	postLoginUser,
+	getWishlistOfUser,
+	addProductToWishlist,
+	deleteProductFrompWishlist,
+};

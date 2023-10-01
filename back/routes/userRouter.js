@@ -72,7 +72,7 @@ userRouter.get("/Wishlist/:id", async (req, res) => {
 	try {
 		// const [results] = await dbConnection.execute(query, { id: 1 });
 		const [results] = await dbConnection.execute(query, req.params);
-		console.log("results", results);
+		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -84,6 +84,51 @@ userRouter.get("/Wishlist/:id", async (req, res) => {
 		return res.status(400).json({
 			status: 400,
 			message: "Error",
+		});
+	}
+});
+
+userRouter.post("/Wishlist/add", async (req, res) => {
+	const sql = `
+	INSERT INTO lisabeaute.user_product
+	VALUE (:id, :productId);
+    `;
+
+	try {
+		const [results] = await dbConnection.execute(sql, req.body);
+		console.log("results", results);
+		return res.status(200).json({
+			status: 200,
+			message: "OK",
+		});
+	} catch (error) {
+		console.log("error", error);
+		return res.status(400).json({
+			status: 403,
+			message: "error",
+			data: error,
+		});
+	}
+});
+
+userRouter.delete("/Wishlist/delete", async (req, res) => {
+	const sql = `
+	DELETE FROM lisabeaute.user_product
+	WHERE user_product.productId = :id;
+    `;
+	console.log("req.body", req.body);
+
+	try {
+		const [results] = await dbConnection.execute(sql, req.body);
+		// console.log("Ok");
+		return res.status(200).json({
+			status: 200,
+			message: "OK",
+		});
+	} catch (error) {
+		return res.status(400).json({
+			status: 400,
+			message: error,
 		});
 	}
 });

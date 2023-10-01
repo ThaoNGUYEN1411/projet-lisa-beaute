@@ -24,7 +24,7 @@ const Header = () => {
 	const handleMenuMobile = () => {
 		setIsopen(!isOpen);
 	};
-	console.log("user", user);
+	// console.log("user", user);
 	// apres log in setUserName = name client pour afficher
 	// const [userName, setUserName] = useState([]);
 	// setUserName("Thao Nguyen");
@@ -59,10 +59,13 @@ const Header = () => {
 						{user ? (
 							<>
 								<div className={cx("current-user")}>
-									<a href="#" className={cx("icon-current-user")}>
+									<Link
+										to={"/EspacePersoClient"}
+										className={cx("icon-current-user")}
+									>
 										<FontAwesomeIcon icon={faUserCheck} />
 										<span className={cx("title-icon")}>{user.lastName}</span>
-									</a>
+									</Link>
 								</div>
 							</>
 						) : (

@@ -51,17 +51,16 @@
   font-size: 2rem;
   color: rgb(220, 218, 217);
     }
-    .icon-heart{
+.icon-heart{
       position: absolute;
       /* top: -5px; */
       right: 0;
-      background-color: #f7f0f0;
     }
-    .icon-heart:hover  .icon{
+.icon-heart-favorite{
      color: var(--red);
     }
   
-    .btn-heart{
+.btn-heart{
       background-color: transparent;
     }
 .message{

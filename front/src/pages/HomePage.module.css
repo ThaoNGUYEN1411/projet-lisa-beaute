@@ -2,6 +2,7 @@
   display: block;
   max-width: 100%;
   height: auto;
+  transition: all 0.25s;
 }
 
 .under-banner {
@@ -14,12 +15,23 @@
 .under-banners {
   width: 100%;
   margin: 0 !important;
+  padding-bottom: 3rem;
 }
 
 .banner-title {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
+  padding: 0.7rem 0;
+}
+
+.wp-img{
+  display: block;
+  overflow: hidden;
+}
+
+.wp-img:hover .banner-img{
+  transform: scale(1.05);
 }
 /* ========product-prefer======== */
 .product-prefer {

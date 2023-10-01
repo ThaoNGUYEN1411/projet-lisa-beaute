@@ -8,10 +8,19 @@ import styles from "./ProductsPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { SortPriceContext } from "../context/SortPriceContextProvider";
+import { SecurityContext } from "../context/SecurityContextProvider";
+import {
+	getWishlistOfUser,
+	addProductToWishlist,
+	deleteProductFrompWishlist,
+} from "../services/userApi";
+import axios from "axios";
 const cx = classNames.bind(styles);
 
 const ProductsPage = () => {
+	const { user } = useContext(SecurityContext);
 	const [products, setProducts] = useState([]);
+	const [allFavoriteByUser, setAllFavoriteByUser] = useState([]);
 	const { sort, setSort } = useContext(SortPriceContext);
 	// const isCroissant = true;
 	// console.log(sort);
@@ -20,7 +29,6 @@ const ProductsPage = () => {
 
 	useEffect(
 		(sortPrice = sort) => {
-			// console.log(sortPrice);
 			//recupérer des données de l'API
 			getAllproducts(sortPrice).then((data) => {
 				setProducts(data.data);
@@ -28,6 +36,43 @@ const ProductsPage = () => {
 		},
 		[sort],
 	);
+
+	// useEffect(() => {
+	// 	getWishlistOfUser(user.id);
+	// }, []);
+
+	// const getWishlistOfUser = async (id) => {
+	// 	const requestProduct = new Request(
+	// 		`http://localhost:3000/user/Wishlist/${id}`,
+	// 	);
+	// 	const request = await fetch(requestProduct);
+	// 	const response = await request.json();
+	// 	console.log("response", response);
+	// 	setAllFavoriteByUser(response.data);
+	// };
+
+	const getWishlistOfUser = (userId) => {
+		axios
+			.get(`http://localhost:3000/user/Wishlist/${userId}`)
+			.then((response) => {
+				console.log("response.data.data", response.data.data);
+				setAllFavoriteByUser(response.data.data);
+				return response.data.data;
+			})
+			.catch((error) => console.log("error", error));
+	};
+
+	const handleProductLiked = async (productId, checkedFavorite) => {
+		// const id = user.id;
+		console.log("checkedFavorite", checkedFavorite);
+		// if (!checkedFavorite) {
+		// 	addProductToWishlist({ productId, id });
+		// } else {
+		// 	deleteProductFrompWishlist(productId);
+		// }
+
+		getWishlistOfUser(id);
+	};
 
 	return (
 		<div className={cx("grid", "wide")}>
@@ -40,6 +85,9 @@ const ProductsPage = () => {
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
 						{products.map((product) => {
+							const checkedFavorite = allFavoriteByUser.find(
+								(elm) => elm.id === product.id,
+							);
 							return (
 								<article
 									className={cx("prod", "col", "l-4", "m-4", "c-6")}
@@ -47,8 +95,23 @@ const ProductsPage = () => {
 								>
 									<div className={cx("icon-heart")}>
 										{/* rome-ignore lint/a11y/useButtonType: <explanation> */}
-										<button className={cx("btn-heart")}>
-											<FontAwesomeIcon icon={faHeart} className={cx("icon")} />
+										<button
+											className={cx("btn-heart")}
+											onClick={() =>
+												handleProductLiked(product.id, checkedFavorite)
+											}
+										>
+											{checkedFavorite ? (
+												<FontAwesomeIcon
+													icon={faHeart}
+													className={cx("icon", "icon-heart-favorite")}
+												/>
+											) : (
+												<FontAwesomeIcon
+													icon={faHeart}
+													className={cx("icon")}
+												/>
+											)}
 										</button>
 									</div>
 									<Link

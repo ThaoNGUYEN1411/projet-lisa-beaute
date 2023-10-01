@@ -237,14 +237,23 @@ VALUES
 
     Certifié naturel, fond de teint infusé de peptides, rendu invisible semi-mat
 
-    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-6.webp", 7 )
+    Développé par des experts en soins de la peau, ce fond de teint minéral offre une couvrance légère et imperceptible. Disponible en 6 teintes semi-mates, il s'adapte à la texture unique de votre peau et garantit un teint frais, lisse et unifié durant de longues heures.", "Préparez votre peau avec votre soin hydratant et votre protection solaire MÁDARA préférés. Appliquez votre fond de teint sur l'ensemble du visage à l'aide d'un pinceau, d'un blender ou avec les doigts. Répétez l'opération pour plus de couvrance.", "ALOE BARBADENSIS (ALOE) LEAF JUICE*; DICAPRYLYL CARBONATE; ISOAMYL LAURATE; POLYGLYCERYL-3 RICINOLEATE; BUTYLENE GLYCOL; SORBITAN OLIVATE; KAOLIN; GLYCERIN; ", "madara-6.webp", 7 ),
+      (   NULL, "AQUA ALLEGORIA FORTE Mandarine Basilic", 122, "Eau de Parfum 75ml
+
+    Le délice d’une mandarine gorgée de soleil
+
+    La collection de parfums Aqua Allegoria célèbre les merveilles du Monde. Chaque création rend hommage à la beauté de la nature et nous plonge à la découverte de matières premières et de notes d’exception, sublimées par nos parfumeurs-explorateurs.
+
+    Découvrez Mandarine Basilic Forte, une mandarine dorée associée à un basilic vibrant et sublimée par la chaleur du bois de santal et la délicieuse teinture de vanille.
+    « Mandarine Basilic Forte, c’est une mandarine tonique, hâlée par des rayons de soleil éclatants. » - Delphine Jelk, Parfumeure Guerlain", "Créez votre propre signature olfactive en associant Mandarine Basilic Forte avec : Nerolia Vetiver, Bergamote Calabria, Rosa Rossa, Nettare Di Sole ou Flora Cherrysia. Faites votre choix parmi les duos recommandés et parfumez-vous successivement, en quantités égales, avec les deux Aqua Allegoria de votre choix.
+    ", "#17212 INGREDIENTS: ALCOHOL • PARFUM (FRAGRANCE) • AQUA (WATER) • LIMONENE • ALPHA-ISOMETHYL IONONE • CITRONELLOL • LINALOOL • BUTYL METHOXYDIBENZOYLMETHANE • HYDROXYCITRONELLAL • DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE", "guerlain-p1.webp", 6 )
     ;
 -- Insérer table de jointure product_category
 INSERT INTO lisabeaute.product_category
 VALUES
     (1,3), (2,3), (2,4), (3,3), (4,3), (5,3), (6,3), (7,4), (8,3), (9,3),
     (10,3),(11,1),(12,3),(13,2),(14,2),(15,2),(16,2),(17,1),(18,1),(19,3),(20,3),
-    (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3),(33,3),(34,3),(35,3),(36,5),(36,2),(37,5),(37,4),(37,3),(38,5),(39,5), (39,2),(40,5),(40,2),(41,5),(41,2)
+    (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3),(33,3),(34,3),(35,3),(36,5),(36,2),(37,5),(37,4),(37,3),(38,5),(39,5), (39,2),(40,5),(40,2),(41,5),(41,2), (42,6)
     ;
 
 -- Insérer des users
