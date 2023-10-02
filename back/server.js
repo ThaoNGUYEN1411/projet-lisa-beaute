@@ -14,7 +14,15 @@ const app = express();
 const router = express.Router();
 app.use(router);
 router.use(express.json());
-router.use(cors());
+router.use(
+	cors({
+		origin: [
+			"http://localhost:5173",
+			"http://127.0.0.1:4173/",
+			"http://localhost:4173/",
+		],
+	}),
+);
 
 router.use("/categories", categoryRouter);
 

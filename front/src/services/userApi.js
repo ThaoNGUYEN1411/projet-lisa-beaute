@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const postCreateUser = async (values) => {
 	// console.log(values);
-	const requestInfos = new Request("http://localhost:3000/user/registration", {
+	const requestInfos = new Request(`${VITE_API_URL}/user/registration`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -21,7 +22,7 @@ const postCreateUser = async (values) => {
 
 const postLoginUser = async (values) => {
 	// console.log(values);
-	const requestInfos = new Request("http://localhost:3000/user/login", {
+	const requestInfos = new Request(`${VITE_API_URL}/user/login`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -39,9 +40,7 @@ const postLoginUser = async (values) => {
 };
 
 const getWishlistOfUser = async (id) => {
-	const requestProduct = new Request(
-		`http://localhost:3000/user/Wishlist/${id}`,
-	);
+	const requestProduct = new Request(`${VITE_API_URL}/user/Wishlist/${id}`);
 
 	const request = await fetch(requestProduct);
 
@@ -52,7 +51,7 @@ const getWishlistOfUser = async (id) => {
 
 const addProductToWishlist = async (values) => {
 	// console.log("addddd");
-	const requestInfos = new Request("http://localhost:3000/user/Wishlist/add", {
+	const requestInfos = new Request(`${VITE_API_URL}/user/Wishlist/add`, {
 		method: "post",
 		headers: {
 			"Content-Type": "application/json",
@@ -67,16 +66,13 @@ const addProductToWishlist = async (values) => {
 };
 
 const deleteProductFrompWishlist = async (values) => {
-	const requestInfos = new Request(
-		"http://localhost:3000/user/Wishlist/delete",
-		{
-			method: "delete",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ id: values }),
+	const requestInfos = new Request(`${VITE_API_URL}/user/Wishlist/delete`, {
+		method: "delete",
+		headers: {
+			"Content-Type": "application/json",
 		},
-	);
+		body: JSON.stringify({ id: values }),
+	});
 	const request = await fetch(requestInfos);
 	const response = await request.json();
 	// console.log(response);

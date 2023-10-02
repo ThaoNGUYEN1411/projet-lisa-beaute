@@ -5,6 +5,7 @@ import Product from "../components/Product/Product";
 import { Link, useParams } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
 import { getAllProductsSameBrand } from "../services/productsApi";
+import { v4 as uuid } from "uuid";
 
 const cx = classNames.bind(styles);
 
@@ -37,17 +38,10 @@ const ProductsBrandDetail = () => {
 							return (
 								<article
 									className={cx("prod", "col", "l-3", "m-4", "c-6")}
-									key={crypto.randomUUID()}
+									key={uuid()}
 								>
-									<Link
-										to={`/produits/${product.id}`}
-										key={crypto.randomUUID()}
-									>
-										<Product
-											imgProdWidth
-											product={product}
-											key={crypto.randomUUID()}
-										/>
+									<Link to={`/produits/${product.id}`} key={uuid()}>
+										<Product imgProdWidth product={product} key={uuid()} />
 									</Link>
 								</article>
 							);

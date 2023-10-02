@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState, useContext } from "react";
 import classNames from "classnames/bind";
+import { v4 as uuid } from "uuid";
 
 import styles from "./Dropdown.module.css";
 import { Link } from "react-router-dom";
@@ -84,11 +85,11 @@ const Dropdown = ({ links, titleDropdown }) => {
 				<div className={cx("dropdown-content")}>
 					<ul>
 						{links.map((link) => (
-							<li key={crypto.randomUUID()} className={cx("link")}>
+							<li key={uuid()} className={cx("link")}>
 								{titleDropdown === "Catégories" && (
 									<Link
 										to={`/produits/categorie/${link.name}`}
-										key={crypto.randomUUID()}
+										key={uuid()}
 										className={cx("link-text")}
 									>
 										{link.name}
@@ -97,7 +98,7 @@ const Dropdown = ({ links, titleDropdown }) => {
 								{titleDropdown === "Marque" && (
 									<Link
 										to={`/produits/marques/${link.name}`}
-										key={crypto.randomUUID()}
+										key={uuid()}
 										className={cx("link-text")}
 									>
 										{link.name}
@@ -106,7 +107,7 @@ const Dropdown = ({ links, titleDropdown }) => {
 								{titleDropdown === "Prix" && (
 									<Link
 										to={`/produits?sort=${link.url}`}
-										key={crypto.randomUUID()}
+										key={uuid()}
 										className={cx("link-text")}
 										onClick={() => setSort(link.url)}
 										value={link.url}

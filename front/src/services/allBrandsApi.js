@@ -1,5 +1,7 @@
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 const getAllBrands = async () => {
-	const requestProduct = new Request("http://localhost:3000/marques");
+	const requestProduct = new Request(`${VITE_API_URL}/marques`);
 
 	const request = await fetch(requestProduct);
 
@@ -9,7 +11,7 @@ const getAllBrands = async () => {
 };
 
 const deleteBrands = async (values) => {
-	const requestInfos = new Request("http://localhost:3000/marques/delete", {
+	const requestInfos = new Request(`${VITE_API_URL}/marques/delete`, {
 		method: "delete",
 		headers: {
 			"Content-Type": "application/json",
@@ -23,7 +25,7 @@ const deleteBrands = async (values) => {
 };
 
 const createBrands = async (values) => {
-	const requestInfos = new Request("http://localhost:3000/marques/create", {
+	const requestInfos = new Request(`${VITE_API_URL}/marques/create`, {
 		method: "post",
 		headers: {
 			"Content-Type": "application/json",
@@ -37,7 +39,7 @@ const createBrands = async (values) => {
 };
 
 const updateBrands = async (values) => {
-	const requestInfos = new Request("http://localhost:3000/marques/update", {
+	const requestInfos = new Request(`${VITE_API_URL}/marques/update`, {
 		method: "put",
 		headers: {
 			"Content-Type": "application/json",
@@ -51,7 +53,7 @@ const updateBrands = async (values) => {
 };
 
 const getBrandsById = async (id) => {
-	const requestInfos = new Request(`http://localhost:3000/marques/${id}`, {
+	const requestInfos = new Request(`${VITE_API_URL}/marques/${id}`, {
 		method: "get",
 	});
 	const request = await fetch(requestInfos);

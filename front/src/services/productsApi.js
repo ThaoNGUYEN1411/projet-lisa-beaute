@@ -1,7 +1,7 @@
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 const getAllproducts = async (sort) => {
-	const requestProducts = new Request(
-		`http://localhost:3000/produits?sort=${sort}`,
-	);
+	const requestProducts = new Request(`${VITE_API_URL}/produits?sort=${sort}`);
 	// console.log(requestProducts);
 	const request = await fetch(requestProducts);
 
@@ -10,7 +10,7 @@ const getAllproducts = async (sort) => {
 };
 
 const getProduct = async (id) => {
-	const requestProduct = new Request(`http://localhost:3000/produits/${id}`);
+	const requestProduct = new Request(`${VITE_API_URL}/produits/${id}`);
 
 	const request = await fetch(requestProduct);
 
@@ -21,7 +21,7 @@ const getProduct = async (id) => {
 
 const getAllProductsSameBrand = async (brand) => {
 	const requestProducts = new Request(
-		`http://localhost:3000/produits/marques/${brand}`,
+		`${VITE_API_URL}/produits/marques/${brand}`,
 	);
 	// console.log(requestProducts);
 	const request = await fetch(requestProducts);
@@ -32,7 +32,7 @@ const getAllProductsSameBrand = async (brand) => {
 
 const getAllProductsSameType = async (type) => {
 	const requestProducts = new Request(
-		`http://localhost:3000/produits/categorie/${type}`,
+		`${VITE_API_URL}/produits/categorie/${type}`,
 	);
 	// console.log(requestProducts);
 	const request = await fetch(requestProducts);
@@ -42,9 +42,7 @@ const getAllProductsSameType = async (type) => {
 };
 
 const getAllProductsPriceCroissant = async () => {
-	const requestProducts = new Request(
-		"http://localhost:3000/produits/croissant",
-	);
+	const requestProducts = new Request(`${VITE_API_URL}/produits/croissant`);
 
 	const request = await fetch(requestProducts);
 
@@ -53,7 +51,7 @@ const getAllProductsPriceCroissant = async () => {
 };
 
 const getAllProductsBySearch = async (value) => {
-	const requestProduct = new Request(`http://localhost:3000/search?q=${value}`);
+	const requestProduct = new Request(`${VITE_API_URL}/search?q=${value}`);
 
 	const request = await fetch(requestProduct);
 

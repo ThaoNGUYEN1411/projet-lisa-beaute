@@ -1,5 +1,7 @@
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 const getAllCategories = async () => {
-	const requestProduct = new Request("http://localhost:3000/categories");
+	const requestProduct = new Request(`${VITE_API_URL}/categories`);
 
 	const request = await fetch(requestProduct);
 
@@ -9,7 +11,7 @@ const getAllCategories = async () => {
 };
 
 const deleteCategory = async (values) => {
-	const requestInfos = new Request("http://localhost:3000/categories/delete", {
+	const requestInfos = new Request(`${VITE_API_URL}/categories/delete`, {
 		method: "delete",
 		headers: {
 			"Content-Type": "application/json",
@@ -23,7 +25,7 @@ const deleteCategory = async (values) => {
 };
 
 const createCategory = async (values) => {
-	const requestInfos = new Request("http://localhost:3000/categories/create", {
+	const requestInfos = new Request(`${VITE_API_URL}/categories/create`, {
 		method: "post",
 		headers: {
 			"Content-Type": "application/json",
@@ -37,7 +39,7 @@ const createCategory = async (values) => {
 };
 
 const updateCategory = async (values) => {
-	const requestInfos = new Request("http://localhost:3000/categories/update", {
+	const requestInfos = new Request(`${VITE_API_URL}/categories/update`, {
 		method: "put",
 		headers: {
 			"Content-Type": "application/json",
@@ -51,7 +53,7 @@ const updateCategory = async (values) => {
 };
 
 const getCategoryById = async (id) => {
-	const requestInfos = new Request(`http://localhost:3000/categories/${id}`, {
+	const requestInfos = new Request(`${VITE_API_URL}/categories/${id}`, {
 		method: "get",
 	});
 	const request = await fetch(requestInfos);

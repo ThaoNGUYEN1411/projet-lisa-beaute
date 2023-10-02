@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import Tippy from "@tippyjs/react/headless";
+import { v4 as uuid } from "uuid";
 
 import styles from "./Navbar.module.css";
 import WrapperPopper from "../../Popper/WrapperPopper";
@@ -43,7 +44,7 @@ const Navbar = ({ isOpen }) => {
 						<div
 							tabIndex="-1"
 							{...attrs}
-							key={crypto.randomUUID()}
+							key={uuid()}
 							className={cx("sub-menu")}
 						>
 							{/* afficher le component popper ici */}
@@ -52,11 +53,11 @@ const Navbar = ({ isOpen }) => {
 							afficher ici */}
 								<ul>
 									{allCategories?.map((link) => (
-										<li key={crypto.randomUUID()}>
+										<li key={uuid()}>
 											<Link
 												to={`/produits/categorie/${link.name}`}
 												className={cx("sub-menu-link")}
-												key={crypto.randomUUID()}
+												key={uuid()}
 											>
 												{link.name}
 											</Link>
@@ -80,7 +81,7 @@ const Navbar = ({ isOpen }) => {
 						<div
 							tabIndex="-1"
 							{...attrs}
-							key={crypto.randomUUID()}
+							key={uuid()}
 							className={cx("sub-menu")}
 						>
 							{/* afficher le component popper ici */}
@@ -89,11 +90,11 @@ const Navbar = ({ isOpen }) => {
 							afficher ici */}
 								<ul>
 									{allBrands?.map((link) => (
-										<li key={crypto.randomUUID()}>
+										<li key={uuid()}>
 											<Link
 												to={`/produits/marques/${link.name}`}
 												className={cx("sub-menu-link")}
-												key={crypto.randomUUID()}
+												key={uuid()}
 											>
 												{link.name}
 											</Link>

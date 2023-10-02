@@ -38,6 +38,7 @@ import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./BlogPage.module.css";
 import { getAllproducts } from "../services/productsApi";
+import { v4 as uuid } from "uuid";
 
 const cx = classNames.bind(styles);
 
@@ -58,12 +59,9 @@ const BlogPage = () => {
 		<div>
 			{products.map((product) => {
 				return (
-					<div
-						key={crypto.randomUUID()}
-						className={cx("product", "text-center")}
-					>
+					<div key={uuid()} className={cx("product", "text-center")}>
 						<img
-							key={crypto.randomUUID()}
+							key={uuid()}
 							src={`/images/${product.image}`}
 							alt=""
 							style={{ width: 100 }}

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
+import { v4 as uuid } from "uuid";
 
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
 import Button from "../Button/Button";
@@ -73,7 +74,7 @@ const AdminListBrands = () => {
 					</thead>
 					<tbody>
 						{brands.map((value) => (
-							<tr className={cx("tr")} key={crypto.randomUUID()}>
+							<tr className={cx("tr")} key={uuid()}>
 								<td className={cx("td")}>{value.id}</td>
 								<td className={cx("td")}>{`${value.name}`}</td>
 

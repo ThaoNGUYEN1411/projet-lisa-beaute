@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import AsideEspacePersoClient from "../components/AsideEspacePersoClient/AsideEspacePersoClient";
 import { SecurityContext } from "../context/SecurityContextProvider";
 import { getWishlistOfUser } from "../services/userApi";
+import { v4 as uuid } from "uuid";
+
 const cx = classNames.bind(styles);
 
 const WishlistPage = () => {
@@ -32,17 +34,10 @@ const WishlistPage = () => {
 							return (
 								<article
 									className={cx("prod", "col", "l-3", "m-4", "c-6")}
-									key={crypto.randomUUID()}
+									key={uuid()}
 								>
-									<Link
-										to={`/produits/${product.id}`}
-										key={crypto.randomUUID()}
-									>
-										<Product
-											imgProdWidth
-											product={product}
-											key={crypto.randomUUID()}
-										/>
+									<Link to={`/produits/${product.id}`} key={uuid()}>
+										<Product imgProdWidth product={product} key={uuid()} />
 									</Link>
 								</article>
 							);

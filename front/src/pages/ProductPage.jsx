@@ -7,8 +7,9 @@ import styles from "./ProductPage.module.css";
 import { getProduct } from "../services/productsApi";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import getAllComments from "../services/commentApi";
+import { getAllComments } from "../services/commentApi";
 import { toLocaleDate } from "../services/dateService.js";
+import { v4 as uuid } from "uuid";
 
 const cx = classNames.bind(styles);
 
@@ -124,30 +125,18 @@ const ProductPage = () => {
 					</h3>
 					{comments.map((comment) => {
 						return (
-							<article key={crypto.randomUUID()}>
-								<div
-									className={cx("avis-header", "row")}
-									key={crypto.randomUUID()}
-								>
-									<div
-										className={cx("l-8", "m-8", "c-8")}
-										key={crypto.randomUUID()}
-									>
-										<h4 className={cx("name-user")} key={crypto.randomUUID()}>
+							<article key={uuid()}>
+								<div className={cx("avis-header", "row")} key={uuid()}>
+									<div className={cx("l-8", "m-8", "c-8")} key={uuid()}>
+										<h4 className={cx("name-user")} key={uuid()}>
 											{comment.user_firstName} {comment.user_lastName}
 										</h4>
-										<time
-											className={cx("comment-date")}
-											key={crypto.randomUUID()}
-										>
+										<time className={cx("comment-date")} key={uuid()}>
 											{toLocaleDate(comment.time)}
 										</time>
 									</div>
-									<div
-										className={cx("star", "l-4", "m-4", "c-4")}
-										key={crypto.randomUUID()}
-									>
-										<span key={crypto.randomUUID()}>
+									<div className={cx("star", "l-4", "m-4", "c-4")} key={uuid()}>
+										<span key={uuid()}>
 											<FontAwesomeIcon icon={faStar} />
 											<FontAwesomeIcon icon={faStar} />
 											<FontAwesomeIcon icon={faStar} />
@@ -155,11 +144,8 @@ const ProductPage = () => {
 										</span>
 									</div>
 								</div>
-								<div
-									className={cx("avis-content", "margin-bloc")}
-									key={crypto.randomUUID()}
-								>
-									<p key={crypto.randomUUID()}>{comment.content}</p>
+								<div className={cx("avis-content", "margin-bloc")} key={uuid()}>
+									<p key={uuid()}>{comment.content}</p>
 								</div>
 							</article>
 						);

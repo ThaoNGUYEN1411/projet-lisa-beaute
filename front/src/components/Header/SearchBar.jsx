@@ -7,6 +7,7 @@ import {
 	faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
+import { v4 as uuid } from "uuid";
 
 import styles from "./Header.module.css";
 import WrapperPopper from "../Popper/WrapperPopper";
@@ -57,7 +58,7 @@ const SearchBar = () => {
 						className={cx("search-result")}
 						tabIndex="-1"
 						{...attrs}
-						key={crypto.randomUUID()}
+						key={uuid()}
 					>
 						{/* afficher le component popper ici */}
 						<WrapperPopper>
@@ -65,12 +66,9 @@ const SearchBar = () => {
 
 							{searchResult.map((product) => {
 								return (
-									<div className={cx("list-result")} key={crypto.randomUUID()}>
-										<ul key={crypto.randomUUID()}>
-											<li
-												key={crypto.randomUUID()}
-												className={cx("li-list-result")}
-											>
+									<div className={cx("list-result")} key={uuid()}>
+										<ul key={uuid()}>
+											<li key={uuid()} className={cx("li-list-result")}>
 												<Link to={`/produits/${product.id}`}>
 													{product.brand} {product.name}
 												</Link>

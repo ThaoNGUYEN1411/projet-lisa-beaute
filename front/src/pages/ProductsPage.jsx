@@ -16,6 +16,7 @@ import {
 } from "../services/userApi";
 import axios from "axios";
 const cx = classNames.bind(styles);
+import { v4 as uuid } from "uuid";
 
 const ProductsPage = () => {
 	const { user } = useContext(SecurityContext);
@@ -91,7 +92,7 @@ const ProductsPage = () => {
 							return (
 								<article
 									className={cx("prod", "col", "l-4", "m-4", "c-6")}
-									key={crypto.randomUUID()}
+									key={uuid()}
 								>
 									<div className={cx("icon-heart")}>
 										{/* rome-ignore lint/a11y/useButtonType: <explanation> */}
@@ -114,15 +115,8 @@ const ProductsPage = () => {
 											)}
 										</button>
 									</div>
-									<Link
-										to={`/produits/${product.id}`}
-										key={crypto.randomUUID()}
-									>
-										<Product
-											imgProdWidth
-											product={product}
-											key={crypto.randomUUID()}
-										/>
+									<Link to={`/produits/${product.id}`} key={uuid()}>
+										<Product imgProdWidth product={product} key={uuid()} />
 									</Link>
 								</article>
 							);
