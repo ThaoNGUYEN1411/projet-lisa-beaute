@@ -76,6 +76,8 @@
 /* ======= block article======= */
 .bloc-article {
   background-color: #faf2f2;
+  margin-top: 7rem !important;
+margin-bottom: 7rem !important;
 }
 .article {
   margin: 3rem 0 !important;
@@ -101,6 +103,7 @@
 /* =========news-letter======== */
 .news-letter {
   background-color: #faf2f2;
+  margin-top: 4rem !important;
 }
 
 .news-letter-bloc {
