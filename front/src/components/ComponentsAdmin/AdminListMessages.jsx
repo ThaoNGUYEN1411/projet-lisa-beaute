@@ -16,7 +16,7 @@ import { v4 as uuid } from "uuid";
 const cx = classNames.bind(styles);
 
 const AdminListMessages = () => {
-	const [listMessages, setListMessages] = useState();
+	const [listMessages, setListMessages] = useState([]);
 	const [forceUpdate, setForceUpdate] = useState(false);
 	const [message, setMessage] = useState();
 
