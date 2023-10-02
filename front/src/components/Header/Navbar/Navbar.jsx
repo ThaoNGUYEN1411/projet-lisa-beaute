@@ -52,7 +52,11 @@ const Navbar = ({ isOpen }) => {
 								{/*les resultats 
 							afficher ici */}
 								<ul>
-									{allCategories?.map((link) => (
+									<li>a</li>
+									<li>b</li>
+									<li>c</li>
+
+									{/* {allCategories?.map((link) => (
 										<li key={uuid()}>
 											<Link
 												to={`/produits/categorie/${link.name}`}
@@ -62,7 +66,7 @@ const Navbar = ({ isOpen }) => {
 												{link.name}
 											</Link>
 										</li>
-									))}
+									))} */}
 								</ul>
 							</WrapperPopper>
 						</div>
@@ -89,7 +93,7 @@ const Navbar = ({ isOpen }) => {
 								{/*les resultats 
 							afficher ici */}
 								<ul>
-									{allBrands?.map((link) => (
+									{/* {allBrands?.map((link) => (
 										<li key={uuid()}>
 											<Link
 												to={`/produits/marques/${link.name}`}
@@ -99,7 +103,10 @@ const Navbar = ({ isOpen }) => {
 												{link.name}
 											</Link>
 										</li>
-									))}
+									))} */}
+									<li>d</li>
+									<li>e</li>
+									<li>f</li>
 								</ul>
 							</WrapperPopper>
 						</div>
