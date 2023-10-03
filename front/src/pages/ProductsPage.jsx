@@ -17,16 +17,13 @@ import {
 import axios from "axios";
 const cx = classNames.bind(styles);
 import { v4 as uuid } from "uuid";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const ProductsPage = () => {
 	const { user } = useContext(SecurityContext);
 	const [products, setProducts] = useState([]);
 	const [allFavoriteByUser, setAllFavoriteByUser] = useState([]);
 	const { sort, setSort } = useContext(SortPriceContext);
-	// const isCroissant = true;
-	// console.log(sort);
-
-	// const productsCheveux = products.filter(elm => elm.type ==== "hair")
 
 	useEffect(
 		(sortPrice = sort) => {
@@ -37,10 +34,12 @@ const ProductsPage = () => {
 		},
 		[sort],
 	);
-
-	// useEffect(() => {
-	// 	getWishlistOfUser(user.id);
-	// }, []);
+	console.log("user", user);
+	useEffect(() => {
+		// if (user) {
+		// }
+		getWishlistOfUser(user?.id);
+	}, []);
 
 	// const getWishlistOfUser = async (id) => {
 	// 	const requestProduct = new Request(
@@ -54,9 +53,9 @@ const ProductsPage = () => {
 
 	const getWishlistOfUser = (userId) => {
 		axios
-			.get(`http://localhost:3000/user/Wishlist/${userId}`)
+			.get(`${VITE_API_URL}/user/Wishlist/${userId}`)
 			.then((response) => {
-				console.log("response.data.data", response.data.data);
+				// console.log("response.data.data", response.data.data);
 				setAllFavoriteByUser(response.data.data);
 				return response.data.data;
 			})
@@ -64,13 +63,13 @@ const ProductsPage = () => {
 	};
 
 	const handleProductLiked = async (productId, checkedFavorite) => {
-		// const id = user.id;
-		console.log("checkedFavorite", checkedFavorite);
-		// if (!checkedFavorite) {
-		// 	addProductToWishlist({ productId, id });
-		// } else {
-		// 	deleteProductFrompWishlist(productId);
-		// }
+		const id = user?.id;
+		// console.log("checkedFavorite", checkedFavorite);
+		if (!checkedFavorite) {
+			addProductToWishlist({ productId, id });
+		} else {
+			deleteProductFrompWishlist(productId);
+		}
 
 		getWishlistOfUser(id);
 	};
@@ -89,6 +88,7 @@ const ProductsPage = () => {
 							const checkedFavorite = allFavoriteByUser.find(
 								(elm) => elm.id === product.id,
 							);
+
 							return (
 								<article
 									className={cx("prod", "col", "l-4", "m-4", "c-6")}

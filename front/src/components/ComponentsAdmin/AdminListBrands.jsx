@@ -39,7 +39,7 @@ const AdminListBrands = () => {
 
 	// supprimer un caterogy
 	const handleClick = async (id) => {
-		console.log(id);
+		// console.log(id);
 		const responseAPI = await deleteBrands(id);
 
 		if (responseAPI.status === 200) {

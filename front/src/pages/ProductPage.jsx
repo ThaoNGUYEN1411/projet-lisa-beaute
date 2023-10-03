@@ -5,7 +5,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 import styles from "./ProductPage.module.css";
 import { getProduct } from "../services/productsApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { getAllComments } from "../services/commentApi";
 import { toLocaleDate } from "../services/dateService.js";
@@ -54,22 +54,22 @@ const ProductPage = () => {
 		}
 	}, []);
 	return (
-		<div className={cx("grid", "wide")}>
+		<div className={cx("grid", "wide", "wrapper")}>
 			<div className={cx("breadcrumbs-nav")}>
 				<ul className={cx("breadcrumbs")}>
 					<li className={cx("breadcrumbs-item")}>
-						<a href="#" className={cx("breadcrumbs-link")}>
+						<Link to={"/produits"}>
 							Accueil
 							<FontAwesomeIcon
 								icon={faChevronRight}
 								className={cx("breadcrumbs-icon")}
 							/>
-						</a>
+						</Link>
 					</li>
 					<li className={cx("breadcrumbs-item")}>
-						<a href="#" className={cx("breadcrumbs-link")}>
+						<Link to={`/produits/categorie/${product.category_name}`}>
 							{product.category_name}
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</div>
@@ -113,8 +113,8 @@ const ProductPage = () => {
 					</div>
 				</article>
 			</section>
-			<section className={cx("wp-desc-product")}>
-				<article>
+			<section className={cx("wp-desc-product", "row")}>
+				<article className={cx("col", "l-12", "m-12", "c-12")}>
 					<h2 className={cx("text-center", "title-block", "info-product")}>
 						Informations de produit
 					</h2>

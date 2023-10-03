@@ -36,11 +36,10 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 		return window.innerWidth <= 740;
 	};
 	console.log("isMobile", window.innerWidth <= 740);
-	// Fonction pour fermer le menu mobile
-	// const closeMobileMenu = () => {
-	// 	console.log("close");
-	// 	setMobileMenuOpen(!mobileMenuOpen);
-	// 	console.log(mobileMenuOpen);
+
+	// const handleMenuMobile = () => {
+	// 	// setIsOpen(!isOpen);
+	// 	isOpen = true;
 	// };
 	return (
 		<nav
@@ -86,11 +85,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 						</div>
 					)}
 				>
-					<Link
-						to={"/produits"}
-						className={cx("nav-item")}
-						onClick={() => setIsOpen(false)}
-					>
+					<Link to={"/produits"} className={cx("nav-item")}>
 						Produits
 					</Link>
 				</Tippy>
@@ -142,18 +137,10 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 			{/* <Link to={"/blog"} className={cx("nav-item")}>
 				Blog
 			</Link> */}
-			<Link
-				to={"/apropos"}
-				className={cx("nav-item")}
-				onClick={() => setIsOpen(false)}
-			>
+			<Link to={"/apropos"} className={cx("nav-item")}>
 				A propos
 			</Link>
-			<Link
-				to={"/contact"}
-				className={cx("nav-item")}
-				onClick={() => setIsOpen(false)}
-			>
+			<Link to={"/contact"} className={cx("nav-item")}>
 				Contact
 			</Link>
 		</nav>

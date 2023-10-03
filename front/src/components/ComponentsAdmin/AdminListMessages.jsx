@@ -22,11 +22,11 @@ const AdminListMessages = () => {
 
 	useEffect(() => {
 		getAllMessages().then((data) => {
-			console.log(data.data);
+			// console.log(data.data);
 			setListMessages(data.data);
 		});
 	}, [forceUpdate]);
-	console.log("listMessages", listMessages);
+	// console.log("listMessages", listMessages);
 	// récupérer la notification du sessionStorage
 	useEffect(() => {
 		// si un message existe en session

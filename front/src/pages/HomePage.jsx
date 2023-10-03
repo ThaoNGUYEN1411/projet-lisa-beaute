@@ -193,10 +193,9 @@ const HomePage = () => {
 								Quels parfums porter au étés ?
 							</h3>
 							<p className={cx("article-text")}>
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
-								maiores in, laudantium nam illum dolores ab mollitia. Id
-								mollitia necessitatibus et labore aliquid fuga autem amet quas,
-								nam odit nisi.
+								Les agrumes comme le citron, la mandarine, l'orange, le
+								pamplemousse ou encore la bergamote y sont plébiscités pour leur
+								fraîcheur et leur côté acidulé.
 							</p>
 						</div>
 

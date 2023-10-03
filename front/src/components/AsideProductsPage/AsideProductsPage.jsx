@@ -43,13 +43,14 @@ const AsideProductsPage = () => {
 		<aside className={cx("container-filter", "col", "l-3", "m-3", "c-12")}>
 			<div className={cx("list-filter", "row")}>
 				<div className={cx("col", "l-12", "m-12", "c-6")}>
-					<Dropdown links={allCategories} titleDropdown="Catégories" />
-					<hr className={cx("hr")} />
-				</div>
-				<div className={cx("col", "l-12", "m-12", "c-6")}>
 					<Dropdown links={priceFilter} titleDropdown="Prix" />
 					<hr className={cx("hr")} />
 				</div>
+				<div className={cx("col", "l-12", "m-12", "c-6")}>
+					<Dropdown links={allCategories} titleDropdown="Catégories" />
+					<hr className={cx("hr")} />
+				</div>
+
 				<div className={cx("col", "l-12", "m-12", "c-6")}>
 					<Dropdown links={allBrands} titleDropdown="Marque" />
 					{/* <hr className={cx("hr")} /> */}

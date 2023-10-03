@@ -16,8 +16,8 @@
 }
 /* ---------product---------- */
 .wp-product{
-   max-height: 400px;
-   margin: 4rem 0 !important;
+   min-height: 400px;
+   margin: 2rem 0 !important;
 
    /* background: #000; */
 }
@@ -40,10 +40,19 @@
     margin-top: 3rem;
 }
 
-/* .title-info-product{
-    font-size: 3.2rem;
-    line-height: 38px;
-    margin-bottom: 16px;
-    margin-top: 4rem;
-    text-transform: capitalize;
-} */
+@media (max-width: 1024px){
+  
+
+}
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px){
+  
+}
+
+/* Mobile */
+@media(max-width:740px){
+    .wrapper{
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}

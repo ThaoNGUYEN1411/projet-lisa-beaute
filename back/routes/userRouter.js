@@ -96,7 +96,7 @@ userRouter.post("/Wishlist/add", async (req, res) => {
 
 	try {
 		const [results] = await dbConnection.execute(sql, req.body);
-		console.log("results", results);
+		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -115,7 +115,7 @@ userRouter.delete("/Wishlist/delete", async (req, res) => {
 	DELETE FROM lisabeaute.user_product
 	WHERE user_product.productId = :id;
     `;
-	console.log("req.body", req.body);
+	// console.log("req.body", req.body);
 
 	try {
 		const [results] = await dbConnection.execute(sql, req.body);

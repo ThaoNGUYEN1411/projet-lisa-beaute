@@ -80,10 +80,8 @@ const addCommentByUser = async (values) => {
 			body: JSON.stringify(values),
 		},
 	);
-	console.log("requestInfos", requestInfos);
 	const request = await fetch(requestInfos);
 	const response = await request.json();
-	console.log(response);
 	return response;
 };
 export {

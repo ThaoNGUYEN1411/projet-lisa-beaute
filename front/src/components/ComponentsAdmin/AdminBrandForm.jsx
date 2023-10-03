@@ -43,7 +43,7 @@ const AdminBrandForm = () => {
 	// préremplir le formulaire avec un élève existant
 	const prefillForm = async () => {
 		if (id) {
-			console.log(id);
+			// console.log(id);
 			const responseAPI = await getBrandsById(id);
 			const brand = responseAPI.data;
 			reset({

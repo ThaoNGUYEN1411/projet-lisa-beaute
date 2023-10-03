@@ -29,7 +29,7 @@ const ContactPage = () => {
 	} = useForm();
 
 	const onSubmit = async (info) => {
-		console.log(info);
+		// console.log(info);
 		const response = await createNewMessage(info);
 
 		if (response.status === 200) {
@@ -57,7 +57,7 @@ const ContactPage = () => {
 	return (
 		<div className={cx("grid", "wide", "wrapper")}>
 			<section className={cx("margin-bloc")}>
-				<h1 className={cx("title-block")}>Nous contacter</h1>
+				<h1 className={cx("title-block", "text-center")}>Nous contacter</h1>
 				<div className={cx("contact", "row")}>
 					<div
 						className={cx("contact-info", "l-4", "m-4", "c-12", "text-center")}
@@ -126,7 +126,7 @@ const ContactPage = () => {
 								<input
 									className={cx("lastName")}
 									type="text"
-									placeholder="Votre nom"
+									placeholder="Nom"
 									{...register("lastName", {
 										required: "Votre nom est requis",
 									})}
@@ -140,7 +140,7 @@ const ContactPage = () => {
 								<input
 									className={cx("firstName")}
 									type="text"
-									placeholder="Votre prénom"
+									placeholder="Prénom"
 									{...register("firstName")}
 								/>
 							</p>

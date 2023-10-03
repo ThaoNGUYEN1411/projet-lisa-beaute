@@ -95,3 +95,15 @@
   font-size: 1.5rem;
 
 }
+
+@media(max-width:740px){
+  .lastName,
+.firstName {
+  width: 100%;
+  margin: 0 !important;
+
+}
+.label-name{
+  margin-left: -20px !important;
+}
+}

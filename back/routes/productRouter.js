@@ -103,16 +103,16 @@ productRouter.post("/commentaires/user", async (req, res) => {
 	INSERT INTO lisabeaute.comment
 	VALUE (NULL, :content, :time, :userId, :productId);
     `;
-	console.log("recu", req.body);
+	// console.log("recu", req.body);
 	try {
 		const [results] = await dbConnection.execute(sql, req.body);
-		console.log("results", results);
+		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
 		});
 	} catch (error) {
-		console.log("error", error);
+		// console.log("error", error);
 		return res.status(400).json({
 			status: 400,
 			message: error,

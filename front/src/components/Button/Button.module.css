@@ -53,7 +53,7 @@
 .primary {
     color: black;
     background-color: #f6d0ae;
-    border-color: #382F2D;
+    /* border-color: #382F2D; */
     /* border-radius: 20%; */
 }
 .primary:hover {
