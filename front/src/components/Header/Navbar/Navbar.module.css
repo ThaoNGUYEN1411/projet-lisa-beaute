@@ -40,11 +40,13 @@
 
 /* Mobile */
 @media(max-width:740px){
+  .nav-item{
+    margin: 1rem;
+  }
 
 .navbar{
   flex-direction: column;
   background-color: antiquewhite;
-
  justify-content: flex-start;
  /* overflow: hidden; */
  z-index: 99;
@@ -52,15 +54,21 @@
 }
 .menu-mobile-open{
   height: 100vh;
-
+margin-top: -7px;
 }
-
+.menu-item{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 .menu-mobile-close{
  /* height: 0; */
- display: none;
+ display: none !important;
 
 }
 .mobile-menu-icon{
   padding: 0 1rem;
 }
+}
+.hide-mobile{
+  display: none !important;
 }

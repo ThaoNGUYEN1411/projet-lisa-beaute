@@ -20,9 +20,9 @@ const cx = classNames.bind(styles);
 const Header = () => {
 	const { user, setUser } = useContext(SecurityContext);
 	// const currentUser = false;
-	const [isOpen, setIsopen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const handleMenuMobile = () => {
-		setIsopen(!isOpen);
+		setIsOpen(!isOpen);
 	};
 	// console.log("user", user);
 	// apres log in setUserName = name client pour afficher
@@ -96,7 +96,7 @@ const Header = () => {
 					</div>
 
 					<div className={cx("navbar")}>
-						<Navbar isOpen={isOpen} />
+						<Navbar isOpen={isOpen} setIsopen={setIsOpen} />
 					</div>
 				</div>
 			</header>

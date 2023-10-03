@@ -6,16 +6,22 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import styles from "./ProductPage.module.css";
 import { getProduct } from "../services/productsApi";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getAllComments } from "../services/commentApi";
 import { toLocaleDate } from "../services/dateService.js";
 import { v4 as uuid } from "uuid";
+import Button from "../components/Button/Button";
+import AvisProduct from "../components/ProductComponents/AvisProduct";
+import { SecurityContext } from "../context/SecurityContextProvider";
 
 const cx = classNames.bind(styles);
 
 const ProductPage = () => {
 	const [product, setProduct] = useState({});
 	const [comments, setComments] = useState([]);
+	const { user } = useContext(SecurityContext);
+	const [avis, setAvis] = useState(false);
+	const [message, setMessage] = useState();
 
 	const { id } = useParams();
 
@@ -36,7 +42,17 @@ const ProductPage = () => {
 			// console.log("comments", comments);
 		});
 	}, []);
+	const handleClickAvis = () => {
+		if (user) {
+			setAvis(!avis);
+		}
+	};
 
+	useEffect(() => {
+		if (window.sessionStorage.getItem("notice")) {
+			setMessage(window.sessionStorage.getItem("notice"));
+		}
+	}, []);
 	return (
 		<div className={cx("grid", "wide")}>
 			<div className={cx("breadcrumbs-nav")}>
@@ -91,15 +107,15 @@ const ProductPage = () => {
 							</span>
 							<span>Voir 6 avis</span>
 						</div> */}
-						<div>
+						{/* <div>
 							<p>button</p>
-						</div>
+						</div> */}
 					</div>
 				</article>
 			</section>
 			<section className={cx("wp-desc-product")}>
 				<article>
-					<h2 className={cx("text-center", "title-block")}>
+					<h2 className={cx("text-center", "title-block", "info-product")}>
 						Informations de produit
 					</h2>
 					<div className={cx("row")}>
@@ -118,6 +134,13 @@ const ProductPage = () => {
 					</div>
 				</article>
 			</section>
+			<div>
+				<div className={cx("text-center")}>
+					<p className={cx("message-succes")}>{message}</p>
+					{user && <Button onClick={handleClickAvis}>Rédiger un avis</Button>}
+				</div>
+				{avis && <AvisProduct userId={user.id} productId={product.id} />}
+			</div>
 			{comments.length > 0 && (
 				<section className={cx("avis", "margin-bloc")}>
 					<h3 className={cx("title-block", "text-center")}>
@@ -145,14 +168,14 @@ const ProductPage = () => {
 									</div>
 								</div>
 								<div className={cx("avis-content", "margin-bloc")} key={uuid()}>
-									<p key={uuid()}>{comment.content}</p>
+									<p key={uuid()}>{comment?.content}</p>
 								</div>
 							</article>
 						);
 					})}
 				</section>
 			)}
-			<hr />
+			<hr className={cx("hr")} />
 		</div>
 	);
 };

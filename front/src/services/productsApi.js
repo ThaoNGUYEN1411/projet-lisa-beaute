@@ -68,7 +68,24 @@ const getAllProductsBySearch = async (value) => {
 // 	const reponse = await request.json();
 // 	return reponse;
 // };
-
+const addCommentByUser = async (values) => {
+	// console.log("addddd");
+	const requestInfos = new Request(
+		`${VITE_API_URL}/produits/commentaires/user`,
+		{
+			method: "post",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(values),
+		},
+	);
+	console.log("requestInfos", requestInfos);
+	const request = await fetch(requestInfos);
+	const response = await request.json();
+	console.log(response);
+	return response;
+};
 export {
 	getProduct,
 	getAllproducts,
@@ -76,4 +93,5 @@ export {
 	getAllProductsSameType,
 	getAllProductsPriceCroissant,
 	getAllProductsBySearch,
+	addCommentByUser,
 };

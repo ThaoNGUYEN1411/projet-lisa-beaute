@@ -34,16 +34,23 @@
 // export default BlogPage;
 // =================
 // essayer connecter le back (API) comme une fonction
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./BlogPage.module.css";
 import { getAllproducts } from "../services/productsApi";
 import { v4 as uuid } from "uuid";
+import AvisProduct from "../components/ProductComponents/AvisProduct";
+import Button from "../components/Button/Button";
+import { SecurityContext } from "../context/SecurityContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 const BlogPage = () => {
 	const [products, setProducts] = useState([]);
+	const [avis, setAvis] = useState(false);
+	const { user } = useContext(SecurityContext);
+	const navigate = useNavigate();
 
 	//utiliser un effet de bord (useEffect)
 	useEffect(() => {
@@ -54,9 +61,15 @@ const BlogPage = () => {
 			// console.log(data.data);
 		});
 	}, []);
-
+	const handleClickAvis = () => {
+		if (user) {
+			setAvis(!avis);
+		}
+	};
 	return (
 		<div>
+			{user && <Button onClick={handleClickAvis}>Rédiger un avis</Button>}
+			{avis && <AvisProduct userId="2" productId="20" />}
 			{products.map((product) => {
 				return (
 					<div key={uuid()} className={cx("product", "text-center")}>

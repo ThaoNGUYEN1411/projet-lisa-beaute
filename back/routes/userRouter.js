@@ -102,11 +102,10 @@ userRouter.post("/Wishlist/add", async (req, res) => {
 			message: "OK",
 		});
 	} catch (error) {
-		console.log("error", error);
+		// console.log("error", error);
 		return res.status(400).json({
-			status: 403,
+			status: 400,
 			message: "error",
-			data: error,
 		});
 	}
 });

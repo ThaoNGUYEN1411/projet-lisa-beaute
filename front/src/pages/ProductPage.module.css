@@ -17,6 +17,8 @@
 /* ---------product---------- */
 .wp-product{
    max-height: 400px;
+   margin: 4rem 0 !important;
+
    /* background: #000; */
 }
 .wp-img-product{
@@ -25,6 +27,17 @@
 .img-product{
     max-width: 400px;
     margin: 0 auto;
+}
+.wp-desc-product{
+    margin: 4rem 0;
+}
+
+.info-product{
+    margin: 4rem 0 !important;
+    color:#F1B022;
+}
+.hr{
+    margin-top: 3rem;
 }
 
 /* .title-info-product{

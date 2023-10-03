@@ -11,9 +11,11 @@ import { getAllCategories } from "../../../services/allCategoriesApi";
 
 const cx = classNames.bind(styles);
 
-const Navbar = ({ isOpen }) => {
+const Navbar = ({ isOpen, setIsOpen }) => {
 	const [allBrands, setAllBrands] = useState([]);
 	const [allCategories, setAllCategories] = useState([]);
+	// Utilisez useState pour gérer l'état du menu mobile
+	// const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	useEffect(() => {
 		getAllBrands().then((data) => {
@@ -28,6 +30,18 @@ const Navbar = ({ isOpen }) => {
 			setAllCategories(data);
 		});
 	}, []);
+
+	// Fonction pour vérifier si l'écran est mobile
+	const isMobile = () => {
+		return window.innerWidth <= 740;
+	};
+	console.log("isMobile", window.innerWidth <= 740);
+	// Fonction pour fermer le menu mobile
+	// const closeMobileMenu = () => {
+	// 	console.log("close");
+	// 	setMobileMenuOpen(!mobileMenuOpen);
+	// 	console.log(mobileMenuOpen);
+	// };
 	return (
 		<nav
 			className={cx("navbar", {
@@ -35,7 +49,7 @@ const Navbar = ({ isOpen }) => {
 				"menu-mobile-close": !isOpen,
 			})}
 		>
-			<div>
+			<div className={cx("menu-item")}>
 				<Tippy
 					// visible
 					interactive
@@ -45,18 +59,18 @@ const Navbar = ({ isOpen }) => {
 							tabIndex="-1"
 							{...attrs}
 							key={uuid()}
-							className={cx("sub-menu")}
+							className={cx("sub-menu", { "hide-mobile": isMobile() })}
 						>
 							{/* afficher le component popper ici */}
 							<WrapperPopper>
 								{/*les resultats 
 							afficher ici */}
 								<ul>
-									<li>a</li>
+									{/* <li>a</li>
 									<li>b</li>
-									<li>c</li>
+									<li>c</li> */}
 
-									{/* {allCategories?.map((link) => (
+									{allCategories?.map((link) => (
 										<li key={uuid()}>
 											<Link
 												to={`/produits/categorie/${link.name}`}
@@ -66,18 +80,22 @@ const Navbar = ({ isOpen }) => {
 												{link.name}
 											</Link>
 										</li>
-									))} */}
+									))}
 								</ul>
 							</WrapperPopper>
 						</div>
 					)}
 				>
-					<Link to={"/produits"} className={cx("nav-item")}>
+					<Link
+						to={"/produits"}
+						className={cx("nav-item")}
+						onClick={() => setIsOpen(false)}
+					>
 						Produits
 					</Link>
 				</Tippy>
 			</div>
-			<div>
+			<div className={cx({ "hide-mobile": isMobile() })}>
 				<Tippy
 					interactive
 					delay={[0, 700]}
@@ -93,7 +111,7 @@ const Navbar = ({ isOpen }) => {
 								{/*les resultats 
 							afficher ici */}
 								<ul>
-									{/* {allBrands?.map((link) => (
+									{allBrands?.map((link) => (
 										<li key={uuid()}>
 											<Link
 												to={`/produits/marques/${link.name}`}
@@ -103,28 +121,39 @@ const Navbar = ({ isOpen }) => {
 												{link.name}
 											</Link>
 										</li>
-									))} */}
-									<li>d</li>
+									))}
+									{/* <li>d</li>
 									<li>e</li>
-									<li>f</li>
+									<li>f</li> */}
 								</ul>
 							</WrapperPopper>
 						</div>
 					)}
 				>
-					<Link to={"/produits"} className={cx("nav-item")}>
+					<Link
+						to={"/produits"}
+						className={cx("nav-item", { "hide-mobile": isMobile() })}
+					>
 						Marques
 					</Link>
 				</Tippy>
 			</div>
 
-			<Link to={"/blog"} className={cx("nav-item")}>
+			{/* <Link to={"/blog"} className={cx("nav-item")}>
 				Blog
-			</Link>
-			<Link to={"/apropos"} className={cx("nav-item")}>
+			</Link> */}
+			<Link
+				to={"/apropos"}
+				className={cx("nav-item")}
+				onClick={() => setIsOpen(false)}
+			>
 				A propos
 			</Link>
-			<Link to={"/contact"} className={cx("nav-item")}>
+			<Link
+				to={"/contact"}
+				className={cx("nav-item")}
+				onClick={() => setIsOpen(false)}
+			>
 				Contact
 			</Link>
 		</nav>

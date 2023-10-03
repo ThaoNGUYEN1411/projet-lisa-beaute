@@ -74,3 +74,6 @@ li{
 .message-danger{
     color: var(--red);
 }
+.message-succes{
+    color: green;
+}

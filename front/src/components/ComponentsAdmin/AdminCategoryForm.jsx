@@ -62,7 +62,7 @@ const AdminCategoryForm = () => {
 	}, [watch]);
 
 	const onSubmit = async (values) => {
-		// console.log(values);
+		console.log(values);
 		const responseAPI = id
 			? await updateCategory(values)
 			: await createCategory(values);
