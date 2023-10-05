@@ -42,14 +42,16 @@ const CreateUserPage = () => {
 				<h2 className={cx("text-center", "title-form")}>CRÉEZ VOTRE COMPTE</h2>
 
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<div className={cx("contact-bloc", "row")}>
+					<div className={cx("row")}>
 						<div className={cx("row", "name")}>
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
-								<label className={cx("label", "label-name")}>Votre nom</label>
+								<label className={cx("label", "label-name", "label-lastName")}>
+									Votre nom
+								</label>
 								<input
 									className={cx("lastName")}
 									type="text"
-									placeholder="Votre nom"
+									placeholder="Nom"
 									{...register("lastName", {
 										required: "Votre nom est requis",
 									})}
@@ -63,7 +65,7 @@ const CreateUserPage = () => {
 								<input
 									className={cx("firstName")}
 									type="text"
-									placeholder="Votre prénom"
+									placeholder="Prénom"
 									{...register("firstName")}
 								/>
 							</p>

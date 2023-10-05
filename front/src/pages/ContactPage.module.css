@@ -26,11 +26,25 @@
 }
 .contact-info{
     margin: 1rem 0;
+    display: block;
 }
-.contact-input,
-.name {
+.contact-input, .contact-name{
   width: 90%;
   margin: 0.5rem 2rem;
+}
+.contact-name{
+  margin-right: 0.5rem;
+}
+/* .ct-lastName{
+  width: 95%;
+  margin: 0.5rem 3rem;
+} */
+.name {
+  width: 90%;
+  margin: 0.5rem auto !important;
+  display: flex;
+  justify-content: space-between !important;
+
 }
 .contact-input,
 .lastName,
@@ -40,17 +54,26 @@
   border-radius: 5px;
 }
 
-.name {
-  margin-right: 0.5rem;
-}
+
+
+
 .label-name {
   display: block;
-  margin-left: 1rem;
+  margin: 0.5rem;
+  /* margin-left: 1rem; */
 }
-.lastName,
+.lastName{
+  width: 90%;
+  display: flex;
+  justify-content: start;
+}
+/* .label-lastName{
+  margin: -20px;
+} */
 .firstName {
-  width: 95%;
-  margin: 0.5rem 3rem !important;
+  width: 90%;
+  display: flex;
+  margin-left: auto;
 }
 .success-message{
   color: rgb(26, 152, 17);
@@ -103,7 +126,7 @@
   margin: 0 !important;
 
 }
-.label-name{
+/* .label-name{
   margin-left: -20px !important;
-}
+} */
 }

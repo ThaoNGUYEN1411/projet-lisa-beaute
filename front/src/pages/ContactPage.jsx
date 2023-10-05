@@ -60,7 +60,7 @@ const ContactPage = () => {
 				<h1 className={cx("title-block", "text-center")}>Nous contacter</h1>
 				<div className={cx("contact", "row")}>
 					<div
-						className={cx("contact-info", "l-4", "m-4", "c-12", "text-center")}
+						className={cx("contact-info", "l-6", "m-6", "c-12", "text-center")}
 					>
 						<span className={cx("contact-icon")}>
 							<FontAwesomeIcon icon={faAddressBook} />
@@ -69,7 +69,7 @@ const ContactPage = () => {
 						<p>55 rue de Vincennes, 93100 Montreuil</p>
 					</div>
 					<div
-						className={cx("contact-info", "l-4", "m-4", "c-12", "text-center")}
+						className={cx("contact-info", "l-6", "m-6", "c-12", "text-center")}
 					>
 						<span className={cx("contact-icon")}>
 							<FontAwesomeIcon icon={faPhone} />
@@ -77,7 +77,7 @@ const ContactPage = () => {
 						<h3>Service client</h3>
 						<p>1900 223 8899</p>
 					</div>
-					<div
+					{/* <div
 						className={cx("contact-info", "l-4", "m-4", "c-12", "text-center")}
 					>
 						<span className={cx("contact-icon")}>
@@ -85,7 +85,7 @@ const ContactPage = () => {
 						</span>
 						<h3>Email</h3>
 						<p>lisabeaute@gmail.com</p>
-					</div>
+					</div> */}
 				</div>
 			</section>
 			<section className={cx("contact-form")}>
@@ -120,7 +120,7 @@ const ContactPage = () => {
 								<span className="error-message">{errors.sujet.message}</span>
 							)}
 						</p>
-						<div className={cx("row", "name")}>
+						<div className={cx("row", "contact-name")}>
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
 								<label className={cx("label", "label-name")}>Votre nom</label>
 								<input
