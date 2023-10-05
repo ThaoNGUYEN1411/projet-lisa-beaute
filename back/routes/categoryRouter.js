@@ -63,19 +63,6 @@ categoryRouter.delete("/delete", async (req, res) => {
 			message: error,
 		});
 	}
-	// const results = await deleteCategory();
-
-	// if (results.errno) {
-	// 	return res.status(400).json({
-	// 		status: 400,
-	// 		message: "Error",
-	// 	});
-	// }
-
-	// return res.status(200).json({
-	// 	status: 200,
-	// 	message: "OK",
-	// });
 });
 
 categoryRouter.post("/create", async (req, res) => {
