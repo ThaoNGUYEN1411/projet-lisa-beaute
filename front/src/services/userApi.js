@@ -46,6 +46,7 @@ const getWishlistOfUser = async (id) => {
 
 	const response = await request.json();
 
+	console.log(response.data);
 	return response.data;
 };
 
@@ -65,7 +66,7 @@ const addProductToWishlist = async (values) => {
 	return response;
 };
 
-const deleteProductFrompWishlist = async (values) => {
+const deleteProductFromWishlist = async (values) => {
 	const requestInfos = new Request(`${VITE_API_URL}/user/Wishlist/delete`, {
 		method: "delete",
 		headers: {
@@ -83,5 +84,5 @@ export {
 	postLoginUser,
 	getWishlistOfUser,
 	addProductToWishlist,
-	deleteProductFrompWishlist,
+	deleteProductFromWishlist,
 };

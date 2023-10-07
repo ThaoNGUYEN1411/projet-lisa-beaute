@@ -19,7 +19,7 @@ CREATE TABLE lisabeaute.product(
     description TEXT NOT NULL,
     usage_tips TEXT NOT NULL,
     ingredients TEXT NOT NULL,
-    image VARCHAR(50) NOT NULL,
+    image VARCHAR(150) NOT NULL,
     brand_id SMALLINT UNSIGNED NOT NULL,
     FOREIGN KEY(brand_id) REFERENCES lisabeaute.brand(id)
 );

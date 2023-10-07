@@ -24,6 +24,7 @@ import AdminBrandFormPage from "../pages/admin/brands/AdminBrandFormPage";
 import AdminCategoryFormPage from "../pages/admin/categories/AdminCategoryFormPage";
 import AdminMessagesPage from "../pages/admin/messages/AdminMessagesPage";
 import AdminBlogPage from "../pages/admin/blog/AdminBlogPage";
+import AdminProductFormPage from "../pages/admin/products/AdminProductFormPage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -111,13 +112,13 @@ const router = createBrowserRouter([
 				element: <AdminHomePage />,
 			},
 			{
-				path: "produits",
+				path: "produits/:id?",
 				element: <AdminProductPage />,
 			},
-			// {
-			// 	path: "produits",
-			// 	element: <AdminCategoryFormPage />,
-			// },
+			{
+				path: "produits/:id?/form",
+				element: <AdminProductFormPage />,
+			},
 			{
 				path: "categories/:id?",
 				element: <AdminCategoryPage />,

@@ -12,18 +12,18 @@ import { SecurityContext } from "../context/SecurityContextProvider";
 import {
 	getWishlistOfUser,
 	addProductToWishlist,
-	deleteProductFrompWishlist,
+	deleteProductFromWishlist,
 } from "../services/userApi";
-import axios from "axios";
+
 const cx = classNames.bind(styles);
 import { v4 as uuid } from "uuid";
-const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const ProductsPage = () => {
 	const { user } = useContext(SecurityContext);
-	const [products, setProducts] = useState([]);
-	const [allFavoriteByUser, setAllFavoriteByUser] = useState([]);
 	const { sort, setSort } = useContext(SortPriceContext);
+	const [products, setProducts] = useState([]);
+
+	const [allFavoriteByUser, setAllFavoriteByUser] = useState([]);
 
 	useEffect(
 		(sortPrice = sort) => {
@@ -34,11 +34,12 @@ const ProductsPage = () => {
 		},
 		[sort],
 	);
-	console.log("user", user);
+
 	useEffect(() => {
-		// if (user) {
-		// }
-		getWishlistOfUser(user?.id);
+		getWishlistOfUser(user?.id).then((data) => {
+			console.log("ok", data);
+			setAllFavoriteByUser(data);
+		});
 	}, []);
 
 	// const getWishlistOfUser = async (id) => {
@@ -51,16 +52,16 @@ const ProductsPage = () => {
 	// 	setAllFavoriteByUser(response.data);
 	// };
 
-	const getWishlistOfUser = (userId) => {
-		axios
-			.get(`${VITE_API_URL}/user/Wishlist/${userId}`)
-			.then((response) => {
-				// console.log("response.data.data", response.data.data);
-				setAllFavoriteByUser(response.data.data);
-				return response.data.data;
-			})
-			.catch((error) => console.log("error", error));
-	};
+	// const getWishlistOfUser = (userId) => {
+	// 	axios
+	// 		.get(`${VITE_API_URL}/user/Wishlist/${userId}`)
+	// 		.then((response) => {
+	// 			console.log("response.data.data", response.data.data);
+	// 			setAllFavoriteByUser(response.data.data);
+	// 			return response.data.data;
+	// 		})
+	// 		.catch((error) => console.log("error", error));
+	// };
 
 	const handleProductLiked = async (productId, checkedFavorite) => {
 		const id = user?.id;
@@ -68,10 +69,11 @@ const ProductsPage = () => {
 		if (!checkedFavorite) {
 			addProductToWishlist({ productId, id });
 		} else {
-			deleteProductFrompWishlist(productId);
+			console.log("checkedFavorite", checkedFavorite);
+			deleteProductFromWishlist(productId);
 		}
 
-		getWishlistOfUser(id);
+		getWishlistOfUser(id).then((data) => console.log(data));
 	};
 
 	return (

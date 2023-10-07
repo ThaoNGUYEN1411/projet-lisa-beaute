@@ -67,7 +67,7 @@ const getAllProductsSameBrand = async (data) => {
 		return error;
 	}
 };
-
+// récupérer un product avec le marque et la categorie
 const getProduct = async (data) => {
 	const sql = `SELECT product.*, brand.name AS brand_name, category.name AS category_name
 	FROM lisabeaute.product
@@ -80,6 +80,19 @@ const getProduct = async (data) => {
 	WHERE product.id = :id;`;
 	try {
 		const [results] = await dbConnection.execute(sql, data);
+		return results[0];
+	} catch (error) {
+		return error;
+	}
+};
+
+const getProductById = async (data) => {
+	const sql = `SELECT product.*
+	FROM lisabeaute.product
+	WHERE product.id = :id;`;
+	try {
+		const [results] = await dbConnection.execute(sql, data);
+		console.log(results);
 		return results[0];
 	} catch (error) {
 		return error;
@@ -128,4 +141,5 @@ export {
 	getProduct,
 	getAllProductsPriceCroissant,
 	getProductsBySearch,
+	getProductById,
 };

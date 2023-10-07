@@ -89,6 +89,14 @@ WHERE user.id = 1
 -- WHERE product.id = 2
 -- ;
 
+SELECT product.name, category.name AS category_name
+FROM lisabeaute.product
+JOIN lisabeaute.category
+JOIN lisabeaute.product_category
+ON product_category.category_id = category.id
+AND product_category.product_id = product.id 
+;
+
 --   SELECT product.name, brand.name AS brand_name, category.name AS category_name
 --     FROM lisabeaute.product
 --     JOIN lisabeaute.brand

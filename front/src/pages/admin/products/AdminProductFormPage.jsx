@@ -1,17 +1,21 @@
 import classNames from "classnames/bind";
 import styles from "../../../components/ComponentsAdmin/AdminStyle.module.css";
-import AdminListProducts from "../../../components/ComponentsAdmin/AdminListProducts";
+
+import AdminProductForm from "../../../components/ComponentsAdmin/AdminProductForm";
 const cx = classNames.bind(styles);
 
-const AdminProductPage = () => {
+const AdminProductFormPage = () => {
 	return (
-		<div className={cx("grid wide2")}>
+		<div className={cx("grid wide")}>
 			<div className={cx("ad-title")}>
 				<h1 className={cx("title")}>Administration de produits</h1>
 			</div>
-			<AdminListProducts />
+			<section>
+				<h2>La list de produits</h2>
+				<AdminProductForm />
+			</section>
 		</div>
 	);
 };
 
-export default AdminProductPage;
+export default AdminProductFormPage;

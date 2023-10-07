@@ -50,7 +50,7 @@ const HomePage = () => {
 					<article className={cx("under-banner", "col", "l-4", "m-4", "c-12")}>
 						<Link to={"/produits"} className={cx("wp-img")}>
 							<img src="/images/b.webp" alt="" className={cx("banner-img")} />
-							<span className={cx("banner-title")}>Top vents</span>
+							<span className={cx("banner-title")}>Top ventes</span>
 						</Link>
 					</article>
 				</div>
@@ -190,7 +190,7 @@ const HomePage = () => {
 					>
 						<div className={cx("article-contenu")}>
 							<h3 className={cx("article-title")}>
-								Quels parfums porter au étés ?
+								Quels parfums porter en été ?
 							</h3>
 							<p className={cx("article-text")}>
 								Les agrumes comme le citron, la mandarine, l'orange, le
