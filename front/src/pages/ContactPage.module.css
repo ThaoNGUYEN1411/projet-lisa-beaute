@@ -46,6 +46,9 @@
   justify-content: space-between !important;
 
 }
+.bloc-name{
+  margin-left: 2.2rem !important;
+}
 .contact-input,
 .lastName,
 .firstName {
@@ -53,8 +56,9 @@
   padding: 10px 20px;
   border-radius: 5px;
 }
-
-
+.ct-label-lastName{
+  margin-left: -2rem !important;
+}
 
 
 .label-name {
@@ -126,7 +130,11 @@
   margin: 0 !important;
 
 }
-/* .label-name{
-  margin-left: -20px !important;
-} */
+.ct-label-firstName{
+  margin-left: -2rem !important;
+}
+}
+
+.ct-label-firstName{
+  margin-right: 2rem !important;
 }

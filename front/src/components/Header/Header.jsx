@@ -51,10 +51,10 @@ const Header = () => {
 
 					<div className={cx("header-icons")}>
 						<div className={cx("icon-magasin")}>
-							<a href="#" className={cx("icon-magasin-link")}>
+							<Link to={"/magasin"} className={cx("icon-magasin-link")}>
 								<FontAwesomeIcon icon={faLocationDot} />
 								<span className={cx("title-icon")}>Magasin</span>
-							</a>
+							</Link>
 						</div>
 						{user ? (
 							<>

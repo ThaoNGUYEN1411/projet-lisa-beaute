@@ -1,0 +1,24 @@
+.list-store{
+    padding: 1rem 2rem;
+}
+.hr{
+    width: 80%;
+    margin: 1.5rem 0;
+}
+
+.name-store{
+    text-transform: uppercase;
+    color: var(--red);
+}
+.banner{
+    height: 200px;
+    width: 100%;
+}
+.title{
+    color: #F2B229;
+
+    margin: 5rem 0 3rem 0;
+}
+.icon-adress{
+    margin-right: 1rem; 
+}

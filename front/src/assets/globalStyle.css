@@ -71,9 +71,15 @@ li{
   input:focus{
     border: 1px solid var(--input-focus-color);
   }
-.message-danger{
+.message-error{
     color: var(--red);
+    display: block;
+
 }
 .message-succes{
     color: green;
+}
+
+.leaflet-container{
+    height: 40rem;
 }

@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faAddressBook,
 	faChevronRight,
-	faEnvelope,
 	faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
@@ -120,9 +119,13 @@ const ContactPage = () => {
 								<span className="error-message">{errors.sujet.message}</span>
 							)}
 						</p>
-						<div className={cx("row", "contact-name")}>
+						<div className={cx("row", "contact-name", "bloc-name")}>
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
-								<label className={cx("label", "label-name")}>Votre nom</label>
+								<label
+									className={cx("label", "label-name", "ct-label-lastName")}
+								>
+									Votre nom
+								</label>
 								<input
 									className={cx("lastName")}
 									type="text"
@@ -134,7 +137,9 @@ const ContactPage = () => {
 								<span>{errors.lastName?.message}</span>
 							</p>
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
-								<label className={cx("label", "label-name")}>
+								<label
+									className={cx("label", "label-name", "ct-label-firstName")}
+								>
 									Votre prénom
 								</label>
 								<input

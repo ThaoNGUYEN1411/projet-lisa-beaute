@@ -7,23 +7,35 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { postCreateUser } from "../services/userApi";
+import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 const CreateUserPage = () => {
 	// const [infos, setInfos] = useState();
+	const [message, setMessage] = useState();
+	const navigate = useNavigate();
 
 	const {
 		handleSubmit,
 		watch,
 		register,
 		formState: { isValid, isSubmitted, submitCount, errors },
+		reset,
 	} = useForm();
 
 	const onSubmit = async (values) => {
 		// console.log(values);
 
 		const responseAPI = await postCreateUser(values);
+
+		window.sessionStorage.setItem(
+			"notice",
+			"Merci! Votre compte a été créé avec succès",
+		);
+		navigate("/login");
+
+		reset();
 	};
 
 	useEffect(() => {
@@ -56,7 +68,9 @@ const CreateUserPage = () => {
 										required: "Votre nom est requis",
 									})}
 								/>
-								<span>{errors.lastName?.message}</span>
+								<span className={cx("message-error")}>
+									{errors.lastName?.message}
+								</span>
 							</p>
 							<p className={cx("contact-info", "l-6", "m-6", "c-12")}>
 								<label className={cx("label", "label-name")}>
@@ -80,7 +94,9 @@ const CreateUserPage = () => {
 									required: "Email est requis",
 								})}
 							/>
-							<span className={cx("errors")}>{errors.email?.message}</span>
+							<span className={cx("message-error")}>
+								{errors.email?.message}
+							</span>
 						</p>
 						<p className={cx("contact-info", "l-12", "m-12", "c-12")}>
 							<label className={cx("label")}>Votre mot de passe : </label>
@@ -92,15 +108,12 @@ const CreateUserPage = () => {
 									required: "Mot de passe est requis",
 								})}
 							/>
-							<span className={cx("errors")}>{errors.password?.message}</span>
+							<span className={cx("message-error")}>
+								{errors.password?.message}
+							</span>
 						</p>
 					</div>
-					{isValid && (
-						<p className={cx("success-message")}>
-							<FontAwesomeIcon icon={faCircleCheck} />
-							Merci! Votre compte a été créé avec succès
-						</p>
-					)}
+
 					<div className={cx("text-center", "margin-bloc")}>
 						<Button primary>Créer mon compte</Button>
 					</div>

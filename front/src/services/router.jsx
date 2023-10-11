@@ -25,6 +25,7 @@ import AdminCategoryFormPage from "../pages/admin/categories/AdminCategoryFormPa
 import AdminMessagesPage from "../pages/admin/messages/AdminMessagesPage";
 import AdminBlogPage from "../pages/admin/blog/AdminBlogPage";
 import AdminProductFormPage from "../pages/admin/products/AdminProductFormPage";
+import StorePage from "../pages/StorePage";
 // import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
 
 const router = createBrowserRouter([
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
 			{
 				path: "contact",
 				element: <ContactPage />,
+			},
+			{
+				path: "magasin",
+				element: <StorePage />,
 			},
 		],
 	},

@@ -46,13 +46,21 @@ const LoginPage = () => {
 		return () => subscription.unsubscribe();
 	}, [watch]);
 
+	useEffect(() => {
+		if (window.sessionStorage.getItem("notice")) {
+			setMessage(window.sessionStorage.getItem("notice"));
+			window.sessionStorage.removeItem("notice");
+			setTimeout(() => setMessage(null), 5000);
+		}
+	});
 	return (
 		<div className={cx("grid", "wide", "connect-form", "row", "margin-bloc")}>
 			<section
 				className={cx("l-6", "m-6", "c-12", "wp-connection", "text-center")}
 			>
 				<h1 className={cx("title")}>Vous avez déjà un compte ?</h1>
-				<h2 className={cx("sub-title")}>Ravi de vous revoir !</h2>
+				{!message && <h2 className={cx("sub-title")}>Ravi de vous revoir !</h2>}
+				<p className={cx("message-succes")}>{message}</p>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<p>
 						<label className={cx("label", "label-connection")}>
