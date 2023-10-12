@@ -1,10 +1,11 @@
 import classNames from "classnames/bind";
-// import styles from "./EspacePersoClientPage.module.css";
-import styles from "./ProductsPage.module.css";
-
-import AsideEspacePersoClient from "../components/AsideEspacePersoClient/AsideEspacePersoClient";
 import { useContext, useEffect, useState } from "react";
-import { SecurityContext } from "../context/SecurityContextProvider";
+import styles from "../ProductsPage.module.css";
+import { SecurityContext } from "../../context/SecurityContextProvider";
+import AsideEspacePersoClient from "../../components/AsideEspacePersoClient/AsideEspacePersoClient";
+
+// import AsideEspacePersoClient from "../../components/AsideEspacePersoClient/AsideEspacePersoClient";
+// import { SecurityContext } from "../../context/SecurityContextProvider";
 const cx = classNames.bind(styles);
 
 const EspacePersoClientPage = () => {

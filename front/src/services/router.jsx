@@ -8,14 +8,10 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductsTypeDetail from "../pages/ProductsTypeDetail";
 import ProductsBrandDetail from "../pages/ProductsBrandDetail";
-import CreateUserPage from "../pages/CreateUserPage";
-import LoginPage from "../pages/LoginPage";
-import EspacePersoClientPage from "../pages/EspacePersoClientPage";
-import WishlistPage from "../pages/WishlistPage";
+import LoginPage from "../pages/user/LoginPage";
 import Guard from "../components/ComponentsAdmin/Guard";
 import AdminHomePage from "../pages/admin/AdminHomePage";
 import RootLayoutAdmin from "../layouts/RootLayoutAdmin";
-import LogoutPage from "../pages/LogoutPage";
 import AdminCategoryPage from "../pages/admin/categories/AdminCategoryPage";
 import AdminProductPage from "../pages/admin/products/AdminProductPage";
 import AdminBrandPage from "../pages/admin/brands/AdminBrandPage";
@@ -26,7 +22,10 @@ import AdminMessagesPage from "../pages/admin/messages/AdminMessagesPage";
 import AdminBlogPage from "../pages/admin/blog/AdminBlogPage";
 import AdminProductFormPage from "../pages/admin/products/AdminProductFormPage";
 import StorePage from "../pages/StorePage";
-// import ProductsPriceCroissant from "../pages/ProductsPriceCroissant";
+import CreateUserPage from "../pages/user/CreateUserPage";
+import LogoutPage from "../pages/user/LogoutPage";
+import EspacePersoClientPage from "../pages/user/EspacePersoClientPage";
+import WishlistPage from "../pages/user/WishlistPage";
 
 const router = createBrowserRouter([
 	{

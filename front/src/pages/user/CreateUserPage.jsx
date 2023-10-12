@@ -1,12 +1,10 @@
 import classNames from "classnames/bind";
-import styles from "./ContactPage.module.css";
+import styles from "../../components/ContactComponents/ContactComponent.module.css";
 
 import { useForm } from "react-hook-form";
-import Button from "../components/Button/Button";
+import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { postCreateUser } from "../services/userApi";
+import { postCreateUser } from "../../services/userApi";
 import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);

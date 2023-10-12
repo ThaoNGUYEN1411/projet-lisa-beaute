@@ -2,7 +2,7 @@ import { useContext } from "react";
 // import { UserContext } from "../providers/UserProvider";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { SecurityContext } from "../context/SecurityContextProvider";
+import { SecurityContext } from "../../context/SecurityContextProvider";
 
 const LogoutPage = () => {
 	// accéder à l'utilisateur stocké dans le contexte

@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import classNames from "classnames/bind";
-import Product from "../components/Product/Product";
 import { Link } from "react-router-dom";
-import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
-import { getAllproducts } from "../services/productsApi";
-import styles from "./ProductsPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { v4 as uuid } from "uuid";
+
+import styles from "./ProductsPage.module.css";
+import Product from "../components/Product/Product";
+import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
+import { getAllproducts } from "../services/productsApi";
 import { SortPriceContext } from "../context/SortPriceContextProvider";
 import { SecurityContext } from "../context/SecurityContextProvider";
 import {
@@ -16,14 +18,14 @@ import {
 } from "../services/userApi";
 
 const cx = classNames.bind(styles);
-import { v4 as uuid } from "uuid";
 
 const ProductsPage = () => {
 	const { user } = useContext(SecurityContext);
 	const { sort, setSort } = useContext(SortPriceContext);
 	const [products, setProducts] = useState([]);
 
-	const [allFavoriteByUser, setAllFavoriteByUser] = useState([]);
+	const [favoriteProducts, setFavoriteProducts] = useState([]);
+	const [isFaviriteProduct, setIsFaviriteProduct] = useState(false);
 
 	useEffect(
 		(sortPrice = sort) => {
@@ -38,7 +40,7 @@ const ProductsPage = () => {
 	useEffect(() => {
 		getWishlistOfUser(user?.id).then((data) => {
 			console.log("ok", data);
-			setAllFavoriteByUser(data);
+			setFavoriteProducts(data);
 		});
 	}, []);
 
@@ -63,9 +65,10 @@ const ProductsPage = () => {
 	// 		.catch((error) => console.log("error", error));
 	// };
 
-	const handleProductLiked = async (productId, checkedFavorite) => {
+	const toggleFavorite = async (productId, checkedFavorite) => {
+		// console.log(productClicked);
 		const id = user?.id;
-		// console.log("checkedFavorite", checkedFavorite);
+		console.log("checkedFavorite", checkedFavorite);
 		if (!checkedFavorite) {
 			addProductToWishlist({ productId, id });
 		} else {
@@ -87,7 +90,7 @@ const ProductsPage = () => {
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
 						{products.map((product) => {
-							const checkedFavorite = allFavoriteByUser.find(
+							const checkedFavorite = favoriteProducts.find(
 								(elm) => elm.id === product.id,
 							);
 
@@ -101,7 +104,7 @@ const ProductsPage = () => {
 										<button
 											className={cx("btn-heart")}
 											onClick={() =>
-												handleProductLiked(product.id, checkedFavorite)
+												toggleFavorite(product.id, checkedFavorite)
 											}
 										>
 											{checkedFavorite ? (
