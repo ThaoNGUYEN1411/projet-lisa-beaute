@@ -7,7 +7,7 @@ const getAllCategories = async () => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql);
+		const [results] = await dbConnection.query(sql);
 		return results;
 	} catch (error) {
 		return error;
@@ -22,7 +22,7 @@ const getAllCategories = async () => {
 
 // 	try {
 // 		console.log(req);
-// 		const [results] = await dbConnection.execute(sql, req.body);
+// 		const [results] = await dbConnection.query(sql, req.body);
 // 		// console.log("Ok");
 // 		return results;
 // 	} catch (error) {

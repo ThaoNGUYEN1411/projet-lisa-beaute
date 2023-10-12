@@ -70,8 +70,8 @@ userRouter.get("/Wishlist/:id", async (req, res) => {
 	;
 	`;
 	try {
-		// const [results] = await dbConnection.execute(query, { id: 1 });
-		const [results] = await dbConnection.execute(query, req.params);
+		// const [results] = await dbConnection.query(query, { id: 1 });
+		const [results] = await dbConnection.query(query, req.params);
 		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
@@ -95,7 +95,7 @@ userRouter.post("/Wishlist/add", async (req, res) => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
@@ -118,7 +118,7 @@ userRouter.delete("/Wishlist/delete", async (req, res) => {
 	// console.log("req.body", req.body);
 
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,

@@ -13,7 +13,7 @@ const getAllComments = async (data) => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql, data);
+		const [results] = await dbConnection.query(sql, data);
 		return results;
 	} catch (error) {
 		return error;

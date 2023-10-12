@@ -59,7 +59,10 @@
 .icon-heart-favorite{
      color: var(--red);
     }
-  
+.icon-heart-remove{
+  color: rgb(220, 218, 217);
+
+     }
 .btn-heart{
       background-color: transparent;
     }

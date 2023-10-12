@@ -30,7 +30,7 @@ categoryRouter.put("/update", async (req, res) => {
 	`;
 
 	try {
-		const [results] = await dbConnection.execute(query, req.body);
+		const [results] = await dbConnection.query(query, req.body);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -51,7 +51,7 @@ categoryRouter.delete("/delete", async (req, res) => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,
@@ -72,7 +72,7 @@ categoryRouter.post("/create", async (req, res) => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -95,8 +95,8 @@ categoryRouter.get("/:id", async (req, res) => {
 	`;
 
 	try {
-		// const [results] = await dbConnection.execute(query, { id: 1 });
-		const [results] = await dbConnection.execute(query, req.params);
+		// const [results] = await dbConnection.query(query, { id: 1 });
+		const [results] = await dbConnection.query(query, req.params);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",

@@ -23,9 +23,9 @@ const ProductsPage = () => {
 	const { user } = useContext(SecurityContext);
 	const { sort, setSort } = useContext(SortPriceContext);
 	const [products, setProducts] = useState([]);
-
 	const [favoriteProducts, setFavoriteProducts] = useState([]);
-	const [isFaviriteProduct, setIsFaviriteProduct] = useState(false);
+
+	const [checkedFavorite, setCheckedFavorite] = useState(false);
 
 	useEffect(
 		(sortPrice = sort) => {
@@ -65,18 +65,33 @@ const ProductsPage = () => {
 	// 		.catch((error) => console.log("error", error));
 	// };
 
-	const toggleFavorite = async (productId, checkedFavorite) => {
-		// console.log(productClicked);
+	const toggleFavorite = async (productClicked) => {
+		const productId = productClicked.id;
 		const id = user?.id;
-		console.log("checkedFavorite", checkedFavorite);
-		if (!checkedFavorite) {
-			addProductToWishlist({ productId, id });
-		} else {
-			console.log("checkedFavorite", checkedFavorite);
+		if (favoriteProducts.includes(productClicked)) {
+			// supprimer productClicked depuis favorite produits
+			// return favoriteProducts update
+			const updateFavoritesProducts = favoriteProducts.filter((elm) => {
+				elm.id !== productClicked.id;
+			});
 			deleteProductFromWishlist(productId);
+			setFavoriteProducts(updateFavoritesProducts);
+		} else {
+			// add to favorites
+			setFavoriteProducts([...favoriteProducts, productClicked]);
+			console.log(id, productId);
+			addProductToWishlist({ id, productId });
 		}
-
-		getWishlistOfUser(id).then((data) => console.log(data));
+		console.log("favoriteProducts", favoriteProducts);
+		// const id = user?.id;
+		// console.log("checkedFavorite", checkedFavorite, productId);
+		// if (checkedFavorite === false) {
+		// 	addProductToWishlist({ id, productId });
+		// } else {
+		// 	console.log("checkedFavorite", checkedFavorite);
+		// 	deleteProductFromWishlist(productId);
+		// }
+		// getWishlistOfUser(id).then((data) => console.log(data));
 	};
 
 	return (
@@ -90,9 +105,12 @@ const ProductsPage = () => {
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
 						{products.map((product) => {
-							const checkedFavorite = favoriteProducts.find(
-								(elm) => elm.id === product.id,
-							);
+							// const checkedFavorite = favoriteProducts.find(
+							// 	(elm) => elm.id === product.id,
+							// );
+							if (favoriteProducts.find((elm) => elm.id === product.id)) {
+								const checkedFavorite = true;
+							}
 
 							return (
 								<article
@@ -103,11 +121,9 @@ const ProductsPage = () => {
 										{/* rome-ignore lint/a11y/useButtonType: <explanation> */}
 										<button
 											className={cx("btn-heart")}
-											onClick={() =>
-												toggleFavorite(product.id, checkedFavorite)
-											}
+											onClick={() => toggleFavorite(product)}
 										>
-											{checkedFavorite ? (
+											{favoriteProducts.includes(product) ? (
 												<FontAwesomeIcon
 													icon={faHeart}
 													className={cx("icon", "icon-heart-favorite")}
@@ -118,6 +134,17 @@ const ProductsPage = () => {
 													className={cx("icon")}
 												/>
 											)}
+											{/* {checkedFavorite ? (
+												<FontAwesomeIcon
+													icon={faHeart}
+													className={cx("icon", "icon-heart-favorite")}
+												/>
+											) : (
+												<FontAwesomeIcon
+													icon={faHeart}
+													className={cx("icon")}
+												/>
+											)} */}
 										</button>
 									</div>
 									<Link to={`/produits/${product.id}`} key={uuid()}>
