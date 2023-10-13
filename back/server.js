@@ -21,6 +21,7 @@ router.use(
 			"http://127.0.0.1:4173/",
 			"http://localhost:4173/",
 			"http://localhost:4174",
+			"http://134.209.83.63",
 		],
 	}),
 );
