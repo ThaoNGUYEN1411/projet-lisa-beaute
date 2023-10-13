@@ -71,7 +71,7 @@ userRouter.get("/Wishlist/:id", async (req, res) => {
 	`;
 	try {
 		// const [results] = await dbConnection.query(query, { id: 1 });
-		const [results] = await dbConnection.query(query, req.params);
+		const [results] = await dbConnection.execute(query, req.params);
 		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
@@ -93,9 +93,9 @@ userRouter.post("/Wishlist/add", async (req, res) => {
 	INSERT INTO lisabeaute.user_product
 	VALUE (:id, :productId);
     `;
-
+	console.log(req.body);
 	try {
-		const [results] = await dbConnection.query(sql, req.body);
+		const [results] = await dbConnection.execute(sql, req.body);
 		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
@@ -113,12 +113,12 @@ userRouter.post("/Wishlist/add", async (req, res) => {
 userRouter.delete("/Wishlist/delete", async (req, res) => {
 	const sql = `
 	DELETE FROM lisabeaute.user_product
-	WHERE user_product.productId = :id;
+	WHERE user_product.product_id = :id;
     `;
 	// console.log("req.body", req.body);
 
 	try {
-		const [results] = await dbConnection.query(sql, req.body);
+		const [results] = await dbConnection.execute(sql, req.body);
 		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,

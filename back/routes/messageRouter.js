@@ -8,7 +8,7 @@ messageRouter.post("/create", async (req, res) => {
     (NULL, :sujet, :lastName, :firstName, :email, :messageContent)`;
 
 	try {
-		const [results] = await dbConnection.query(sql, req.body);
+		const [results] = await dbConnection.execute(sql, req.body);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -27,7 +27,7 @@ messageRouter.get("/", async (req, res) => {
 	`;
 
 	try {
-		const [results] = await dbConnection.query(sql, req.body);
+		const [results] = await dbConnection.execute(sql, req.body);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -48,7 +48,7 @@ messageRouter.delete("/delete", async (req, res) => {
     `;
 
 	try {
-		const [results] = await dbConnection.query(sql, req.body);
+		const [results] = await dbConnection.execute(sql, req.body);
 		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,

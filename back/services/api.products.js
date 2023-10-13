@@ -14,7 +14,7 @@ const getAllProducts = async (sort) => {
 		`;
 	}
 	try {
-		const [results] = await dbConnection.query(sql);
+		const [results] = await dbConnection.execute(sql);
 		return results;
 	} catch (error) {
 		return error;
@@ -36,7 +36,7 @@ const getAllProductsSameType = async (data) => {
     `;
 
 	try {
-		const [results] = await dbConnection.query(sql, data);
+		const [results] = await dbConnection.execute(sql, data);
 		return results;
 	} catch (error) {
 		return error;
@@ -61,7 +61,7 @@ const getAllProductsSameBrand = async (data) => {
     `;
 
 	try {
-		const [results] = await dbConnection.query(sql, data);
+		const [results] = await dbConnection.execute(sql, data);
 		return results;
 	} catch (error) {
 		return error;
@@ -79,7 +79,7 @@ const getProduct = async (data) => {
 	AND product_category.product_id = product.id 
 	WHERE product.id = :id;`;
 	try {
-		const [results] = await dbConnection.query(sql, data);
+		const [results] = await dbConnection.execute(sql, data);
 		return results[0];
 	} catch (error) {
 		return error;
@@ -91,7 +91,7 @@ const getProductById = async (data) => {
 	FROM lisabeaute.product
 	WHERE product.id = :id;`;
 	try {
-		const [results] = await dbConnection.query(sql, data);
+		const [results] = await dbConnection.execute(sql, data);
 		console.log(results);
 		return results[0];
 	} catch (error) {
@@ -107,7 +107,7 @@ const getAllProductsPriceCroissant = async () => {
 	ON product.brand_id = brand.id 
 	ORDER BY product.price DESC;`;
 	try {
-		const [results] = await dbConnection.query(sql);
+		const [results] = await dbConnection.execute(sql);
 		return results;
 	} catch (error) {
 		return error;
@@ -127,7 +127,7 @@ const getProductsBySearch = async (search) => {
 
 	// console.log(sql);
 	try {
-		const [results] = await dbConnection.query(sql);
+		const [results] = await dbConnection.execute(sql);
 		return results;
 	} catch (error) {
 		return error;

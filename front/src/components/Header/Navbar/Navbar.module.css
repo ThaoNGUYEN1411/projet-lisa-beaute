@@ -40,6 +40,11 @@
 
 /* Mobile */
 @media(max-width:740px){
+  /* .nav-item.nav-item:hover .navbar{
+ display: none !important;
+
+
+  } */
   .nav-item{
     margin: 1rem;
   }

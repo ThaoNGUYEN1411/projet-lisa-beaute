@@ -25,7 +25,7 @@ const ProductsPage = () => {
 	const [products, setProducts] = useState([]);
 	const [favoriteProducts, setFavoriteProducts] = useState([]);
 
-	const [checkedFavorite, setCheckedFavorite] = useState(false);
+	// const [checkedFavorite, setCheckedFavorite] = useState(false);
 
 	useEffect(
 		(sortPrice = sort) => {
@@ -36,7 +36,6 @@ const ProductsPage = () => {
 		},
 		[sort],
 	);
-
 	useEffect(() => {
 		getWishlistOfUser(user?.id).then((data) => {
 			console.log("ok", data);
@@ -44,54 +43,34 @@ const ProductsPage = () => {
 		});
 	}, []);
 
-	// const getWishlistOfUser = async (id) => {
-	// 	const requestProduct = new Request(
-	// 		`http://localhost:3000/user/Wishlist/${id}`,
-	// 	);
-	// 	const request = await fetch(requestProduct);
-	// 	const response = await request.json();
-	// 	console.log("response", response);
-	// 	setAllFavoriteByUser(response.data);
-	// };
-
-	// const getWishlistOfUser = (userId) => {
-	// 	axios
-	// 		.get(`${VITE_API_URL}/user/Wishlist/${userId}`)
-	// 		.then((response) => {
-	// 			console.log("response.data.data", response.data.data);
-	// 			setAllFavoriteByUser(response.data.data);
-	// 			return response.data.data;
-	// 		})
-	// 		.catch((error) => console.log("error", error));
-	// };
-
-	const toggleFavorite = async (productClicked) => {
-		const productId = productClicked.id;
-		const id = user?.id;
-		if (favoriteProducts.includes(productClicked)) {
-			// supprimer productClicked depuis favorite produits
-			// return favoriteProducts update
-			const updateFavoritesProducts = favoriteProducts.filter((elm) => {
-				elm.id !== productClicked.id;
-			});
-			deleteProductFromWishlist(productId);
-			setFavoriteProducts(updateFavoritesProducts);
-		} else {
-			// add to favorites
-			setFavoriteProducts([...favoriteProducts, productClicked]);
-			console.log(id, productId);
-			addProductToWishlist({ id, productId });
+	console.log("favoriteProducts", favoriteProducts);
+	const id = user?.id;
+	const toggleFavorite = async (product) => {
+		const productId = product.id;
+		if (user) {
+			try {
+				if (favoriteProducts.find((elm) => elm.id === productId)) {
+					console.log("delete");
+					console.log(productId);
+					// si le produit est déja dan les favoris supprimez-le
+					await deleteProductFromWishlist(productId);
+					// mettrez à jour l'état davoriteProducts en supprimant le produit
+					setFavoriteProducts(
+						favoriteProducts.filter((id) => id !== productId),
+					);
+				} else {
+					// sinon, ajouter les produits préférer
+					// console.log(typeof id, typeof productId);
+					await addProductToWishlist({ id, productId });
+					const Licked = true;
+					// mettre à jour l'état favoriteProducts en ajoutant le produit
+					setFavoriteProducts([...favoriteProducts, product]);
+				}
+			} catch (error) {
+				console.log(error);
+			}
 		}
-		console.log("favoriteProducts", favoriteProducts);
-		// const id = user?.id;
-		// console.log("checkedFavorite", checkedFavorite, productId);
-		// if (checkedFavorite === false) {
-		// 	addProductToWishlist({ id, productId });
-		// } else {
-		// 	console.log("checkedFavorite", checkedFavorite);
-		// 	deleteProductFromWishlist(productId);
-		// }
-		// getWishlistOfUser(id).then((data) => console.log(data));
+		// console.log("productId", productId);
 	};
 
 	return (
@@ -105,13 +84,6 @@ const ProductsPage = () => {
 				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
 					<div className={cx("prod-list", "row")}>
 						{products.map((product) => {
-							// const checkedFavorite = favoriteProducts.find(
-							// 	(elm) => elm.id === product.id,
-							// );
-							if (favoriteProducts.find((elm) => elm.id === product.id)) {
-								const checkedFavorite = true;
-							}
-
 							return (
 								<article
 									className={cx("prod", "col", "l-4", "m-4", "c-6")}
@@ -123,28 +95,18 @@ const ProductsPage = () => {
 											className={cx("btn-heart")}
 											onClick={() => toggleFavorite(product)}
 										>
-											{favoriteProducts.includes(product) ? (
-												<FontAwesomeIcon
-													icon={faHeart}
-													className={cx("icon", "icon-heart-favorite")}
-												/>
-											) : (
-												<FontAwesomeIcon
-													icon={faHeart}
-													className={cx("icon")}
-												/>
-											)}
-											{/* {checkedFavorite ? (
-												<FontAwesomeIcon
-													icon={faHeart}
-													className={cx("icon", "icon-heart-favorite")}
-												/>
-											) : (
-												<FontAwesomeIcon
-													icon={faHeart}
-													className={cx("icon")}
-												/>
-											)} */}
+											<FontAwesomeIcon
+												icon={faHeart}
+												style={{
+													color: favoriteProducts.find(
+														(elm) => elm.id === product.id,
+													)
+														? "red"
+														: "gray",
+													cursor: "pointer",
+													fontSize: "2rem",
+												}}
+											/>
 										</button>
 									</div>
 									<Link to={`/produits/${product.id}`} key={uuid()}>

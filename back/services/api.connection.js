@@ -1,4 +1,4 @@
-// import { query } from "express";
+// import { execute } from "express";
 import dbConnection from "./dbConnection.js";
 import argon2 from "argon2";
 
@@ -19,7 +19,7 @@ const postCreateUser = async (body) => {
     `;
 
 	try {
-		const [results] = await dbConnection.query(sql, values);
+		const [results] = await dbConnection.execute(sql, values);
 		return results;
 	} catch (error) {
 		return error;
@@ -35,7 +35,7 @@ const postLoginUser = async (body) => {
 	WHERE user.email = :email;`;
 
 	try {
-		const [results] = await dbConnection.query(sql, body);
+		const [results] = await dbConnection.execute(sql, body);
 
 		return results;
 	} catch (error) {
