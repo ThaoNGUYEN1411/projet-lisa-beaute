@@ -62,7 +62,6 @@ const ProductsPage = () => {
 					// sinon, ajouter les produits préférer
 					// console.log(typeof id, typeof productId);
 					await addProductToWishlist({ id, productId });
-					const Licked = true;
 					// mettre à jour l'état favoriteProducts en ajoutant le produit
 					setFavoriteProducts([...favoriteProducts, product]);
 				}

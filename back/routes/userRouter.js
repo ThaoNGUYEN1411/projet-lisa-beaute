@@ -34,8 +34,8 @@ userRouter.post("/login", async (req, res) => {
 		return;
 	}
 
-	const user = query.shift();
-	// console.log(user);
+	const user = query[0];
+	console.log(user);
 	if (user) {
 		// console.log(user.password);
 		const verifyHash = await argon2.verify(user.password, req.body.password);
