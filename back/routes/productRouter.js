@@ -118,7 +118,7 @@ productRouter.post("/commentaires/user", async (req, res) => {
     `;
 	// console.log("recu", req.body);
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("results", results);
 		return res.status(200).json({
 			status: 200,
@@ -154,7 +154,7 @@ productRouter.post("/create", uploader.any(), async (req, res) => {
 
 	try {
 		// ajout du nom final du fichier dans les variables de requête
-		const [results] = await dbConnection.execute(query, {
+		const [results] = await dbConnection.query(query, {
 			...req.body,
 			image: image,
 		});
@@ -194,7 +194,7 @@ productRouter.delete("/delete", async (req, res) => {
 	//essayer de récupérer le nom de image mais il est undefined => 400
 	console.log(product.image);
 	try {
-		const [results] = await dbConnection.execute(query, req.body);
+		const [results] = await dbConnection.query(query, req.body);
 
 		// supprimer l'image
 		await fs.rm(`${uploadDirectory}${product.image}`);
@@ -268,7 +268,7 @@ productRouter.put("/update", uploader.any(), async (req, res) => {
 	*/
 
 	try {
-		const [results] = await dbConnection.execute(query, bodyWithImage);
+		const [results] = await dbConnection.query(query, bodyWithImage);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",

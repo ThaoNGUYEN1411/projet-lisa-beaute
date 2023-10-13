@@ -32,7 +32,7 @@ brandRouter.get("/:id", async (req, res) => {
 
 	try {
 		// const [results] = await dbConnection.query(query, { id: 1 });
-		const [results] = await dbConnection.execute(query, req.params);
+		const [results] = await dbConnection.query(query, req.params);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -57,7 +57,7 @@ brandRouter.put("/update", async (req, res) => {
 	`;
 
 	try {
-		const [results] = await dbConnection.execute(query, req.body);
+		const [results] = await dbConnection.query(query, req.body);
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
@@ -78,7 +78,7 @@ brandRouter.post("/create", async (req, res) => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,
@@ -99,7 +99,7 @@ brandRouter.delete("/delete", async (req, res) => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql, req.body);
+		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,

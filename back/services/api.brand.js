@@ -7,7 +7,7 @@ const getAllBrands = async () => {
     `;
 
 	try {
-		const [results] = await dbConnection.execute(sql);
+		const [results] = await dbConnection.query(sql);
 		return results;
 	} catch (error) {
 		return error;
