@@ -10,10 +10,22 @@ const getAllproducts = async (sort) => {
 	return response;
 };
 
-// récupérer un produit par son identifiant : /produits/:id
+// récupérer un produit avec son marque, categorie par son identifiant : /produits/:id
 const getProduct = async (id) => {
 	const requestProduct = new Request(`${VITE_API_URL}/produits/${id}`);
 
+	const request = await fetch(requestProduct);
+
+	const response = await request.json();
+	console.log("response", response.data);
+	return response.data;
+};
+
+// récupérer un produit avec son marque, categorie par son identifiant : /produits/:id
+const getProductById = async (id) => {
+	const requestProduct = new Request(`${VITE_API_URL}/produits/modifie/${id}`);
+
+	console.log("requestProduct", requestProduct);
 	const request = await fetch(requestProduct);
 
 	const response = await request.json();
@@ -76,7 +88,7 @@ const getAllProductsBySearch = async (value) => {
 
 // creer un nouveau commantaire
 const addCommentByUser = async (values) => {
-	// console.log("addddd");
+	console.log("addddd");
 	const requestInfos = new Request(
 		`${VITE_API_URL}/produits/commentaires/user`,
 		{
@@ -89,6 +101,7 @@ const addCommentByUser = async (values) => {
 	);
 	const request = await fetch(requestInfos);
 	const response = await request.json();
+	console.log(response);
 	return response;
 };
 
@@ -143,4 +156,5 @@ export {
 	createProduct,
 	deleteProduct,
 	updateProduct,
+	getProductById,
 };

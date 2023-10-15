@@ -37,7 +37,7 @@ productRouter.get("/", async (req, res) => {
 	});
 });
 
-// récupérer un produit par son identifiant : /produits/:id
+// récupérer un produit avec son marque, son categori par son identifiant : /produits/:id
 productRouter.get("/:id", async (req, res) => {
 	const results = await getProduct(req.params);
 	// console.log(req.params);
@@ -55,6 +55,23 @@ productRouter.get("/:id", async (req, res) => {
 	});
 });
 
+// récupérer un produit simple par son identifiant : /produits/:id
+productRouter.get("/modifie/:id", async (req, res) => {
+	const results = await getProductById(req.params);
+	// console.log(req.params);
+	if (results?.errno) {
+		return res.status(400).json({
+			status: 400,
+			message: "Error",
+		});
+	}
+
+	return res.status(200).json({
+		status: 200,
+		message: "OK",
+		data: results,
+	});
+});
 // récupérer tous les produit la même categorie ex: /produits/categorie/soin
 productRouter.get("/categorie/:type", async (req, res) => {
 	// console.log(req.params);
@@ -191,8 +208,7 @@ productRouter.delete("/delete", async (req, res) => {
 		DELETE FROM lisabeaute.product
 		WHERE product.id = :id;
 	`;
-	//essayer de récupérer le nom de image mais il est undefined => 400
-	console.log(product.image);
+	// console.log(product.image);
 	try {
 		const [results] = await dbConnection.query(query, req.body);
 
@@ -216,14 +232,25 @@ productRouter.delete("/delete", async (req, res) => {
 // modifier un product
 // ajouter le middleware de multer : uploader.any
 productRouter.put("/update", uploader.any(), async (req, res) => {
+	console.log("ttttt");
+	// {
+	// 	fieldname: 'portrait',
+	// 	originalname: 'logo_h3_campus_online.svg',
+	// 	encoding: '7bit',
+	// 	mimetype: 'image/svg+xml',
+	// 	destination: 'public/img/',
+	// 	filename: '869d1fed42c5140b73266e806159908a',
+	// 	path: 'public/img/869d1fed42c5140b73266e806159908a',
+	// 	size: 3660
+	//   }
 	// récupérer les informations dans la base de données pour connaître l'image existante
 	const { id } = req.body;
-	const product = await getProductById(id);
-	console.log(id);
-	console.log(product);
+	const product = await getProductById({ id: id });
+	console.log("id", id);
+	console.log("product", product);
 	// récupérer le body de la requête
 	let bodyWithImage = req.body;
-	console.log(req.files);
+	console.log("files", req.files);
 	// si aucune image n'a été sélectionnée dans le formulaire, utiliser l'image existante en base de données
 	if (req.files.length === 0) {
 		bodyWithImage = { ...bodyWithImage, image: product.image };
@@ -243,14 +270,14 @@ productRouter.put("/update", uploader.any(), async (req, res) => {
 		);
 
 		// supprimer l'ancienne image
-		await fs.rm(`${uploadDirectory}${student.portrait}`);
+		await fs.rm(`${uploadDirectory}${product.image}`);
 
 		// utiliser la nouvelle image dans le body de la requête
 		bodyWithImage = { ...bodyWithImage, image: image };
 	}
 	// requête
 	const query = `
-			UPDATE formation.student
+			UPDATE lisabeaute.product
 			SET
 				product.name = :name,
 				product.price = :price,
@@ -282,4 +309,5 @@ productRouter.put("/update", uploader.any(), async (req, res) => {
 		});
 	}
 });
+
 export default productRouter;

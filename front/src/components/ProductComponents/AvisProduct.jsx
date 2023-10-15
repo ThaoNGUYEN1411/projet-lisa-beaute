@@ -12,6 +12,7 @@ const cx = classNames.bind(styles);
 
 const AvisProduct = ({ userId, productId }) => {
 	const [message, setMessage] = useState();
+	const [isCloseMessage, setIscloseMessage] = useState(true);
 	const {
 		handleSubmit,
 		watch,
@@ -20,7 +21,10 @@ const AvisProduct = ({ userId, productId }) => {
 		reset,
 	} = useForm();
 	const navigate = useNavigate();
+
 	const onSubmit = async (info) => {
+		reset();
+
 		const date = new Date(); // Obtenez la date et l'heure actuelles
 
 		const year = date.getFullYear();
@@ -37,6 +41,7 @@ const AvisProduct = ({ userId, productId }) => {
 
 		const avisContent = info.avisContent;
 		const time = "2023-07-12 10:20:05";
+
 		await addCommentByUser({
 			content: avisContent,
 			time: formattedDate,
@@ -45,17 +50,35 @@ const AvisProduct = ({ userId, productId }) => {
 		});
 
 		if (response.status === 200) {
-			window.sessionStorage.setItem("notice", "Votre commentaire a été envoyé");
+			window.sessionStorage.setItem(
+				"comment",
+				"Votre commentaire a été envoyé",
+			);
 		} else {
-			window.sessionStorage.setItem("notice", "Error");
+			window.sessionStorage.setItem("comment", "Error");
 		}
+		setIscloseMessage(!isCloseMessage);
 		navigate(`/produits/${productId}`);
-		// reset();
 	};
 
+	// useEffect(() => {
+	// 	if (window.sessionStorage.getItem("comment")) {
+	// 		setMessage(window.sessionStorage.getItem("comment"));
+	// 	}
+	// }, []);
+
+	// récupérer la notification du sessionStorage
 	useEffect(() => {
-		if (window.sessionStorage.getItem("notice")) {
-			setMessage(window.sessionStorage.getItem("notice"));
+		// si un message existe en session
+		if (window.sessionStorage.getItem("comment")) {
+			// stocker le message dans l'état
+			setMessage(window.sessionStorage.getItem("comment"));
+
+			// supprimer le massage en session
+			window.sessionStorage.removeItem("comment");
+
+			// faire disparaître le message après un délai en millisecondes
+			setTimeout(() => setMessage(null), 5000);
 		}
 	}, []);
 
@@ -69,8 +92,9 @@ const AvisProduct = ({ userId, productId }) => {
 		<article className={cx("grid", "wide")}>
 			{/* <h3 className={cx("avis-title")}>Name produit</h3> */}
 			<p>{message}</p>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<p className={cx("avis-title")}>
+			{isCloseMessage && (
+				<form onSubmit={handleSubmit(onSubmit)}>
+					{/* <p className={cx("avis-title")}>
 					Quelle note attribuez-vous à ce produit ?
 					<span className={cx("star-group")}>
 						<FontAwesomeIcon icon={faStar} />
@@ -79,21 +103,22 @@ const AvisProduct = ({ userId, productId }) => {
 						<FontAwesomeIcon icon={faStar} />
 						<FontAwesomeIcon icon={faStar} />
 					</span>
-				</p>
-				<p className={cx("avis-title")}>
-					<label className={cx("")}>
-						Qu'avez-vous pensé de votre produit ?
-					</label>
-					<textarea
-						{...register("avisContent", {
-							required: "Un avis est requis",
-						})}
-						className={cx("textarea")}
-					/>
-					<span>{errors.messageContent?.message}</span>
-				</p>
-				<Button primary>Publier un avis</Button>
-			</form>
+				</p> */}
+					<p className={cx("avis-title")}>
+						<label className={cx("")}>
+							Qu'avez-vous pensé de votre produit ?
+						</label>
+						<textarea
+							{...register("avisContent", {
+								required: "Un avis est requis",
+							})}
+							className={cx("textarea")}
+						/>
+						<span>{errors.messageContent?.message}</span>
+					</p>
+					<Button primary>Publier un avis</Button>
+				</form>
+			)}
 		</article>
 	);
 };

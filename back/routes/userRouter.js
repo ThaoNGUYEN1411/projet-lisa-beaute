@@ -23,8 +23,8 @@ userRouter.post("/registration", async (req, res) => {
 	});
 });
 
-userRouter.post("/login", async (req, res) => {
-	// console.log(req.body);
+async function loginHandler(req, res) {
+	// console.log("&&&&&&&&&", req.body);
 	const query = await postLoginUser(req.body);
 	if (query.length === 0) {
 		res.status(403).json({
@@ -45,7 +45,7 @@ userRouter.post("/login", async (req, res) => {
 				status: 403,
 				message: "Accès refusé",
 			});
-			console.log("Accès refusé");
+			// console.log("Accès refusé");
 			return;
 		}
 		res.status(200).json({
@@ -55,7 +55,9 @@ userRouter.post("/login", async (req, res) => {
 		});
 		// console.log("Accès réussi");
 	}
-});
+}
+userRouter.post("/login", loginHandler);
+userRouter.options("/login", loginHandler);
 
 userRouter.get("/Wishlist/:id", async (req, res) => {
 	const { id } = req.params;
@@ -93,7 +95,7 @@ userRouter.post("/Wishlist/add", async (req, res) => {
 	INSERT INTO lisabeaute.user_product
 	VALUE (:id, :productId);
     `;
-	console.log(req.body);
+	// console.log(req.body);
 	try {
 		const [results] = await dbConnection.query(sql, req.body);
 		// console.log("results", results);

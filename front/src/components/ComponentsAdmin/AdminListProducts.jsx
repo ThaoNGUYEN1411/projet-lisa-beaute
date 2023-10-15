@@ -8,6 +8,7 @@ import styles from "../ComponentsAdmin/AdminStyle.module.css";
 import Button from "../Button/Button";
 import { v4 as uuid } from "uuid";
 import { deleteProduct, getAllproducts } from "../../services/productsApi";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const cx = classNames.bind(styles);
 
@@ -39,12 +40,12 @@ const AdminListProducts = () => {
 	});
 
 	// supprimer un produit
-	const handleClick = async (id) => {
+	const handleDeleteProduct = async (id) => {
 		console.log(id);
 		const responseAPI = await deleteProduct(id);
 
 		if (responseAPI.status === 200) {
-			window.sessionStorage.setItem("notice", "Catégorie supprimé");
+			window.sessionStorage.setItem("notice", "Produit supprimé");
 		} else {
 			window.sessionStorage.setItem("notice", "Erreur");
 		}
@@ -62,8 +63,7 @@ const AdminListProducts = () => {
 			<section>
 				<h2>La list de produits</h2>
 				{/* <AdminListCategories /> */}
-
-				<p>{message}</p>
+				<p className={cx("message-succes")}>{message}</p>
 				<table className={cx("table")}>
 					<thead>
 						<tr className={cx("tr")}>
@@ -109,7 +109,7 @@ const AdminListProducts = () => {
 
 									<Link
 										onClick={() => {
-											handleClick(value.id);
+											handleDeleteProduct(value.id);
 											// console.log(value.id);
 										}}
 									>

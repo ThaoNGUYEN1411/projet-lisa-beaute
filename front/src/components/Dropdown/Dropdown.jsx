@@ -47,7 +47,7 @@ const Dropdown = ({ links, titleDropdown }) => {
 		};
 	}, []);
 	// test
-	const linksNumber = links.length;
+	// const linksNumber = links.length;
 	return (
 		<div className={cx("dropdown")}>
 			<div className={cx("wp-button")}>

@@ -9,6 +9,7 @@ import { getAllBrands } from "../../services/allBrandsApi.js";
 import {
 	createProduct,
 	getProduct,
+	getProductById,
 	updateProduct,
 } from "../../services/productsApi";
 
@@ -21,6 +22,7 @@ const AdminProductForm = () => {
 	const [brands, setBrands] = useState([]);
 	// importer le hook de redirection
 	const navigate = useNavigate();
+
 	const {
 		formState: { errors },
 		handleSubmit,
@@ -43,8 +45,8 @@ const AdminProductForm = () => {
 	// préremplir le formulaire avec un produit existant
 	const prefillForm = async () => {
 		if (id) {
-			console.log(id);
-			const responseAPI = await getProduct(id);
+			console.log("id", id);
+			const responseAPI = await getProductById(id);
 			console.log(responseAPI);
 			const product = responseAPI;
 			reset({
@@ -67,13 +69,13 @@ const AdminProductForm = () => {
 		formData.append("price", values.price);
 		formData.append("description", values.description);
 		formData.append("usage_tips", values.usage_tips);
-
 		formData.append("ingredients", values.ingredients);
-
 		formData.append("image", values.image[0]);
 		formData.append("brand_id", values.brand_id);
-		console.log(formData);
 
+		// appel de la route d'API
+		// await updateStudent(values)
+		// await createStudent(values);
 		const responseAPI = id
 			? await updateProduct(formData)
 			: await createProduct(formData);
@@ -81,16 +83,17 @@ const AdminProductForm = () => {
 		if (responseAPI.status === 200) {
 			window.sessionStorage.setItem(
 				"notice",
-				id ? "Student updated" : "Student created",
+				id ? "Produit modifié" : "Nouveau produit ajouté",
 			);
 		} else {
 			window.sessionStorage.setItem("notice", "Error");
 		}
 		navigate("/admin/produits");
 	};
+
 	useEffect(() => {
-		const observer = watch((values) => console.log(values));
-		// const observer = watch((values) => null);
+		// const observer = watch((values) => console.log(values));
+		const observer = watch((values) => null);
 
 		return () => observer.unsubscribe();
 	}, [watch]);

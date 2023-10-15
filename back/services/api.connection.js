@@ -30,10 +30,10 @@ const postLoginUser = async (body) => {
 	const sql = `
 	SELECT user.*, role.name AS role
 	FROM lisabeaute.user
-	JOIN formation.role
+	JOIN lisabeaute.role
 	ON role.id = user.role_id
 	WHERE user.email = :email;`;
-
+	console.log(body);
 	try {
 		const [results] = await dbConnection.query(sql, body);
 

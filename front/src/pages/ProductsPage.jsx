@@ -16,6 +16,7 @@ import {
 	addProductToWishlist,
 	deleteProductFromWishlist,
 } from "../services/userApi";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const cx = classNames.bind(styles);
 
@@ -24,7 +25,8 @@ const ProductsPage = () => {
 	const { sort, setSort } = useContext(SortPriceContext);
 	const [products, setProducts] = useState([]);
 	const [favoriteProducts, setFavoriteProducts] = useState([]);
-
+	// état pour rafraîchir le composant après la suppression d'un produit
+	const [forceUpdate, setForceUpdate] = useState(false);
 	// const [checkedFavorite, setCheckedFavorite] = useState(false);
 
 	useEffect(
@@ -36,28 +38,26 @@ const ProductsPage = () => {
 		},
 		[sort],
 	);
+
 	useEffect(() => {
 		getWishlistOfUser(user?.id).then((data) => {
-			console.log("ok", data);
 			setFavoriteProducts(data);
 		});
-	}, []);
+	}, [forceUpdate]);
 
-	console.log("favoriteProducts", favoriteProducts);
 	const id = user?.id;
 	const toggleFavorite = async (product) => {
 		const productId = product.id;
 		if (user) {
 			try {
 				if (favoriteProducts.find((elm) => elm.id === productId)) {
-					console.log("delete");
-					console.log(productId);
 					// si le produit est déja dan les favoris supprimez-le
 					await deleteProductFromWishlist(productId);
 					// mettrez à jour l'état davoriteProducts en supprimant le produit
 					setFavoriteProducts(
 						favoriteProducts.filter((id) => id !== productId),
 					);
+					setForceUpdate(!forceUpdate);
 				} else {
 					// sinon, ajouter les produits préférer
 					// console.log(typeof id, typeof productId);
@@ -69,7 +69,6 @@ const ProductsPage = () => {
 				console.log(error);
 			}
 		}
-		// console.log("productId", productId);
 	};
 
 	return (

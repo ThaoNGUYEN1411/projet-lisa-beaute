@@ -35,7 +35,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 	const isMobile = () => {
 		return window.innerWidth <= 740;
 	};
-	console.log("isMobile", window.innerWidth <= 740);
+	// console.log("isMobile", window.innerWidth <= 740);
 
 	// const handleMenuMobile = () => {
 	// 	// setIsOpen(!isOpen);

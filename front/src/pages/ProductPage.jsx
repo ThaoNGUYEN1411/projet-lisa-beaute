@@ -13,6 +13,8 @@ import { v4 as uuid } from "uuid";
 import Button from "../components/Button/Button";
 import AvisProduct from "../components/ProductComponents/AvisProduct";
 import { SecurityContext } from "../context/SecurityContextProvider";
+import ProductPrefer from "../components/HomePageComponents/ProductPrefer";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const cx = classNames.bind(styles);
 
@@ -51,6 +53,11 @@ const ProductPage = () => {
 	useEffect(() => {
 		if (window.sessionStorage.getItem("notice")) {
 			setMessage(window.sessionStorage.getItem("notice"));
+			// supprimer le massage en session
+			window.sessionStorage.removeItem("notice");
+
+			// faire disparaître le message après un délai en millisecondes
+			setTimeout(() => setMessage(null), 5000);
 		}
 	}, []);
 	return (
@@ -77,8 +84,8 @@ const ProductPage = () => {
 				<div className={cx("col", "l-6", "m-6", "c-12")}>
 					<div className={cx("wp-img-product")}>
 						<img
-							src={`/images/${product.image}`}
-							alt="Demaquillant Lancome"
+							src={`${VITE_API_URL}/img/${product?.image}`}
+							alt={product.name}
 							className={cx("img-product")}
 						/>
 					</div>
@@ -134,8 +141,9 @@ const ProductPage = () => {
 					</div>
 				</article>
 			</section>
-			<div>
-				<div className={cx("text-center")}>
+			<ProductPrefer />
+			<div className={cx("avis")}>
+				<div className={cx("text-right")}>
 					<p className={cx("message-succes")}>{message}</p>
 					{user && <Button onClick={handleClickAvis}>Rédiger un avis</Button>}
 				</div>

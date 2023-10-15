@@ -84,7 +84,9 @@ const ProductPrefer = () => {
 				</article>
 			</div>
 			<div className={cx("text-center")}>
-				<Button primary>Je découvrir plus</Button>
+				<Button primary to={"/produits"}>
+					Je découvrir plus
+				</Button>
 			</div>
 		</section>
 	);

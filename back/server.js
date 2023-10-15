@@ -1,3 +1,4 @@
+// import des dépendances
 import express from "express";
 import http from "node:http";
 import cors from "cors";
@@ -8,12 +9,20 @@ import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
 import searchRouter from "./routes/searchRouter.js";
 import messageRouter from "./routes/messageRouter.js";
-// import { postNewMessage } from "./services/api.message.js";
 
+// création d'une application
 const app = express();
+
+// création d'un routeur
 const router = express.Router();
+
+// associer l'application au routeur
 app.use(router);
+
+// ajouter la méthode JSON à toutes les routes, pour récupérer le body des requêtes
 router.use(express.json());
+
+// autoriser les serveurs à dialoguer avec l'API
 router.use(
 	cors({
 		origin: [
@@ -26,6 +35,9 @@ router.use(
 	}),
 );
 
+// accéder aux ressources externes
+router.use(express.static("public"));
+
 router.use("/categories", categoryRouter);
 
 router.use("/marques", brandRouter);
@@ -37,23 +49,8 @@ router.use("/search", searchRouter);
 
 router.use("/messages", messageRouter);
 
-// router.post("/createNewMessage", async (req, res) => {
-// 	// const { email, sujet, contenu } = req.body;
-// 	// console.log("req.body", req.body);
-// 	// const result = await postNewMessage(req.body);
-// 	// console.log("result", result);
-// 	// if (result.errno) {
-// 	// 	return res.status(400).json({
-// 	// 		status: 400,
-// 	// 		message: "Error",
-// 	// 	});
-// 	// }
-// 	// return res.status(200).json({
-// 	// 	status: 200,
-// 	// 	message: "Message added successfully",
-// 	// 	data: result,
-// 	// });
-// });
-
+// création du serveur http
 const server = http.createServer(app);
+
+// exporter le serveur pour l'importer dans index.js
 export default server;

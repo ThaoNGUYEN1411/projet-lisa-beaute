@@ -85,13 +85,15 @@ const getProduct = async (data) => {
 		return error;
 	}
 };
-
-const getProductById = async (data) => {
+// récupérer un produit par son identifiant
+const getProductById = async (id) => {
+	console.log("getProductById", id);
+	// requête
 	const sql = `SELECT product.*
 	FROM lisabeaute.product
 	WHERE product.id = :id;`;
 	try {
-		const [results] = await dbConnection.query(sql, data);
+		const [results] = await dbConnection.query(sql, id);
 		console.log(results);
 		return results[0];
 	} catch (error) {

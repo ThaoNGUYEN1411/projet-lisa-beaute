@@ -21,7 +21,7 @@ const postCreateUser = async (values) => {
 };
 
 const postLoginUser = async (values) => {
-	// console.log(values);
+	console.log(values);
 	const requestInfos = new Request(`${VITE_API_URL}/user/login`, {
 		method: "POST",
 		headers: {
