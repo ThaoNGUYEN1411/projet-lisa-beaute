@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -11,19 +12,19 @@ const Footer = () => {
 					<h3 className={cx("footer-title")}>A propos de Lisa Beauté</h3>
 					<ul>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/apropos"} className={cx("footer-link")}>
 								Qui sommes nous?
-							</a>
+							</Link>
 						</li>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/magasin"} className={cx("footer-link")}>
 								Nos magasins
-							</a>
+							</Link>
 						</li>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/users/registration"} className={cx("footer-link")}>
 								Nous rejoindre
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -31,14 +32,14 @@ const Footer = () => {
 					<h3 className={cx("footer-title")}>Services</h3>
 					<ul>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/produits"} className={cx("footer-link")}>
 								Rechercher un produit
-							</a>
+							</Link>
 						</li>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/contact"} className={cx("footer-link")}>
 								Nous contacter
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -46,19 +47,19 @@ const Footer = () => {
 					<h3 className={cx("footer-title")}>Condition</h3>
 					<ul>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/"} className={cx("footer-link")}>
 								Mention légales et CGU
-							</a>
+							</Link>
 						</li>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/"} className={cx("footer-link")}>
 								CGV
-							</a>
+							</Link>
 						</li>
 						<li className={cx("footer-item")}>
-							<a href="#" className={cx("footer-link")}>
+							<Link to={"/"} className={cx("footer-link")}>
 								Avis Clients
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

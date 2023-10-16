@@ -26,6 +26,7 @@ import CreateUserPage from "../pages/user/CreateUserPage";
 import LogoutPage from "../pages/user/LogoutPage";
 import EspacePersoClientPage from "../pages/user/EspacePersoClientPage";
 import WishlistPage from "../pages/user/WishlistPage";
+import DetailArticlePage from "../pages/articles/DetailArticlePage";
 
 const router = createBrowserRouter([
 	{
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
 			{
 				path: "EspacePersoClient/Wishlist",
 				element: <WishlistPage />,
+			},
+			{
+				path: "articles/1",
+				element: <DetailArticlePage />,
 			},
 			{
 				path: "produits",

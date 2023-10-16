@@ -37,7 +37,9 @@ const ArticleHomePage = () => {
 						</p>
 					</div>
 
-					<Button primary>Je decouvre</Button>
+					<Button primary to={"/articles/1"}>
+						Je decouvre
+					</Button>
 				</div>
 			</article>
 		</section>
