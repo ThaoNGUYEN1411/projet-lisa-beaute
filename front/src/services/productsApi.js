@@ -17,7 +17,7 @@ const getProduct = async (id) => {
 	const request = await fetch(requestProduct);
 
 	const response = await request.json();
-	console.log("response", response.data);
+	// console.log("response", response.data);
 	return response.data;
 };
 
@@ -25,11 +25,11 @@ const getProduct = async (id) => {
 const getProductById = async (id) => {
 	const requestProduct = new Request(`${VITE_API_URL}/produits/modifie/${id}`);
 
-	console.log("requestProduct", requestProduct);
+	// console.log("requestProduct", requestProduct);
 	const request = await fetch(requestProduct);
 
 	const response = await request.json();
-	console.log("response", response.data);
+	// console.log("response", response.data);
 	return response.data;
 };
 
@@ -101,7 +101,7 @@ const addCommentByUser = async (values) => {
 	);
 	const request = await fetch(requestInfos);
 	const response = await request.json();
-	console.log(response);
+	// console.log(response);
 	return response;
 };
 

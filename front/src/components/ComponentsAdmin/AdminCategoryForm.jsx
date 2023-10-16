@@ -34,7 +34,6 @@ const AdminCategoryForm = () => {
 
 		allPromises.then((results) => {
 			setCategory(results[0].data);
-			// console.log(results);
 		});
 
 		// préremplir le formulaire avec un élève existant
@@ -44,9 +43,9 @@ const AdminCategoryForm = () => {
 	// préremplir le formulaire avec un élève existant
 	const prefillForm = async () => {
 		if (id) {
-			// console.log(id);
 			const responseAPI = await getCategoryById(id);
 			const category = responseAPI.data;
+			// console.log("aaaaaaaaa", category);
 			reset({
 				id: category.id,
 				name: category.name,
@@ -62,7 +61,7 @@ const AdminCategoryForm = () => {
 	}, [watch]);
 
 	const onSubmit = async (values) => {
-		console.log(values);
+		// console.log(values);
 		const responseAPI = id
 			? await updateCategory(values)
 			: await createCategory(values);
