@@ -145,4 +145,10 @@ margin-bottom: 7rem !important;
 
 @media(max-width:740px){
   .upper-banner{display: none;}
+   
+  .img-article {
+    height: auto;
+    
+  }
 }
+

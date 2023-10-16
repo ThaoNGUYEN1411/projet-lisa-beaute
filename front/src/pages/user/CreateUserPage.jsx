@@ -3,14 +3,16 @@ import styles from "../../components/ContactComponents/ContactComponent.module.c
 
 import { useForm } from "react-hook-form";
 import Button from "../../components/Button/Button";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { postCreateUser } from "../../services/userApi";
 import { useNavigate } from "react-router-dom";
+import { EmailContext } from "../../context/EmailContextProvider";
 
 const cx = classNames.bind(styles);
 
 const CreateUserPage = () => {
 	// const [infos, setInfos] = useState();
+	const { email, setEmail } = useContext(EmailContext);
 	const [message, setMessage] = useState();
 	const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ const CreateUserPage = () => {
 
 	const onSubmit = async (values) => {
 		// console.log(values);
-
+		setEmail("");
 		const responseAPI = await postCreateUser(values);
 
 		window.sessionStorage.setItem(
@@ -91,6 +93,7 @@ const CreateUserPage = () => {
 								{...register("email", {
 									required: "Email est requis",
 								})}
+								value={email ? email : null}
 							/>
 							<span className={cx("message-error")}>
 								{errors.email?.message}

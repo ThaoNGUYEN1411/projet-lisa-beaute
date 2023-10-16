@@ -5,12 +5,15 @@ import { SecurityProvider } from "./context/SecurityContextProvider";
 import { SortPriceProvider } from "./context/SortPriceContextProvider";
 import "../node_modules/leaflet/dist/leaflet.css";
 import { StoreProvider } from "./context/StoreContextProvider";
+import { EmailProvider } from "./context/EmailContextProvider";
 const App = () => {
 	return (
 		<SecurityProvider>
 			<SortPriceProvider>
 				<StoreProvider>
-					<RouterProvider router={router} />
+					<EmailProvider>
+						<RouterProvider router={router} />
+					</EmailProvider>
 				</StoreProvider>
 			</SortPriceProvider>
 		</SecurityProvider>
