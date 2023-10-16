@@ -4,8 +4,6 @@ import styles from "../ProductsPage.module.css";
 import { SecurityContext } from "../../context/SecurityContextProvider";
 import AsideEspacePersoClient from "../../components/AsideEspacePersoClient/AsideEspacePersoClient";
 
-// import AsideEspacePersoClient from "../../components/AsideEspacePersoClient/AsideEspacePersoClient";
-// import { SecurityContext } from "../../context/SecurityContextProvider";
 const cx = classNames.bind(styles);
 
 const EspacePersoClientPage = () => {
@@ -13,9 +11,9 @@ const EspacePersoClientPage = () => {
 	const [message, setMessage] = useState();
 
 	useEffect(() => {
-		if (window.sessionStorage.getItem("notice")) {
-			setMessage(window.sessionStorage.getItem("notice"));
-			window.sessionStorage.removeItem("notice");
+		if (window.sessionStorage.getItem("noticeLogin")) {
+			setMessage(window.sessionStorage.getItem("noticeLogin"));
+			window.sessionStorage.removeItem("noticeLogin");
 			setTimeout(() => setMessage(null), 5000);
 		}
 	});

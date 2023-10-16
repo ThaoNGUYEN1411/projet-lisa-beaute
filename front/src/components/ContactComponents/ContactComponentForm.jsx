@@ -29,18 +29,26 @@ const ContactComponentForm = () => {
 		const response = await createNewMessage(info);
 
 		if (response.status === 200) {
-			window.sessionStorage.setItem("notice", "Votre message a été envoyé");
+			window.sessionStorage.setItem(
+				"noticeEnvoyerMessage",
+				"Votre message a été envoyé",
+			);
 		} else {
-			window.sessionStorage.setItem("notice", "Error");
+			window.sessionStorage.setItem("noticeEnvoyerMessage", "Error");
 		}
 		navigate("/contact");
 		reset();
 	};
 
 	useEffect(() => {
-		if (window.sessionStorage.getItem("notice")) {
-			setMessage(window.sessionStorage.getItem("notice"));
+		if (window.sessionStorage.getItem("noticeEnvoyerMessage")) {
+			setMessage(window.sessionStorage.getItem("noticeEnvoyerMessage"));
 		}
+		// supprimer le message en session
+		window.sessionStorage.removeItem("noticeEnvoyerMessage");
+
+		// faire disparaître le message après un délai en millisecondes
+		setTimeout(() => setMessage(null), 5000);
 	}, []);
 
 	useEffect(() => {

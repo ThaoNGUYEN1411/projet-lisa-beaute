@@ -30,12 +30,12 @@ const AdminListMessages = () => {
 	// récupérer la notification du sessionStorage
 	useEffect(() => {
 		// si un message existe en session
-		if (window.sessionStorage.getItem("notice")) {
+		if (window.sessionStorage.getItem("noticeMessage")) {
 			// stocker le message dans l'état
-			setMessage(window.sessionStorage.getItem("notice"));
+			setMessage(window.sessionStorage.getItem("noticeMessage"));
 
 			// supprimer le massage en session
-			window.sessionStorage.removeItem("notice");
+			window.sessionStorage.removeItem("noticeMessage");
 
 			// faire disparaître le message après un délai en millisecondes
 			setTimeout(() => setMessage(null), 5000);
@@ -48,9 +48,9 @@ const AdminListMessages = () => {
 		const responseAPI = await deleteMessage(id);
 
 		if (responseAPI.status === 200) {
-			window.sessionStorage.setItem("notice", "Message supprimé");
+			window.sessionStorage.setItem("noticeMessage", "Message supprimé");
 		} else {
-			window.sessionStorage.setItem("notice", "Erreur");
+			window.sessionStorage.setItem("noticeMessage", "Erreur");
 		}
 
 		setForceUpdate(!forceUpdate);
@@ -65,7 +65,7 @@ const AdminListMessages = () => {
 			</div> */}
 			<section>
 				<h2>La list de catégories</h2>
-				<p>{message}</p>
+				<p className={cx("message-succes")}>{message}</p>
 				<table className={cx("table")}>
 					<thead>
 						<tr className={cx("tr")}>

@@ -11,7 +11,7 @@ const AdminBrandFormPage = () => {
 				<h1 className={cx("title")}>Administration des Marques</h1>
 			</div>
 			<section>
-				<h2>La list de marque</h2>
+				<h2>Ajouter une nouvelle marque</h2>
 				<AdminBrandForm />
 			</section>
 		</div>

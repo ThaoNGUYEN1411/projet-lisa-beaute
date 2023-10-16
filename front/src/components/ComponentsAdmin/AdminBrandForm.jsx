@@ -68,11 +68,11 @@ const AdminBrandForm = () => {
 
 		if (responseAPI.status === 200) {
 			window.sessionStorage.setItem(
-				"notice",
-				id ? "Marque mise à jour" : "Marque créée",
+				"noticeAdminBrand",
+				id ? "Marque modifiée" : "Nouvelle marque créée",
 			);
 		} else {
-			window.sessionStorage.setItem("notice", "Error");
+			window.sessionStorage.setItem("noticeAdminBrand", "Error");
 		}
 		navigate("/admin/marques");
 	};
@@ -80,15 +80,15 @@ const AdminBrandForm = () => {
 	return (
 		<>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<p>
+				{/* <p>
 					<label>Id : </label>
 					<input
 						className={cx("ad-input")}
 						type="number"
 						{...register("id", { required: "Id  est requis." })}
 					/>
-					<small className={cx("message-dange")}>{errors.id?.message}</small>
-				</p>
+					<small className={cx("message-error")}>{errors.id?.message}</small>
+				</p> */}
 				<p>
 					<label>Nom de catégorie : </label>
 					{/* utiliser les noms des colonnes sql pour le nom des champs */}
@@ -100,15 +100,15 @@ const AdminBrandForm = () => {
 						})}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small className={cx("message-dange")}>{errors.name?.message}</small>
+					<small className={cx("message-error")}>{errors.name?.message}</small>
 				</p>
 
-				<p>
+				<p className={cx("btn-envoyer")}>
 					{/* <input className={cx("ad-input")} type="hidden" {...register("id")} /> */}
 					<input className={cx("ad-input")} type="submit" />
 				</p>
 			</form>
-			<p>
+			<p className={cx("btn-bloc", "text-centre")}>
 				<Link to={"/admin/marques"} className={cx("back-btn")}>
 					Back
 				</Link>

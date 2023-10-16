@@ -23,7 +23,6 @@ const ProductPage = () => {
 	const [comments, setComments] = useState([]);
 	const { user } = useContext(SecurityContext);
 	const [avis, setAvis] = useState(false);
-	const [message, setMessage] = useState();
 
 	const { id } = useParams();
 
@@ -50,16 +49,6 @@ const ProductPage = () => {
 		}
 	};
 
-	useEffect(() => {
-		if (window.sessionStorage.getItem("notice")) {
-			setMessage(window.sessionStorage.getItem("notice"));
-			// supprimer le massage en session
-			window.sessionStorage.removeItem("notice");
-
-			// faire disparaître le message après un délai en millisecondes
-			setTimeout(() => setMessage(null), 5000);
-		}
-	}, []);
 	return (
 		<div className={cx("grid", "wide", "wrapper")}>
 			<div className={cx("breadcrumbs-nav")}>
@@ -144,7 +133,6 @@ const ProductPage = () => {
 			<ProductPrefer />
 			<div className={cx("avis")}>
 				<div className={cx("text-right")}>
-					<p className={cx("message-succes")}>{message}</p>
 					{user && <Button onClick={handleClickAvis}>Rédiger un avis</Button>}
 				</div>
 				{avis && <AvisProduct userId={user.id} productId={product.id} />}

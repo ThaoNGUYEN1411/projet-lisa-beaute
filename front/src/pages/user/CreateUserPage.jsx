@@ -30,7 +30,7 @@ const CreateUserPage = () => {
 		const responseAPI = await postCreateUser(values);
 
 		window.sessionStorage.setItem(
-			"notice",
+			"noticeLogin",
 			"Merci! Votre compte a été créé avec succès",
 		);
 		navigate("/login");

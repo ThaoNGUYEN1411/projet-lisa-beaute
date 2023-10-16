@@ -27,7 +27,7 @@ const Login = () => {
 		if (responseAPI.status === 200) {
 			// console.log("responseAPI", responseAPI);
 			setUser(responseAPI.data);
-			window.sessionStorage.setItem("notice", "Vous êtes connecté");
+			window.sessionStorage.setItem("noticeLogin", "Vous êtes connecté");
 			if (responseAPI.data.role === "admin") {
 				navigate("/admin");
 			} else {
@@ -47,9 +47,9 @@ const Login = () => {
 	}, [watch]);
 
 	useEffect(() => {
-		if (window.sessionStorage.getItem("notice")) {
-			setMessage(window.sessionStorage.getItem("notice"));
-			window.sessionStorage.removeItem("notice");
+		if (window.sessionStorage.getItem("noticeLogin")) {
+			setMessage(window.sessionStorage.getItem("noticeLogin"));
+			window.sessionStorage.removeItem("noticeLogin");
 			setTimeout(() => setMessage(null), 5000);
 		}
 	});

@@ -32,12 +32,7 @@ const NewsLetter = () => {
 		const email = values.email;
 		setEmail(email);
 		console.log(values.email);
-		// const responseAPI = await postCreateUser(values);
 
-		// window.sessionStorage.setItem(
-		// 	"notice",
-		// 	"Merci! Votre compte a été créé avec succès",
-		// );
 		navigate("/users/registration");
 
 		reset();

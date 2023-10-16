@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
-// import styles from "../Header/Navbar/Navbar.module.css";
+
 import styles from "../ComponentsAdmin/AdminStyle.module.css";
 
 const cx = classNames.bind(styles);
@@ -10,7 +10,7 @@ const NavbarAdmin = () => {
 		<div className={cx("ad-nav")}>
 			<div className={cx("grid", "wide", "row")}>
 				<div className={cx("l-2")}>
-					<Link to={"/admin"}>
+					<Link to={"/"}>
 						<img
 							src="/logo/logo-lisa.png"
 							alt="Lisa Beaute"
@@ -31,9 +31,9 @@ const NavbarAdmin = () => {
 					<Link to={"/admin/messages"} className={cx("nav-item")}>
 						Messages
 					</Link>
-					<Link to={"/admin/blog"} className={cx("nav-item")}>
+					{/* <Link to={"/admin/blog"} className={cx("nav-item")}>
 						Blog
-					</Link>
+					</Link> */}
 				</nav>
 			</div>
 		</div>

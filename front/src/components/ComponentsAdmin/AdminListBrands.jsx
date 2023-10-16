@@ -25,12 +25,12 @@ const AdminListBrands = () => {
 	// récupérer la notification du sessionStorage
 	useEffect(() => {
 		// si un message existe en session
-		if (window.sessionStorage.getItem("notice")) {
+		if (window.sessionStorage.getItem("noticeAdminBrand")) {
 			// stocker le message dans l'état
-			setMessage(window.sessionStorage.getItem("notice"));
+			setMessage(window.sessionStorage.getItem("noticeAdminBrand"));
 
 			// supprimer le massage en session
-			window.sessionStorage.removeItem("notice");
+			window.sessionStorage.removeItem("noticeAdminBrand");
 
 			// faire disparaître le message après un délai en millisecondes
 			setTimeout(() => setMessage(null), 5000);
@@ -43,9 +43,9 @@ const AdminListBrands = () => {
 		const responseAPI = await deleteBrands(id);
 
 		if (responseAPI.status === 200) {
-			window.sessionStorage.setItem("notice", "Catégorie supprimé");
+			window.sessionStorage.setItem("noticeAdminBrand", "Marque supprimé");
 		} else {
-			window.sessionStorage.setItem("notice", "Erreur");
+			window.sessionStorage.setItem("noticeAdminBrand", "Erreur");
 		}
 
 		setForceUpdate(!forceUpdate);
@@ -62,7 +62,7 @@ const AdminListBrands = () => {
 				<h2>La list de marques</h2>
 				{/* <AdminListBrands /> */}
 
-				<p>{message}</p>
+				<p className={cx("message-succes")}>{message}</p>
 				<table className={cx("table")}>
 					<thead>
 						<tr className={cx("tr")}>

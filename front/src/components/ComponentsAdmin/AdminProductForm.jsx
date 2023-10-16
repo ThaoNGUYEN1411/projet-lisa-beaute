@@ -82,11 +82,11 @@ const AdminProductForm = () => {
 
 		if (responseAPI.status === 200) {
 			window.sessionStorage.setItem(
-				"notice",
+				"noticeAdProduct",
 				id ? "Produit modifié" : "Nouveau produit ajouté",
 			);
 		} else {
-			window.sessionStorage.setItem("notice", "Error");
+			window.sessionStorage.setItem("noticeAdProduct", "Error");
 		}
 		navigate("/admin/produits");
 	};
@@ -100,78 +100,89 @@ const AdminProductForm = () => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-				<p>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				encType="multipart/form-data"
+				className={cx("wp-form")}
+			>
+				<p className={cx("input-product")}>
 					<label>Nom : </label>
 					{/* utiliser les noms des colonnes sql pour le nom des champs */}
 					<input
-						className={cx("ad-input")}
+						className={cx("ad-input-pd")}
 						type="text"
 						{...register("name", { required: "Nom de produit est requis" })}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.name?.message}</small>
+					<small className={cx("message-error")}>{errors.name?.message}</small>
 				</p>
-				<p>
+				<p className={cx("input-product")}>
 					<label>Prix : </label>
 					{/* utiliser les noms des colonnes sql pour le nom des champs */}
 					<input
-						className={cx("ad-input")}
+						className={cx("ad-input-pd")}
 						type="text"
 						{...register("price", { required: "Prix est requis" })}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.price?.message}</small>
+					<small className={cx("message-error")}>{errors.price?.message}</small>
 				</p>
-				<p>
+				<p className={cx("input-product")}>
 					<label>Description : </label>
 					{/* utiliser les noms des colonnes sql pour le nom des champs */}
-					<input
-						className={cx("ad-input")}
+					<textarea
+						className={cx("ad-input-pd")}
 						type="text"
 						{...register("description", { required: "Description est requis" })}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.description?.message}</small>
+					<small className={cx("message-error")}>
+						{errors.description?.message}
+					</small>
 				</p>
-				<p>
+				<p className={cx("input-product")}>
 					<label>Usage_tips : </label>
 					{/* utiliser les noms des colonnes sql pour le nom des champs */}
-					<input
-						className={cx("ad-input")}
+					<textarea
+						className={cx("ad-input-pd")}
 						type="text"
 						{...register("usage_tips", { required: "Usage_tips est requis" })}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.usage_tip?.message}</small>
+					<small className={cx("message-error")}>
+						{errors.usage_tip?.message}
+					</small>
 				</p>
-				<p>
+				<p className={cx("input-product")}>
 					<label>Ingredients : </label>
 					{/* utiliser les noms des colonnes sql pour le nom des champs */}
-					<input
-						className={cx("ad-input")}
+					<textarea
+						className={cx("ad-input-pd")}
 						type="text"
 						{...register("ingredients", { required: "Ingredients est requis" })}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.ingredients?.message}</small>
+					<small className={cx("message-error")}>
+						{errors.ingredients?.message}
+					</small>
 				</p>
-				<p>
+				<p className={cx("input-product")}>
 					<label>Image : </label>
 					{/* le champ image est obligatoire à la création mais optionnel à la modification */}
 					<input
-						className={cx("ad-input")}
+						className={cx("ad-input-pd")}
 						type="file"
 						{...register("image", id ? {} : { required: "Image est requis" })}
 					/>
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.image?.message}</small>
+					<small className={cx("message-error")}>{errors.image?.message}</small>
 				</p>
 
-				<p>
+				<p className={cx("input-product")}>
 					<label>brand : </label>
 
 					<select
+						className={cx("ad-input-pd")}
 						{...register("brand_id", { required: "Marque est requis" })}
 						value={watch().brand_id}
 					>
@@ -184,15 +195,19 @@ const AdminProductForm = () => {
 					</select>
 
 					{/* errors.<nom du champ défini dans register>.message */}
-					<small>{errors.brand_id?.message}</small>
+					<small className={cx("message-error")}>
+						{errors.brand_id?.message}
+					</small>
 				</p>
-				<p>
+				<p className={cx("input-product", "btn-envoyer")}>
 					<input type="hidden" {...register("id")} />
-					<input type="submit" />
+					<input type="submit" className={cx("ad-input")} />
 				</p>
 			</form>
-			<p>
-				<Link to={"/admin/produits"}>Back</Link>
+			<p className={cx("input-product", "text-centre")}>
+				<Link to={"/admin/produits"} className={cx("back-btn")}>
+					Back
+				</Link>
 			</p>
 		</>
 	);

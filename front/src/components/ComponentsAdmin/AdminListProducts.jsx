@@ -27,12 +27,12 @@ const AdminListProducts = () => {
 	// récupérer la notification du sessionStorage
 	useEffect(() => {
 		// si un message existe en session
-		if (window.sessionStorage.getItem("notice")) {
+		if (window.sessionStorage.getItem("noticeAdProduct")) {
 			// stocker le message dans l'état
-			setMessage(window.sessionStorage.getItem("notice"));
+			setMessage(window.sessionStorage.getItem("noticeAdProduct"));
 
 			// supprimer le massage en session
-			window.sessionStorage.removeItem("notice");
+			window.sessionStorage.removeItem("noticeAdProduct");
 
 			// faire disparaître le message après un délai en millisecondes
 			setTimeout(() => setMessage(null), 5000);
@@ -45,9 +45,9 @@ const AdminListProducts = () => {
 		const responseAPI = await deleteProduct(id);
 
 		if (responseAPI.status === 200) {
-			window.sessionStorage.setItem("notice", "Produit supprimé");
+			window.sessionStorage.setItem("noticeAdProduct", "Produit supprimé");
 		} else {
-			window.sessionStorage.setItem("notice", "Erreur");
+			window.sessionStorage.setItem("noticeAdProduct", "Erreur");
 		}
 
 		setForceUpdate(!forceUpdate);

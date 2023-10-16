@@ -59,11 +59,29 @@ max-height: 100px !important;
 }
 .back-btn{
   padding: 0.5rem 2rem;
+  /* border: 1px solid #333; */
+  border-radius: 10px;
+  margin-top: 2rem;
+  background: #e3e2e2;
+}
+.btn-bloc{
+  margin: 2rem auto;
 }
 .ad-input{
   border: 1px solid #333;
+  padding: 0.5rem 1rem;
+ 
 }
-
+.ad-input-pd{
+  border: 1px solid #333;
+  padding: 0.5rem 1rem;
+  width: 60%;
+ 
+}
+.btn-envoyer{
+  margin-left: 6rem;
+  margin-top: 1rem;
+}
 .logo {
   padding-top: 1rem;
   padding-left: 1rem;
@@ -81,9 +99,17 @@ max-height: 100px !important;
 overflow: hidden;
 }
 
-/* .td-usage{
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-overflow: hidden;
-} */
+.input-product{
+  width: 100%;
+  margin: 0.5rem 0;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+}
+
+.wp-form{
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

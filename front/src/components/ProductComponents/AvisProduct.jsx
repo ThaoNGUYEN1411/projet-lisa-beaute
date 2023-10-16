@@ -1,5 +1,3 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from "./AvisProduct.module.css";
 import { useForm } from "react-hook-form";
@@ -11,8 +9,7 @@ import { useNavigate } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 const AvisProduct = ({ userId, productId }) => {
-	const [message, setMessage] = useState();
-	const [isCloseMessage, setIscloseMessage] = useState(true);
+	const [message, setMessage] = useState("");
 	const {
 		handleSubmit,
 		watch,
@@ -48,39 +45,10 @@ const AvisProduct = ({ userId, productId }) => {
 			userId: userId,
 			productId: productId,
 		});
-
-		if (response.status === 200) {
-			window.sessionStorage.setItem(
-				"comment",
-				"Votre commentaire a été envoyé",
-			);
-		} else {
-			window.sessionStorage.setItem("comment", "Error");
-		}
-		setIscloseMessage(!isCloseMessage);
+		setMessage("Votre commentaire a été envoyé!");
+		setTimeout(() => setMessage(null), 5000);
 		navigate(`/produits/${productId}`);
 	};
-
-	// useEffect(() => {
-	// 	if (window.sessionStorage.getItem("comment")) {
-	// 		setMessage(window.sessionStorage.getItem("comment"));
-	// 	}
-	// }, []);
-
-	// récupérer la notification du sessionStorage
-	useEffect(() => {
-		// si un message existe en session
-		if (window.sessionStorage.getItem("comment")) {
-			// stocker le message dans l'état
-			setMessage(window.sessionStorage.getItem("comment"));
-
-			// supprimer le massage en session
-			window.sessionStorage.removeItem("comment");
-
-			// faire disparaître le message après un délai en millisecondes
-			setTimeout(() => setMessage(null), 5000);
-		}
-	}, []);
 
 	useEffect(() => {
 		// const subscription = watch((observer) => console.log(observer));
@@ -91,34 +59,23 @@ const AvisProduct = ({ userId, productId }) => {
 	return (
 		<article className={cx("grid", "wide")}>
 			{/* <h3 className={cx("avis-title")}>Name produit</h3> */}
-			<p>{message}</p>
-			{isCloseMessage && (
-				<form onSubmit={handleSubmit(onSubmit)}>
-					{/* <p className={cx("avis-title")}>
-					Quelle note attribuez-vous à ce produit ?
-					<span className={cx("star-group")}>
-						<FontAwesomeIcon icon={faStar} />
-						<FontAwesomeIcon icon={faStar} />
-						<FontAwesomeIcon icon={faStar} />
-						<FontAwesomeIcon icon={faStar} />
-						<FontAwesomeIcon icon={faStar} />
-					</span>
-				</p> */}
-					<p className={cx("avis-title")}>
-						<label className={cx("")}>
-							Qu'avez-vous pensé de votre produit ?
-						</label>
-						<textarea
-							{...register("avisContent", {
-								required: "Un avis est requis",
-							})}
-							className={cx("textarea")}
-						/>
-						<span>{errors.messageContent?.message}</span>
-					</p>
-					<Button primary>Publier un avis</Button>
-				</form>
-			)}
+			<p className={cx("message-succes")}>{message}</p>
+
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<p className={cx("avis-title")}>
+					<label className={cx("")}>
+						Qu'avez-vous pensé de votre produit ?
+					</label>
+					<textarea
+						{...register("avisContent", {
+							required: "Un avis est requis",
+						})}
+						className={cx("textarea")}
+					/>
+					<span>{errors.messageContent?.message}</span>
+				</p>
+				<Button primary>Publier un avis</Button>
+			</form>
 		</article>
 	);
 };
