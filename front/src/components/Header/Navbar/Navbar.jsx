@@ -14,8 +14,6 @@ const cx = classNames.bind(styles);
 const Navbar = ({ isOpen, setIsOpen }) => {
 	const [allBrands, setAllBrands] = useState([]);
 	const [allCategories, setAllCategories] = useState([]);
-	// Utilisez useState pour gérer l'état du menu mobile
-	// const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	useEffect(() => {
 		getAllBrands().then((data) => {
@@ -35,12 +33,12 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 	const isMobile = () => {
 		return window.innerWidth <= 740;
 	};
-	// console.log("isMobile", window.innerWidth <= 740);
 
-	// const handleMenuMobile = () => {
-	// 	// setIsOpen(!isOpen);
-	// 	isOpen = true;
-	// };
+	const handleCloseMenuMobile = (event) => {
+		if (window.innerWidth <= 740) {
+			setIsOpen(!isOpen);
+		}
+	};
 	return (
 		<nav
 			className={cx("navbar", {
@@ -85,7 +83,11 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 						</div>
 					)}
 				>
-					<Link to={"/produits"} className={cx("nav-item")}>
+					<Link
+						to={"/produits"}
+						className={cx("nav-item")}
+						onClick={handleCloseMenuMobile}
+					>
 						Produits
 					</Link>
 				</Tippy>
@@ -137,10 +139,18 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 			{/* <Link to={"/blog"} className={cx("nav-item")}>
 				Blog
 			</Link> */}
-			<Link to={"/apropos"} className={cx("nav-item")}>
+			<Link
+				to={"/apropos"}
+				className={cx("nav-item")}
+				onClick={handleCloseMenuMobile}
+			>
 				A propos
 			</Link>
-			<Link to={"/contact"} className={cx("nav-item")}>
+			<Link
+				to={"/contact"}
+				className={cx("nav-item")}
+				onClick={handleCloseMenuMobile}
+			>
 				Contact
 			</Link>
 		</nav>

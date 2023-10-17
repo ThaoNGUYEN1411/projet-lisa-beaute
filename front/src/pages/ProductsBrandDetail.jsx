@@ -14,13 +14,10 @@ const ProductsBrandDetail = () => {
 
 	const { brand } = useParams();
 
-	// console.log(type);
-
 	useEffect(() => {
 		//recupérer des données de l'API
 		getAllProductsSameBrand(brand).then((data) => {
 			setProducts(data.data);
-			// console.log("products", products);
 		});
 	}, [brand]);
 

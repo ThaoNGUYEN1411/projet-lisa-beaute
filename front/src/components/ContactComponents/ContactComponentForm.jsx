@@ -12,7 +12,7 @@ import { createNewMessage } from "../../services/messageApi";
 const cx = classNames.bind(styles);
 
 const ContactComponentForm = () => {
-	const [infosMessage, setInfosMessage] = useState();
+	// const [infosMessage, setInfosMessage] = useState();
 	const [message, setMessage] = useState();
 	const navigate = useNavigate();
 	// const refForm = useRef();
