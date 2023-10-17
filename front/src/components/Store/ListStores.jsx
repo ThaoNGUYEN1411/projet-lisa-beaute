@@ -39,7 +39,7 @@ const ListStores = () => {
 	];
 	const handleClick = (value) => {
 		setCoords(value.coords);
-		console.log(value.coords);
+		// console.log(value.coords);
 	};
 	return (
 		<section className={cx("list-store")}>

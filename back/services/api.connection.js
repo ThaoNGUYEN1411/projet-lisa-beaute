@@ -33,7 +33,6 @@ const postLoginUser = async (body) => {
 	JOIN lisabeaute.role
 	ON role.id = user.role_id
 	WHERE user.email = :email;`;
-	console.log(body);
 	try {
 		const [results] = await dbConnection.query(sql, body);
 

@@ -31,16 +31,15 @@ const NewsLetter = () => {
 	const onSubmit = async (values) => {
 		const email = values.email;
 		setEmail(email);
-		console.log(values.email);
 
 		navigate("/users/registration");
 
 		reset();
 	};
 	useEffect(() => {
-		// const subscription = watch((observer) => null);
+		const subscription = watch((observer) => null);
 
-		const subscription = watch((observer) => console.log(observer));
+		// const subscription = watch((observer) => console.log(observer));
 
 		return () => subscription.unsubscribe();
 	}, [watch]);

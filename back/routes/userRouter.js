@@ -24,7 +24,6 @@ userRouter.post("/registration", async (req, res) => {
 });
 
 async function loginHandler(req, res) {
-	// console.log("&&&&&&&&&", req.body);
 	const query = await postLoginUser(req.body);
 	if (query.length === 0) {
 		res.status(403).json({
@@ -35,7 +34,7 @@ async function loginHandler(req, res) {
 	}
 
 	const user = query[0];
-	console.log(user);
+	// console.log(user);
 	if (user) {
 		// console.log(user.password);
 		const verifyHash = await argon2.verify(user.password, req.body.password);

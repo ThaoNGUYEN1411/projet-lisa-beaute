@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./ProductsPage.module.css";
-import Product from "../components/Product/Product";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AsideProductsPage from "../components/AsideProductsPage/AsideProductsPage";
 import { getAllProductsSameType } from "../services/productsApi";
-// import getAllProductsSameType from "../services/productsSameTypeApi";
-import { v4 as uuid } from "uuid";
+import ProductWithIcon from "../components/Product/ProductWithIcon";
 
 const cx = classNames.bind(styles);
 
@@ -15,14 +13,10 @@ const ProductsTypeDetail = () => {
 
 	const { type } = useParams();
 
-	// console.log(type);
-
 	useEffect(() => {
 		//recupérer des données de l'API
 		getAllProductsSameType(type).then((data) => {
 			setProducts(data.data);
-			// console.log(data.data);
-			// console.log("products", products);
 		});
 	}, [type]);
 
@@ -34,22 +28,7 @@ const ProductsTypeDetail = () => {
 
 			<div className={cx("grid", "wide", "row")}>
 				<AsideProductsPage />
-				<section className={cx("product-wrapper", "col", "l-9", "m-9", "c-12")}>
-					<div className={cx("prod-list", "row")}>
-						{products.map((product) => {
-							return (
-								<article
-									className={cx("prod", "col", "l-3", "m-4", "c-6")}
-									key={uuid()}
-								>
-									<Link to={`/produits/${product.id}`} key={uuid()}>
-										<Product imgProdWidth product={product} key={uuid()} />
-									</Link>
-								</article>
-							);
-						})}
-					</div>
-				</section>
+				<ProductWithIcon products={products} />
 			</div>
 		</div>
 	);

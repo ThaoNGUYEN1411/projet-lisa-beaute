@@ -232,7 +232,6 @@ productRouter.delete("/delete", async (req, res) => {
 // modifier un product
 // ajouter le middleware de multer : uploader.any
 productRouter.put("/update", uploader.any(), async (req, res) => {
-	console.log("ttttt");
 	// {
 	// 	fieldname: 'portrait',
 	// 	originalname: 'logo_h3_campus_online.svg',
@@ -246,11 +245,10 @@ productRouter.put("/update", uploader.any(), async (req, res) => {
 	// récupérer les informations dans la base de données pour connaître l'image existante
 	const { id } = req.body;
 	const product = await getProductById({ id: id });
-	console.log("id", id);
-	console.log("product", product);
+
 	// récupérer le body de la requête
 	let bodyWithImage = req.body;
-	console.log("files", req.files);
+	// console.log("files", req.files);
 	// si aucune image n'a été sélectionnée dans le formulaire, utiliser l'image existante en base de données
 	if (req.files.length === 0) {
 		bodyWithImage = { ...bodyWithImage, image: product.image };

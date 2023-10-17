@@ -45,9 +45,8 @@ const AdminProductForm = () => {
 	// préremplir le formulaire avec un produit existant
 	const prefillForm = async () => {
 		if (id) {
-			console.log("id", id);
 			const responseAPI = await getProductById(id);
-			console.log(responseAPI);
+			// console.log(responseAPI);
 			const product = responseAPI;
 			reset({
 				id: product.id,

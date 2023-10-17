@@ -21,7 +21,6 @@ const postCreateUser = async (values) => {
 };
 
 const postLoginUser = async (values) => {
-	console.log(values);
 	const requestInfos = new Request(`${VITE_API_URL}/user/login`, {
 		method: "POST",
 		headers: {
@@ -46,7 +45,6 @@ const getWishlistOfUser = async (id) => {
 
 	const response = await request.json();
 
-	console.log(response.data);
 	return response.data;
 };
 

@@ -41,7 +41,6 @@ const AdminListProducts = () => {
 
 	// supprimer un produit
 	const handleDeleteProduct = async (id) => {
-		console.log(id);
 		const responseAPI = await deleteProduct(id);
 
 		if (responseAPI.status === 200) {

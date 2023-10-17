@@ -77,18 +77,9 @@ const getAllProductsBySearch = async (value) => {
 	// setSearchResult(response.data);
 	return response.data;
 };
-// const getAllProductsFilter = async () => {
-// 	const requestProducts = new Request(
-// 		"http://localhost:3000/produits?sort=${sort}",
-// 	);
-// 	const request = await fetch(requestProducts);
-// 	const reponse = await request.json();
-// 	return reponse;
-// };
 
 // creer un nouveau commantaire
 const addCommentByUser = async (values) => {
-	console.log("addddd");
 	const requestInfos = new Request(
 		`${VITE_API_URL}/produits/commentaires/user`,
 		{

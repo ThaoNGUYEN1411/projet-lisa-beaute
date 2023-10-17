@@ -241,19 +241,61 @@ VALUES
       (   NULL, "AQUA ALLEGORIA FORTE Mandarine Basilic", 122, "Eau de Parfum 75ml
 
     Le délice d’une mandarine gorgée de soleil
-
     La collection de parfums Aqua Allegoria célèbre les merveilles du Monde. Chaque création rend hommage à la beauté de la nature et nous plonge à la découverte de matières premières et de notes d’exception, sublimées par nos parfumeurs-explorateurs.
-
     Découvrez Mandarine Basilic Forte, une mandarine dorée associée à un basilic vibrant et sublimée par la chaleur du bois de santal et la délicieuse teinture de vanille.
     « Mandarine Basilic Forte, c’est une mandarine tonique, hâlée par des rayons de soleil éclatants. » - Delphine Jelk, Parfumeure Guerlain", "Créez votre propre signature olfactive en associant Mandarine Basilic Forte avec : Nerolia Vetiver, Bergamote Calabria, Rosa Rossa, Nettare Di Sole ou Flora Cherrysia. Faites votre choix parmi les duos recommandés et parfumez-vous successivement, en quantités égales, avec les deux Aqua Allegoria de votre choix.
     ", "#17212 INGREDIENTS: ALCOHOL • PARFUM (FRAGRANCE) • AQUA (WATER) • LIMONENE • ALPHA-ISOMETHYL IONONE • CITRONELLOL • LINALOOL • BUTYL METHOXYDIBENZOYLMETHANE • HYDROXYCITRONELLAL • DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE", "guerlain-p1.webp", 6 )
     ;
+
+INSERT INTO lisabeaute.product
+VALUES
+    (NULL,"DIOR Sauvage Eau de parfum", 75,"50 ml Sauvage Eau de Parfum est le parfum Dior pour homme au sillage puissant et noble, inspiré du désert à l'heure du crépuscule. Flacon rechargeable.
+    Sauvage Eau de Parfum symbolise l'olfaction d'un instant teinté d'un bleu intense pour révéler les instincts les plus extrêmes. Dans l'eau de parfum Sauvage se croisent la fraîcheur de la nuit et l'air brûlant du désert.", "1. Nettoyez-vous avec Sauvage Gel Douche.
+    2. Hydratez votre peau avec Sauvage Soin Hydratant Visage et Barbe.
+    3. Terminez le rituel Sauvage avec Sauvage Eau de Parfum, en l'appliquant sur les points de pulsation - poignets et cou.", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "dior-p4.webp",2),
+    (NULL,"DIOR Capture Totale", 97,"La crème fermeté et correction rides offre une action anti-âge globale intensive au c ur de la peau pour corriger tous les signes de l'âge.
+La meilleure¹ crème anti-âge global née de la science des cellules souches et de l'expertise florale Dior, pour une peau plus forte, éclatante de jeunesse et de santé à tout âge. L'éclat sain et jeune de votre peau dépend de seulement 0,2% de vos cellules cutanées : les cellules mères. Les chercheurs Dior ont démontré qu'avec le temps, ces précieuses cellules perdent la moitié de leur potentiel énergétique².", "Appliquer matin et soir sur le visage et le cou après le Super Potent Serum pour des résultats démultipliés et un confort intense.", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "dior-p1.webp",2),
+    (NULL,"DIOR Miss Dior Eau de Parfum", 85,"La nouvelle eau de parfum Miss Dior, le rêve couture. Une composition aux nombreuses couleurs dans un flacon paré d'un n ud extraordinaire.
+La nouvelle eau de parfum Miss Dior est un bouquet floral coloré, tel un « millefiori » dans lequel vivent des notes de rose de Grasse, de pivoine, d'iris et de muguet. Le n ud couture de Miss Dior, extraordinaire pièce couture, est brodé d'une myriade de touches colorées pareilles à des fleurs. « Tous nos sens sont éveillés par la sensualité du bouquet de fleurs de la nouvelle Miss Dior Eau de Parfum.", "1. Nettoyez-vous avec Sauvage Gel Douche.
+    2. Hydratez votre peau avec Sauvage Soin Hydratant Visage et Barbe.
+    3. Terminez le rituel Sauvage avec Sauvage Eau de Parfum, en l'appliquant sur les points de pulsation - poignets et cou.", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "dior-p2.webp",2),
+    (NULL,"DIOR Diorshow Iconic Overcurl", 35,"090 Black
+
+Diorshow Iconic Overcurl, le mascara tenue 24 h* qui garantit volume spectaculaire et soin des cils.
+
+Désormais rechargeable**, l'iconique mascara Diorshow Iconic Overcurl qui gaine de façon spectaculaire la frange des cils révèle une nouvelle*** formule enrichie en eau florale de bleuet.
+", "1. Nettoyez-vous avec Sauvage Gel Douche.
+    2. Hydratez votre peau avec Sauvage Soin Hydratant Visage et Barbe.
+    3. Terminez le rituel Sauvage avec Sauvage Eau de Parfum, en l'appliquant sur les points de pulsation - poignets et cou.", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "dior-p3.webp",2),
+        (NULL,"GUERLAIN TERRACOTTA x NOIR G", 62,"Coffret Terracotta 03 Moyen Doré 10g + Mascara Noir G 01 Noir 2g
+Le duo indispensable pour un maquillage bonne mine.
+La légendaire poudre bronzante Terracotta dans sa teinte bestseller 03 – Moyen Doré, reproduit à la perfection, en un geste simple et immédiat, un hâle au fini naturel inimitable", "Mon secret pour un effet sun-kissed irrésistible ? Appliquer la Terracotta sur les zones les plus bombées comme les pommettes, l’arête du nez et le haut du front pour apporter plus de structure au visage tout en réchauffant délicatement le teint. » Violette, Directrice de la Création du Maquillage Guerlain", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "g-p2.webp",6),
+(NULL,"GUERLAIN LA PETITE ROBE NOIRE", 62,"Eau de Parfum 50ml
+La Petite Robe Noire Rose Cherry est une eau de parfum florale aux accents délicatement fruités.
+La Petite Robe Noire Rose Cherry est un sillage floral fruité délicat et teinté de joie de vivre. Comme traversée par une brise printanière, la rose iconique de la Petite Robe Noire se réinvente en un accord fleurs de cerisier et thé blanc d’une finesse absolue. ", "Mon secret pour un effet sun-kissed irrésistible ? Appliquer la Terracotta sur les zones les plus bombées comme les pommettes, l’arête du nez et le haut du front pour apporter plus de structure au visage tout en réchauffant délicatement le teint. » Violette, Directrice de la Création du Maquillage Guerlain", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "g-p1.webp",6),
+(NULL,"GUERLAIN OMBRES G Ombres à paupières 4 couleurs", 72,"WILD NUDES
+Les Ombres habillent le regard de 4 finis différents
+Les palettes de fards à paupières Ombres G possèdent une texture exceptionnelle constituée de pigments intenses pour des couleurs longue tenue, offrant une profondeur inégalée. Les Ombres habillent le regard de 4 finis différents : un satin intense, un mat profond, un fini métallique lumineux et un nacré éclatant.", "Mon secret pour un effet sun-kissed irrésistible ? Appliquer la Terracotta sur les zones les plus bombées comme les pommettes, l’arête du nez et le haut du front pour apporter plus de structure au visage tout en réchauffant délicatement le teint. » Violette, Directrice de la Création du Maquillage Guerlain", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "g-p3.webp",6),
+(NULL,"ESTÉE LAUDER Advanced Night Repair", 67,"Sérum Complexe Multi-Réparation Synchronisée 20 ml
+Nouveau Advanced Night Repair. Nouvelle décennie. Notre nouvelle révolution soin. Réparation rapide et jeunesse préservée.
+Réveillez-vous chaque matin avec votre plus belle peau : - Une application : votre peau est hydratée, éclatante et repulpée. - Trois semaines : les rides et les ridules sont visiblement atténuées. 88 % des femmes affirment que leur peau semble rajeunie*. - Un flacon** : la peau est plus ferme. ", "Mon secret pour un effet sun-kissed irrésistible ? Appliquer la Terracotta sur les zones les plus bombées comme les pommettes, l’arête du nez et le haut du front pour apporter plus de structure au visage tout en réchauffant délicatement le teint. » Violette, Directrice de la Création du Maquillage Guerlain", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "et-p1.webp",5),
+(NULL,"ESTÉE LAUDERBeautiful Coffret Estée Lauder", 87,"Beautiful Coffret Estée Lauder 2 pz Eau de Parfum vaporisateur 30 ml + Lotion pour le corps 75 ml
+Réveillez-vous chaque matin avec votre plus belle peau : - Une application : votre peau est hydratée, éclatante et repulpée. - Trois semaines : les rides et les ridules sont visiblement atténuées. 88 % des femmes affirment que leur peau semble rajeunie*. - Un flacon** : la peau est plus ferme. ", "Mon secret pour un effet sun-kissed irrésistible ? Appliquer la Terracotta sur les zones les plus bombées comme les pommettes, l’arête du nez et le haut du front pour apporter plus de structure au visage tout en réchauffant délicatement le teint. » Violette, Directrice de la Création du Maquillage Guerlain", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "et-p4.webp",5),
+(NULL,"ESTÉE LAUDER Coffret Revitalizing Supreme+", 79,"Coffret Soin Visage - 30 ml + 15 ml + 15ml
+Découvrez l'emblématique crème anti-âge Révélatrice de Jeunesse Revitalizing Supreme+ dans ce coffret en édition limitée pour les fêtes de fin d'année.
+Ce coffret contient:
+• Une Crème Révélatrice de Jeunesse - Revitalizing Supreme+ , 30ml
+• Deux Crèmes Révélatrices de Jeunesse - Revitalizing Supreme+ , 15ml", "Mon secret pour un effet sun-kissed irrésistible ? Appliquer la Terracotta sur les zones les plus bombées comme les pommettes, l’arête du nez et le haut du front pour apporter plus de structure au visage tout en réchauffant délicatement le teint. » Violette, Directrice de la Création du Maquillage Guerlain", "ALCOHOL - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - LINALOOL - BUTYL METHOXYDIBENZOYLMETHANE - TRIETHYL CITRATE - COUMARIN - CITRONELLOL - CITRAL - PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - GERANIOL", "et-p2.webp",5)
+;
+
+
+
 -- Insérer table de jointure product_category
 INSERT INTO lisabeaute.product_category
 VALUES
     (1,3), (2,3), (2,4), (3,3), (4,3), (5,3), (6,3), (7,4), (8,3), (9,3),
     (10,3),(11,1),(12,3),(13,2),(14,2),(15,2),(16,2),(17,1),(18,1),(19,3),(20,3),
-    (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3),(33,3),(34,3),(35,3),(36,5),(36,2),(37,5),(37,4),(37,3),(38,5),(39,5), (39,2),(40,5),(40,2),(41,5),(41,2), (42,6)
+    (21, 1),(22, 1),(23,2),(24,1),(25,3),(26,2),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3),(33,3),(34,3),(35,3),(36,5),(36,2),(37,5),(37,4),(37,3),(38,5),(39,5), (39,2),(40,5),(40,2),(41,5),(41,2), (42,6), (43,1), (44,3),(45,1),(46,2),(47,2),(48,1),(49,2),(50,3),(51,3),(51,4),(52,4)
     ;
 
 -- Insérer des users

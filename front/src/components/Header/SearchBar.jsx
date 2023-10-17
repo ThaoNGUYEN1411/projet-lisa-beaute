@@ -42,7 +42,7 @@ const SearchBar = () => {
 
 		getAllProductsBySearch(searchValue).then((res) => setSearchResult(res));
 		setShowResult(true);
-		console.log(searchResult);
+		// console.log(searchResult);
 		//chaque lettre qui change, il appele api
 	}, [searchValue]);
 

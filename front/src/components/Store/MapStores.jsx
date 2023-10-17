@@ -6,7 +6,6 @@ import { StoreContext } from "../../context/StoreContextProvider";
 
 const MapStores = () => {
 	const { coords, setCoords } = useContext(StoreContext);
-	console.log(coords);
 	// const { coords, setCoords } = useContext(CitiesInfosContext);
 	// console.log(data);
 	// const x = coords.lat;
