@@ -79,7 +79,6 @@ brandRouter.post("/create", async (req, res) => {
 
 	try {
 		const [results] = await dbConnection.query(sql, req.body);
-		// console.log("Ok");
 		return res.status(200).json({
 			status: 200,
 			message: "OK",
