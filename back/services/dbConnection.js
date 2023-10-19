@@ -10,17 +10,3 @@ const dbConnection = mysql.createPool({
 });
 
 export default dbConnection;
-
-// import mysql from "mysql2";
-// import config from "../config/config.js";
-// const dbConnection = mysql
-// 	.createConnection({
-// 		host: config.db.host,
-// 		database: config.db.name,
-// 		user: config.db.user,
-// 		password: config.db.password,
-// 		namedPlaceholders: true,
-// 	})
-// 	.promise();
-
-// export default dbConnection;

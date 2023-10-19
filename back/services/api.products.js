@@ -1,6 +1,7 @@
 import dbConnection from "./dbConnection.js";
 
 const getAllProducts = async (sort) => {
+	//creer requête SQl
 	let sql = `
 	SELECT product.*,
 		brand.name AS brand_name
@@ -13,7 +14,9 @@ const getAllProducts = async (sort) => {
 		  ORDER BY product.price ${sort}
 		`;
 	}
+	// exécuter la requête
 	try {
+		// récupérer les résultats de la requête
 		const [results] = await dbConnection.query(sql);
 		return results;
 	} catch (error) {
@@ -21,7 +24,7 @@ const getAllProducts = async (sort) => {
 	}
 };
 
-// selectionner tous les parfums
+// selectionner tous les produits selon leurs type
 const getAllProductsSameType = async (data) => {
 	const sql = `
     SELECT product.*, brand.name AS brand_name, category.name AS category_name
@@ -69,6 +72,7 @@ const getAllProductsSameBrand = async (data) => {
 };
 // récupérer un product avec le marque et la categorie
 const getProduct = async (data) => {
+	// requête
 	const sql = `SELECT product.*, brand.name AS brand_name, category.name AS category_name
 	FROM lisabeaute.product
 	JOIN lisabeaute.brand
@@ -85,6 +89,7 @@ const getProduct = async (data) => {
 		return error;
 	}
 };
+
 // récupérer un produit par son identifiant
 const getProductById = async (id) => {
 	// console.log("getProductById", id);

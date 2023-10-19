@@ -38,6 +38,7 @@ router.use(
 // accéder aux ressources externes
 router.use(express.static("public"));
 
+// créer les route
 router.use("/categories", categoryRouter);
 
 router.use("/marques", brandRouter);
@@ -45,6 +46,7 @@ router.use("/marques", brandRouter);
 router.use("/produits", productRouter);
 
 router.use("/user", userRouter);
+
 router.use("/search", searchRouter);
 
 router.use("/messages", messageRouter);

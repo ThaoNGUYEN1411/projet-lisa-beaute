@@ -11,7 +11,6 @@ import {
 import { getAllComments } from "../services/api.comment.js";
 import dbConnection from "../services/dbConnection.js";
 import { getExtensionFromMimeType } from "../services/fileService.js";
-import { log } from "node:console";
 
 const productRouter = express.Router();
 
@@ -23,7 +22,9 @@ productRouter.get("/", async (req, res) => {
 	const sort = req.query.sort;
 	// console.log(sort);
 	const results = await getAllProducts(sort);
+	// renvoyer la réponse HTTP
 	if (results.errno) {
+		// renvoyer une erreur
 		return res.status(400).json({
 			status: 400,
 			message: "Error",
@@ -39,6 +40,8 @@ productRouter.get("/", async (req, res) => {
 
 // récupérer un produit avec son marque, son categori par son identifiant : /produits/:id
 productRouter.get("/:id", async (req, res) => {
+	// récupérer la variable id de la route
+	// const { id } = req.params;
 	const results = await getProduct(req.params);
 	// console.log(req.params);
 	if (results?.errno) {
